@@ -88,6 +88,10 @@ header {
 
 #ctn-score {
     background-color: #8FC93A;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 600;
 }
 
 #ctn-playground {
