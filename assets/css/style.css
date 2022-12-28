@@ -24,6 +24,7 @@ body {
     min-height: 100vh;
 }
 
+
 /*
    Colors
    dark-blue: #162450
@@ -31,6 +32,7 @@ body {
    green: #8FC93A
    yellow: #E4CC37
    orange: #E18335   
+   grey: #D9D9D9
    
    FONTS
    Noto Sans - light 300, regular 400, bold 700
@@ -39,6 +41,60 @@ body {
 
 
 header {
+    background-color: #E4CC37;
+    padding: 0.5rem 5%;
+    margin: 0;
+}
+
+.main-heading {
+    margin: 0;
+    font-size: 20px;
+    /* font-size: 90%; */
+    text-align: center;
+}
+
+#ctn-code-music-rules {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+#ctn-secret-code {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.secret-code-square {
+    width: 25px;
+    height: 25px;
+    /* border: black solid 2px; */
+    border-radius: 2px;
+    text-align: center;
+    background-color: #D9D9D9;
+}
+
+#ctn-music-and-rules {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#rules {
+    width: 25px;
+    height: 25px;
+    border: black solid 2px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+#ctn-score {
+    background-color: #8FC93A;
+}
+
+#ctn-playground {
+    background-color: #162450;
+}
+
+#ctn-options {
     background-color: #E4CC37;
 }
 
