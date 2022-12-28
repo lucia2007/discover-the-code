@@ -22,6 +22,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #E4CC37;
 }
 
 
@@ -55,7 +56,8 @@ header {
 
 #ctn-code-music-rules {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 2rem;
 }
 
 
@@ -89,15 +91,23 @@ header {
 /* score section */
 #ctn-score {
     background-color: #8FC93A;
+    /* margin: 0; */
     padding: 0 5%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     font-weight: 600;
+    gap: 4rem;
+}
+
+#ctn-score p {
+    margin: 0;
+    padding: 2.5% 5%;
 }
 
 /* playgroung section */
 #ctn-playground {
-    background-color: #E4CC37;
+    background-color: #162450;
+    ;
     display: flex;
     justify-content: center;
 }
@@ -169,4 +179,77 @@ header {
     align-items: baseline;
     gap: 5rem;
     padding: 5%;
+}
+
+button {
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+/* media query for tablets */
+@media (min-width: 440px) {
+    .main-heading {
+        font-size: 160%;
+    }
+
+    #ctn-score p {
+        font-size: 140%;
+    }
+
+    #ctn-squares-grid {
+        width: 320px;
+        height: 620px;
+        grid-gap: 1rem 1rem;
+    }
+
+    .square {
+        width: 30px;
+        height: 30px;
+    }
+
+    #ctn-circles-grid {
+        width: 320px;
+        height: 620px;
+    }
+
+    .circle {
+        width: 15px;
+        height: 15px;
+        grid-gap: 1rem 1rem;
+    }
+
+    #second-heading,
+    button {
+        font-size: 140%;
+    }
+}
+
+
+
+@media (min-width: 800px) {
+    .main-heading {
+        font-size: 180%;
+    }
+
+    #ctn-squares-grid {
+        width: 320px;
+        height: 680px;
+        grid-gap: 1rem 1rem;
+    }
+
+    .square {
+        width: 35px;
+        height: 35px;
+    }
+
+    #ctn-circles-grid {
+        width: 320px;
+        height: 680px;
+        grid-gap: 1rem 1rem;
+    }
+
+    .circle {
+        width: 20px;
+        height: 20px;
+    }
 }
