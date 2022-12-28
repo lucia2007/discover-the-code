@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesome icons -->
+    <script src="https://kit.fontawesome.com/a4029127b8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Discover the Code</title>
 </head>
@@ -12,38 +18,36 @@
 <body>
     <header>
         <h1>Discover the Secret Code</h1>
-        <div class="ctn-secret-code">
-            <div class="secret-code">
-                <div class="secret-code-square">?</div>
-                <div class="secret-code-square">?</div>
-                <div class="secret-code-square">?</div>
-                <div class="secret-code-square">?</div>
-                <div class="secret-code-square">?</div>
+        <div id="ctn-secret-code">
+            <div id="secret-code">
+                <div class="secret-code-square"><i class="fa-solid fa-question"></i></div>
+                <div class="secret-code-square"><i class="fa-solid fa-question"></i></div>
+                <div class="secret-code-square"><i class="fa-solid fa-question"></i></div>
+                <div class="secret-code-square"><i class="fa-solid fa-question"></i></div>
+                <div class="secret-code-square"><i class="fa-solid fa-question"></i></div>
             </div>
-            <div class="music-and-rules">
-                <span class="music-on"></span>
-                <span class="music-off"></span>
-                <span class="rules"></span>
+            <div id="music-and-rules">
+                <span id="music-on"></span>
+                <span id="music-off"></span>
+                <span id="rules"></span>
             </div>
         </div>
-        <div class="ctn-score">
-            <p class="time">Time: <span id="time-elapsed">00:00</span></p>
-            <p class="moves">Moves: <span id="moves-needed">0</span></p>
-        </div>
-        <div class="ctn-playground">
-            <div class="squares-grid"></div>
-            <div class="circles-grid"></div>
-        </div>
-        <div class="ctn-options">
-            <h2>Pick Your Color</h2>
-            <div class="colors"></div>
-            <button>Check Code</button>
-            <button>Restart</button>
-        </div>
-
     </header>
-
-
+    <div id="ctn-score">
+        <!-- This code is inspired by Love Maths -->
+        <p id="time">Time: <span id="time-elapsed">00:00</span></p>
+        <p id="moves">Moves: <span id="moves-needed">0</span></p>
+    </div>
+    <div id="ctn-playground">
+        <div id="squares-grid"></div>
+        <div id="circles-grid"></div>
+    </div>
+    <div id="ctn-options">
+        <h2>Pick Your Color</h2>
+        <div id="colors"></div>
+        <button id="check-code">Check Code</button>
+        <button id="restart">Restart</button>
+    </div>
 
     <script src="assets/js/script.js"></script>
 </body>
