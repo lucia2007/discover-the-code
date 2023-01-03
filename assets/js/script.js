@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     addColorClickedHandlers();
+    addButtonClickedHandlers();
+    addButtonClickedHandlers();
     generateNewSecretCode();
 })
 
@@ -43,6 +45,27 @@ function addColorClickedHandlers() {
     }
 }
 
+// code inspired by Love Maths
+/** This function adds on-click event listeners to all the buttons */
+function addButtonClickedHandlers() {
+    let buttons = document.getElementsByClassName('button');
+
+    for (let button of buttons) {
+        button.addEventListener("click", function () {
+            if (this.getAttribute("data-type") === "check") {
+                alert("You clicked check");
+            } else if (this.getAttribute("data-type") === "restart") {
+                alert("You clicked restart");
+            } else {
+                alert("Something is wrong")
+            }
+        })
+    }
+}
+
+
+
+
 /** This function generates a new secret code - assings each square in the Secret code section a random color, 
  * the color is not applied/displayed until later when the game is over
  * it returns the currentSecretCode
@@ -64,6 +87,4 @@ function generateNewSecretCode() {
     let currentSecretCode = secretCode;
     // console.log(currentSecretCode);
     return currentSecretCode;
-
-
 }
