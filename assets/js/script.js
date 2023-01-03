@@ -9,6 +9,8 @@ const colorPicker = {
     purple: '#9d2fff',
     orange: '#ffce2f',
 }
+let userGuessRow = [];
+let secretCode = [];
 
 /** When the dom content is loaded, the predefined colors in the Options section are filled in*/
 document.addEventListener("DOMContentLoaded", function () {
@@ -38,6 +40,7 @@ function addColorClickedHandlers() {
                 if (!square.classList.contains('is-taken')) {
                     square.style.backgroundColor = Object.values(colorPicker)[i];
                     square.classList.add('is-taken');
+                    userGuessRow.push(Object.values(colorPicker)[i]);
                     break;
                 }
             }
@@ -63,28 +66,14 @@ function addButtonClickedHandlers() {
     }
 }
 
-
-
-
 /** This function generates a new secret code - assings each square in the Secret code section a random color, 
  * the color is not applied/displayed until later when the game is over
  * it returns the currentSecretCode
  * */
 function generateNewSecretCode() {
-    let secretCode = [];
     let secretSquares = document.getElementsByClassName('secret-code-square');
-    let colorChoices = document.getElementsByClassName('color-choice');
-
-    let randomNumbers = [];
     for (let i = 0; i < secretSquares.length; i++) {
         let randomNumber = Math.floor(Math.random() * 8);
-        randomNumbers.push(randomNumber);
-        let randomNumberIndex = randomNumbers[i]
-        console.log(randomNumberIndex);
-        // secretSquares[i].style.backgroundColor = Object.values(colorPicker)[randomNumberIndex];
-        secretCode.push(Object.values(colorPicker)[randomNumberIndex]);
+        secretCode.push(Object.values(colorPicker)[randomNumber]);
     }
-    let currentSecretCode = secretCode;
-    // console.log(currentSecretCode);
-    return currentSecretCode;
 }
