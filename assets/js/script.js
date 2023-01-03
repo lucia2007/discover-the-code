@@ -10,7 +10,7 @@ const colorPicker = {
     orange: '#ffce2f',
 }
 
-// when the dom content is loaded, fill in the predefined colors in the Options section
+/** When the dom content is loaded, the predefined colors in the Options section are filled in*/
 document.addEventListener("DOMContentLoaded", function () {
     let colorChoices = document.getElementsByClassName('color-choice');
 
@@ -19,16 +19,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     addColorClickedHandlers();
+    generateNewSecretCode();
 })
 
-// add onclick event listeners to the squares in the Options section 
+/**  This function adds on-click event listeners to all the squares in the Options section 
+ */
 function addColorClickedHandlers() {
+
     let colorChoices = document.getElementsByClassName('color-choice');
     let currentSquares = document.getElementsByClassName('square-row0');
 
     for (let i = 0; i < colorChoices.length; i++) {
         colorChoices[i].addEventListener("click", function () {
-            // identify which square in Options section was clicked and assign its color to the first square in row0 which is not yet taken
+            /** This function identifies which square in Options section was clicked and assigns its color to the first square in row0 which is not yet colored/taken*/
             for (let square of currentSquares) {
                 if (!square.classList.contains('is-taken')) {
                     square.style.backgroundColor = Object.values(colorPicker)[i];
@@ -38,4 +41,29 @@ function addColorClickedHandlers() {
             }
         })
     }
+}
+
+/** This function generates a new secret code - assings each square in the Secret code section a random color, 
+ * the color is not applied/displayed until later when the game is over
+ * it returns the currentSecretCode
+ * */
+function generateNewSecretCode() {
+    let secretCode = [];
+    let secretSquares = document.getElementsByClassName('secret-code-square');
+    let colorChoices = document.getElementsByClassName('color-choice');
+
+    let randomNumbers = [];
+    for (let i = 0; i < secretSquares.length; i++) {
+        let randomNumber = Math.floor(Math.random() * 8);
+        randomNumbers.push(randomNumber);
+        let randomNumberIndex = randomNumbers[i]
+        console.log(randomNumberIndex);
+        // secretSquares[i].style.backgroundColor = Object.values(colorPicker)[randomNumberIndex];
+        secretCode.push(Object.values(colorPicker)[randomNumberIndex]);
+    }
+    let currentSecretCode = secretCode;
+    // console.log(currentSecretCode);
+    return currentSecretCode;
+
+
 }
