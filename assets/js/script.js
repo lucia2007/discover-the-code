@@ -9,8 +9,10 @@ const colorPicker = {
     purple: '#9d2fff',
     orange: '#ffce2f',
 }
+
 let userGuessRow = [];
 let secretCode = [];
+let currentRowIndex = 11;
 
 /** When the dom content is loaded, the predefined colors in the Options section are filled in*/
 document.addEventListener("DOMContentLoaded", function () {
@@ -27,15 +29,20 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 /**  This function adds on-click event listeners to all the squares in the Options section 
- */
+ **/
 function addColorClickedHandlers() {
 
     let colorChoices = document.getElementsByClassName('color-choice');
-    let currentSquares = document.getElementsByClassName('square-row0');
+    let allRows = document.getElementsByClassName('row');
+    let currentRow = allRows[currentRowIndex]
+    let currentRowSquare = currentRow.children[0];
+    let currentSquares = currentRowSquare.children;
 
     for (let i = 0; i < colorChoices.length; i++) {
         colorChoices[i].addEventListener("click", function () {
-            /** This function identifies which square in Options section was clicked and assigns its color to the first square in row0 which is not yet colored/taken*/
+            /** This function identifies which square in Options section was clicked 
+             * and assigns its color to the first square in row0 which is not yet colored/taken
+             * */
             for (let square of currentSquares) {
                 if (!square.classList.contains('is-taken')) {
                     square.style.backgroundColor = Object.values(colorPicker)[i];
