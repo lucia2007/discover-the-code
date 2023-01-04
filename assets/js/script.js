@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     addColorClickedHandlers();
     addButtonClickedHandlers();
-    addButtonClickedHandlers();
     generateNewSecretCode();
 })
 
