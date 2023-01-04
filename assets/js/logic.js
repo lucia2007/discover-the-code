@@ -9,7 +9,7 @@ function countBlacks(secret, guess) {
     return blackCounter;
 }
 
-// my husband helped me with this function
+// my husband guided me through this function and encouraged me to write the logic doing test/write approach
 function countWhites(secret, guess) {
     let whiteCounter = 0;
     let secretWithoutBlacks = [];
