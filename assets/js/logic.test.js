@@ -1,4 +1,4 @@
-var logic = require('./logic')
+import logic from './logic';
 
 test("Returns no blacks", () => {
     expect(logic.countBlacks(['a', 'b', 'a', 'c', 'd'], ['e', 'e', 'e', 'e', 'e'])).toBe(0);

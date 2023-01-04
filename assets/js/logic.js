@@ -34,7 +34,8 @@ function countWhites(secret, guess) {
 }
 
 // https://www.freecodecamp.org/news/how-to-start-unit-testing-javascript/
-module.exports = {
+// https://solaaremupelumi.medium.com/using-es6-import-and-export-statements-for-jest-testing-in-node-js-b20c8bd9041c
+export default {
     countBlacks,
     countWhites
 }
