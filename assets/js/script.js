@@ -36,16 +36,17 @@ document.addEventListener("DOMContentLoaded", function () {
 function addColorClickedHandlers() {
 
     let colorChoices = document.getElementsByClassName('color-choice');
-    let allRows = document.getElementsByClassName('row');
-    let currentRow = allRows[currentRowIndex]
-    let currentRowSquare = currentRow.children[0];
-    let currentSquares = currentRowSquare.children;
 
     for (let i = 0; i < colorChoices.length; i++) {
         colorChoices[i].addEventListener("click", function () {
             /** This function identifies which square in Options section was clicked 
              * and assigns its color to the first square in row[currentRowIndex] which is not yet colored/taken
              * */
+            let allRows = document.getElementsByClassName('row');
+            let currentRow = allRows[currentRowIndex];
+            let currentRowSquare = currentRow.children[0];
+            let currentSquares = currentRowSquare.children;
+
             for (let square of currentSquares) {
                 if (!square.classList.contains('is-taken')) {
                     square.style.backgroundColor = Object.values(colorPicker)[i];
@@ -66,8 +67,10 @@ function addButtonClickedHandlers() {
     for (let button of buttons) {
         button.addEventListener("click", function () {
             if (this.getAttribute("data-type") === "check") {
-                getResult();
-                displayResult();
+                let result = getResult();
+                displayResult(result[0], result[1]);
+                userGuessRow = [];
+                currentRowIndex--;
             } else if (this.getAttribute("data-type") === "restart") {
                 alert("You clicked restart");
             } else {
@@ -91,82 +94,30 @@ function generateNewSecretCode() {
 
 /** This function returns the number of black and white circles */
 function getResult() {
-    // let results = [];
-
     let blackCount = logic.countBlacks(secretCode, userGuessRow);
     let whiteCount = logic.countWhites(secretCode, userGuessRow);
 
-    // results.push(blackCount);
-    // results.push(whiteCount);
-    // console.log(results);
-    // return results;
-
-    return [blackCount, whiteCount]
+    return [blackCount, whiteCount];
 }
 
-/**  https://www.scaler.com/topics/javascript-return-multiple-values/
- * This code shows how to retrieve multiple values from a function
- */
-// const [blackCount, whiteCount] = getResult(logic.countBlacks(secretCode, userGuessRow), logic.countWhites(secretCode, userGuessRow))
-// ? I don't know how to extract the two values from the function
-
-// console.log(blackCount, whiteCount);
-
-function displayBlacks() {
-    /*instead of blacks/no parameter there should be the first[0] element of the array returned by getResult function*/
+function displayResult(blacks, whites) {
     let allRows = document.getElementsByClassName('row');
-    let currentRow = allRows[currentRowIndex]
+    let currentRow = allRows[currentRowIndex];
     let currentRowCircle = currentRow.children[1];
     let currentCircles = currentRowCircle.children;
 
-    // console.log(currentCircles)
-    let blackCount = 3;
-
-    for (let i = 0; i < blackCount; i++) {
-        // instead of blackCount there should be blacks, I think
-        if (!currentCircles[i].classList.contains('is-taken')) {
+    for (let i = 0; i < currentCircles.length; i++) {
+        if (currentCircles[i].classList.contains('is-taken')) {
+            continue;
+        }
+        if (blacks > 0) {
             currentCircles[i].style.backgroundColor = "black";
             currentCircles[i].classList.add('is-taken');
+            blacks--;
+        } else if (whites > 0) {
+            currentCircles[i].style.backgroundColor = "white";
+            currentCircles[i].classList.add('is-taken');
+            whites--;
         }
     }
-}
-
-function displayWhites() {
-    /*instead of whites/no parameter there should be the second[1] element of the array returned by getResult function*/
-    let allRows = document.getElementsByClassName('row');
-    let currentRow = allRows[currentRowIndex]
-    let currentRowCircle = currentRow.children[1];
-    let currentCircles = currentRowCircle.children;
-
-    // console.log(currentCircles)
-    let whiteCount = 2;
-
-    // for (let i = 0; i < whiteCount; i++) {
-    //     // instead of whiteCount, there should be whites I think
-    //     for (let j = 0; j < currentCircles.length; j++) {
-    //         if (!currentCircles[j].classList.contains('is-taken')) {
-    //             currentCircles[j].style.backgroundColor = "#FFFFFF";
-    //             currentCircles[j].classList.add('is-taken');
-    //             break;
-    //         }
-    //     }
-    // }
-
-    for (let i = 0; i < whiteCount; i++) {
-        // instead of whiteCount, there should be whites I think
-        for (let j = 0; j < currentCircles.length; j++) {
-            if (currentCircles[j].classList.contains('is-taken')) {
-                continue;
-            }
-            currentCircles[j].style.backgroundColor = "#FFFFFF";
-            currentCircles[j].classList.add('is-taken');
-        }
-    }
-
-
-}
-
-function displayResult() {
-    displayBlacks();
-    displayWhites();
 }
