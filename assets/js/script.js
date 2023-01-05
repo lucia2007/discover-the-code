@@ -90,13 +90,17 @@ function addButtonClickedHandlers() {
             // endTimer();
             // for a version where you can change your choices, you will need to add a check here if all the squares in the current row are taken
             if (this.getAttribute("data-type") === "check") {
+
                 let result = getResult();
                 displayResult(result[0], result[1]);
                 disableCheckButton();
                 userGuessRow = [];
-                currentRowIndex--;
                 moves++;
+                currentRowIndex--;
                 displayMoves(moves);
+                if (moves === 12) {
+                    alert("You have exceeded your number of attempts")
+                }
             } else if (this.getAttribute("data-type") === "restart") {
                 alert("You clicked restart");
             } else {
