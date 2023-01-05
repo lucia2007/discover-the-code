@@ -26,8 +26,7 @@ const allRows = document.getElementsByClassName('row');
 /** When the dom content is loaded, the predefined colors in the Options section are filled in*/
 document.addEventListener("DOMContentLoaded", function () {
 
-    checkCodeButton.disabled = true;
-
+    disableCheckButton();
     // let colorChoices = document.getElementsByClassName('color-choice');
 
     for (let i = 0; i < colorChoices.length; i++) {
@@ -38,6 +37,14 @@ document.addEventListener("DOMContentLoaded", function () {
     addButtonClickedHandlers();
     generateNewSecretCode();
 })
+
+function disableCheckButton() {
+    checkCodeButton.disabled = true;
+}
+
+function enableCheckButton() {
+    checkCodeButton.disabled = false;
+}
 
 /**  This function adds on-click event listeners to all the squares in the Options section 
  **/
@@ -63,7 +70,7 @@ function addColorClickedHandlers() {
                     square.classList.add('is-taken');
                     userGuessRow.push(Object.values(colorPicker)[i]);
                     if (userGuessRow.length === 5) {
-                        checkCodeButton.disabled = false;
+                        enableCheckButton();
                     } else {
                         break;
                     }
@@ -85,7 +92,7 @@ function addButtonClickedHandlers() {
             if (this.getAttribute("data-type") === "check") {
                 let result = getResult();
                 displayResult(result[0], result[1]);
-                checkCodeButton.disabled = true;
+                disableCheckButton();
                 userGuessRow = [];
                 currentRowIndex--;
                 moves++;
@@ -120,7 +127,6 @@ function getResult() {
 }
 
 function displayResult(blacks, whites) {
-    let allRows = document.getElementsByClassName('row');
     let currentRow = allRows[currentRowIndex];
     let currentRowCircle = currentRow.children[1];
     let currentCircles = currentRowCircle.children;
@@ -141,9 +147,9 @@ function displayResult(blacks, whites) {
     }
 }
 
-// function displayMoves(moves) {
-//     document.getElementById('moves-needed').textContent = moves;
-// }
+function displayMoves(moves) {
+    document.getElementById('moves-needed').textContent = moves;
+}
 
 // /**  functions startTimer and endTimer were taken for this webpage:
 //  * https://stackoverflow.com/questions/41632942/how-to-measure-time-elapsed-on-javascript
