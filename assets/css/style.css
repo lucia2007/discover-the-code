@@ -23,7 +23,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #008822;
+    background-color: white;
 }
 
 
@@ -139,6 +139,7 @@ header {
     height: 10px;
     border-radius: 50%;
     background-color: #D9D9D9;
+    border: solid 2px black;
 }
 
 /* Options section */

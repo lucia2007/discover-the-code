@@ -15,6 +15,7 @@ const colorPicker = {
 let userGuessRow = [];
 let secretCode = [];
 let currentRowIndex = 11;
+let moves = 0;
 
 
 
@@ -66,11 +67,14 @@ function addButtonClickedHandlers() {
 
     for (let button of buttons) {
         button.addEventListener("click", function () {
+            // for a version where you can change your choices, you will need to add a check here if all the squares in the current row are taken
             if (this.getAttribute("data-type") === "check") {
                 let result = getResult();
                 displayResult(result[0], result[1]);
                 userGuessRow = [];
                 currentRowIndex--;
+                moves++;
+                displayMoves(moves);
             } else if (this.getAttribute("data-type") === "restart") {
                 alert("You clicked restart");
             } else {
@@ -120,4 +124,8 @@ function displayResult(blacks, whites) {
             whites--;
         }
     }
+}
+
+function displayMoves(moves) {
+    document.getElementById('moves-needed').textContent = moves;
 }
