@@ -17,11 +17,18 @@ let secretCode = [];
 let currentRowIndex = 11;
 let moves = 0;
 
+const checkCodeButton = document.getElementById("check-code");
+const colorChoices = document.getElementsByClassName('color-choice');
+const allRows = document.getElementsByClassName('row');
+
 
 
 /** When the dom content is loaded, the predefined colors in the Options section are filled in*/
 document.addEventListener("DOMContentLoaded", function () {
-    let colorChoices = document.getElementsByClassName('color-choice');
+
+    checkCodeButton.disabled = true;
+
+    // let colorChoices = document.getElementsByClassName('color-choice');
 
     for (let i = 0; i < colorChoices.length; i++) {
         colorChoices[i].style.backgroundColor = Object.values(colorPicker)[i];
@@ -36,24 +43,30 @@ document.addEventListener("DOMContentLoaded", function () {
  **/
 function addColorClickedHandlers() {
 
-    let colorChoices = document.getElementsByClassName('color-choice');
 
     for (let i = 0; i < colorChoices.length; i++) {
         colorChoices[i].addEventListener("click", function () {
             /** This function identifies which square in Options section was clicked 
              * and assigns its color to the first square in row[currentRowIndex] which is not yet colored/taken
              * */
-            let allRows = document.getElementsByClassName('row');
+
+            // startTimer();
+
             let currentRow = allRows[currentRowIndex];
             let currentRowSquare = currentRow.children[0];
             let currentSquares = currentRowSquare.children;
 
+            /**This for loop lets the user fill in the five squares */
             for (let square of currentSquares) {
                 if (!square.classList.contains('is-taken')) {
                     square.style.backgroundColor = Object.values(colorPicker)[i];
                     square.classList.add('is-taken');
                     userGuessRow.push(Object.values(colorPicker)[i]);
-                    break;
+                    if (userGuessRow.length === 5) {
+                        checkCodeButton.disabled = false;
+                    } else {
+                        break;
+                    }
                 }
             }
         })
@@ -67,10 +80,12 @@ function addButtonClickedHandlers() {
 
     for (let button of buttons) {
         button.addEventListener("click", function () {
+            // endTimer();
             // for a version where you can change your choices, you will need to add a check here if all the squares in the current row are taken
             if (this.getAttribute("data-type") === "check") {
                 let result = getResult();
                 displayResult(result[0], result[1]);
+                checkCodeButton.disabled = true;
                 userGuessRow = [];
                 currentRowIndex--;
                 moves++;
@@ -126,6 +141,25 @@ function displayResult(blacks, whites) {
     }
 }
 
-function displayMoves(moves) {
-    document.getElementById('moves-needed').textContent = moves;
-}
+// function displayMoves(moves) {
+//     document.getElementById('moves-needed').textContent = moves;
+// }
+
+// /**  functions startTimer and endTimer were taken for this webpage:
+//  * https://stackoverflow.com/questions/41632942/how-to-measure-time-elapsed-on-javascript
+//  */
+
+// function startTimer() {
+//     startTime = performance.now();
+// };
+
+// function endTimer() {
+//     endTime = performance.now();
+//     var elapsedTime = endTime - startTime; //in ms
+//     // convert to seconds
+//     elapsedTime /= 1000;
+
+//     // get seconds 
+//     var seconds = Math.round(elapsedTime);
+//     console.log(seconds + 'seconds');
+// }
