@@ -18,14 +18,18 @@ let currentRowIndex = 11;
 let moves = 0;
 
 const checkCodeButton = document.getElementById("check-code");
-const colorChoices = document.getElementsByClassName('color-choice');
-const allRows = document.getElementsByClassName('row');
-
-
+const colorChoices = document.getElementsByClassName("color-choice");
+const allRows = document.getElementsByClassName("row");
+const closeIcon = document.getElementById("close");
+const welcomeMessage = document.getElementById("welcome-pop-up");
+const playButton = document.getElementById("play-button");
 
 /** When the dom content is loaded, the predefined colors in the Options section are filled in*/
 document.addEventListener("DOMContentLoaded", function () {
 
+    displayWelcomeMessage();
+    addCloseIconHandler();
+    // addPlayButtonHandler();
     disableCheckButton();
     // let colorChoices = document.getElementsByClassName('color-choice');
 
@@ -38,13 +42,34 @@ document.addEventListener("DOMContentLoaded", function () {
     generateNewSecretCode();
 })
 
+//** This function makes the Welcome pop-up appear */
+function displayWelcomeMessage() {
+    welcomeMessage.style.display = "flex";
+};
+
+/**This function adds on-click event listener to the Close icon */
+function addCloseIconHandler() {
+    closeIcon.addEventListener("click", function () {
+        welcomeMessage.style.display = "none";
+    })
+};
+
+function playButtonClicked() {
+    welcomeMessage.style.display = "none";
+    // here add the setting of the initial state
+};
+
+
+/** This function makes the Check button unclickable */
 function disableCheckButton() {
     checkCodeButton.disabled = true;
-}
+};
 
+/** This function makes the Check button clickable */
 function enableCheckButton() {
     checkCodeButton.disabled = false;
-}
+};
+
 
 /**  This function adds on-click event listeners to all the squares in the Options section 
  **/
@@ -78,7 +103,7 @@ function addColorClickedHandlers() {
             }
         })
     }
-}
+};
 
 // code inspired by Love Maths
 /** This function adds on-click event listeners to all the buttons */
@@ -103,12 +128,14 @@ function addButtonClickedHandlers() {
                 }
             } else if (this.getAttribute("data-type") === "restart") {
                 alert("You clicked restart");
+            } else if (this.getAttribute("data-type") === "play") {
+                playButtonClicked();
             } else {
                 alert("Something is wrong")
             }
         })
     }
-}
+};
 
 /** This function generates a new secret code - assings each square in the Secret code section a random color, 
  * the color is not applied/displayed until later when the game is over
@@ -120,7 +147,7 @@ function generateNewSecretCode() {
         let randomNumber = Math.floor(Math.random() * 8);
         secretCode.push(Object.values(colorPicker)[randomNumber]);
     }
-}
+};
 
 /** This function returns the number of black and white circles */
 function getResult() {
@@ -128,7 +155,7 @@ function getResult() {
     let whiteCount = logic.countWhites(secretCode, userGuessRow);
 
     return [blackCount, whiteCount];
-}
+};
 
 function displayResult(blacks, whites) {
     let currentRow = allRows[currentRowIndex];
@@ -149,11 +176,11 @@ function displayResult(blacks, whites) {
             whites--;
         }
     }
-}
+};
 
 function displayMoves(moves) {
     document.getElementById('moves-needed').textContent = moves;
-}
+};
 
 // /**  functions startTimer and endTimer were taken for this webpage:
 //  * https://stackoverflow.com/questions/41632942/how-to-measure-time-elapsed-on-javascript
