@@ -289,13 +289,21 @@
         <p>Hurray! You guessed the secret color code! It took you <span id="time-used">0</span> and you needed <span
                 id="moves-total">0</span> attempts to guess the code.</p>
         <p>Do you want to play again?</p>
-        <div id="wining-buttons">
+        <div class="game-over-buttons">
             <button type="button" id="play-again-button" class="button" data-type="play-again">Play again</button>
             <button type="button" id="exit-button" class="button" data-type="exit">Exit</button>
         </div>
     </div>
 
-    <div id="you-lost-pop-up"></div>
+    <div id="you-lost-pop-up" class="pop-up">
+        <img src="assets/images/Game-Over-PNG-Image.png" alt="A black Game Over picture" id="commiseration-image">
+        <p>Sorry, not even 12 attempts were enough for you to guess the secret color code.</p>
+        <p>Do you want to play again?</p>
+        <div class="game-over-buttons">
+            <button type="button" class="button" data-type="play-again-2">Play again</button>
+            <button type="button" class="button" data-type="exit-2">Exit</button>
+        </div>
+    </div>
 
     <!-- Adds javascript file to the html document -->
     <script src="assets/js/script.js" type="module"></script>

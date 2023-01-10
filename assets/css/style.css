@@ -173,19 +173,29 @@ header {
     border: solid 3px black;
 }
 
-/* Winning pop up */
+/* .pop-up {
+    display: none;
+} */
+
 #congrats-image {
     max-width: 250px;
     height: auto;
 }
 
-#wining-buttons {
+.game-over-buttons {
     display: flex;
     justify-content: center;
     align-items: baseline;
     gap: 4rem;
     padding: 5%;
 }
+
+/* Loosing pop up */
+#commiseration-image {
+    height: 200px;
+    width: auto;
+}
+
 
 /* Options section */
 #second-heading {

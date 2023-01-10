@@ -24,7 +24,7 @@ const closeIcon = document.getElementById("close");
 const welcomeMessage = document.getElementById("welcome-pop-up");
 const questionIcon = document.getElementById("question-mark")
 const winningPopUp = document.getElementById("you-won-pop-up")
-const playAgain = document.getElementById("play-again-button")
+const loosingPopUp = document.getElementById("you-lost-pop-up")
 
 /** When the dom content is loaded, the predefined colors in the Options section are filled in*/
 document.addEventListener("DOMContentLoaded", function () {
@@ -75,6 +75,15 @@ function exitButtonClicked() {
 function playAgainButtonClicked() {
     winningPopUp.style.display = "none";
     // here add the setting of the initial state
+}
+
+function playAgainButton2Clicked() {
+    loosingPopUp.style.display = "none";
+    // here add the setting of the initial state
+}
+
+function exitButton2Clicked() {
+    loosingPopUp.style.display = "none";
 }
 
 /** This function makes the Check button unclickable */
@@ -147,10 +156,14 @@ function addButtonClickedHandlers() {
                 alert("You clicked restart");
             } else if (this.getAttribute("data-type") === "play") {
                 playButtonClicked();
-            } else if (this.getAttribute("data-type") === "exit") {
-                exitButtonClicked();
             } else if (this.getAttribute("data-type") === "play-again") {
                 playAgainButtonClicked();
+            } else if (this.getAttribute("data-type") === "play-again-2") {
+                playAgainButton2Clicked();
+            } else if (this.getAttribute("data-type") === "exit") {
+                exitButtonClicked();
+            } else if (this.getAttribute("data-type") === "exit-2") {
+                exitButton2Clicked();
             } else {
                 alert("Something is wrong")
             }
