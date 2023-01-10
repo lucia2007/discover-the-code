@@ -22,23 +22,22 @@ const colorChoices = document.getElementsByClassName("color-choice");
 const allRows = document.getElementsByClassName("row");
 const closeIcon = document.getElementById("close");
 const welcomeMessage = document.getElementById("welcome-pop-up");
-const playButton = document.getElementById("play-button");
+const questionIcon = document.getElementById("question-mark")
 
 /** When the dom content is loaded, the predefined colors in the Options section are filled in*/
 document.addEventListener("DOMContentLoaded", function () {
 
     displayWelcomeMessage();
+    addButtonClickedHandlers();
+    addQuestionMarkHandler();
     addCloseIconHandler();
-    // addPlayButtonHandler();
     disableCheckButton();
-    // let colorChoices = document.getElementsByClassName('color-choice');
 
     for (let i = 0; i < colorChoices.length; i++) {
         colorChoices[i].style.backgroundColor = Object.values(colorPicker)[i];
     }
 
     addColorClickedHandlers();
-    addButtonClickedHandlers();
     generateNewSecretCode();
 })
 
@@ -54,6 +53,14 @@ function addCloseIconHandler() {
     })
 };
 
+function addQuestionMarkHandler() {
+    questionIcon.addEventListener("click", function () {
+        welcomeMessage.style.display = "flex"
+    })
+}
+
+
+/** This function defines a set of tasks to be performed when the Play button is clicked */
 function playButtonClicked() {
     welcomeMessage.style.display = "none";
     // here add the setting of the initial state
