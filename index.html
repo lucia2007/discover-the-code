@@ -39,7 +39,8 @@
     </header>
 
     <!-- Tutorial for the pop up window https://www.youtube.com/watch?v=IFoG8-oAELM -->
-    <div id="welcome-pop-up">
+    <!-- This message is shown when the page loads or when the user clicks on the question mark -->
+    <div id="welcome-pop-up" class="pop-up">
         <img src="assets/images/close-icon-13612.png" alt="A closing icon in the shape on an X" id="close"
             class="close">
         <h2>Welcome to Discover the Secret Code Game</h2>
@@ -281,6 +282,20 @@
             <button type="button" data-type="restart" id="restart" class="button">Restart</button>
         </div>
     </div>
+
+    <div id="you-won-pop-up" class="pop-up">
+        <img src="assets/images/congratulations-icon-31113.gif" alt="A colorful congratulations icon"
+            id="congrats-image">
+        <p>Hurray! You guessed the secret color code! It took you <span id="time-used">0</span> and you needed <span
+                id="moves-total">0</span> attempts to guess the code.</p>
+        <p>Do you want to play again?</p>
+        <div id="wining-buttons">
+            <button type="button" id="play-again-button" class="button" data-type="play-again">Play again</button>
+            <button type="button" id="exit-button" class="button" data-type="exit">Exit</button>
+        </div>
+    </div>
+
+    <div id="you-lost-pop-up"></div>
 
     <!-- Adds javascript file to the html document -->
     <script src="assets/js/script.js" type="module"></script>

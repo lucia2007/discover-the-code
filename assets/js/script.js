@@ -23,6 +23,8 @@ const allRows = document.getElementsByClassName("row");
 const closeIcon = document.getElementById("close");
 const welcomeMessage = document.getElementById("welcome-pop-up");
 const questionIcon = document.getElementById("question-mark")
+const winningPopUp = document.getElementById("you-won-pop-up")
+const playAgain = document.getElementById("play-again-button")
 
 /** When the dom content is loaded, the predefined colors in the Options section are filled in*/
 document.addEventListener("DOMContentLoaded", function () {
@@ -66,6 +68,14 @@ function playButtonClicked() {
     // here add the setting of the initial state
 };
 
+function exitButtonClicked() {
+    winningPopUp.style.display = "none";
+}
+
+function playAgainButtonClicked() {
+    winningPopUp.style.display = "none";
+    // here add the setting of the initial state
+}
 
 /** This function makes the Check button unclickable */
 function disableCheckButton() {
@@ -137,6 +147,10 @@ function addButtonClickedHandlers() {
                 alert("You clicked restart");
             } else if (this.getAttribute("data-type") === "play") {
                 playButtonClicked();
+            } else if (this.getAttribute("data-type") === "exit") {
+                exitButtonClicked();
+            } else if (this.getAttribute("data-type") === "play-again") {
+                playAgainButtonClicked();
             } else {
                 alert("Something is wrong")
             }
