@@ -16,6 +16,7 @@ let userGuessRow = [];
 let secretCode = [];
 let currentRowIndex = 11;
 let moves = 0;
+let result = []
 
 const checkCodeButton = document.getElementById("check-code");
 const colorChoices = document.getElementsByClassName("color-choice");
@@ -25,6 +26,9 @@ const welcomeMessage = document.getElementById("welcome-pop-up");
 const questionIcon = document.getElementById("question-mark")
 const winningPopUp = document.getElementById("you-won-pop-up")
 const loosingPopUp = document.getElementById("you-lost-pop-up")
+const winningChime = document.getElementById("winning-chime")
+const secretCodeSquares = document.getElementById("ctn-secret-code").children
+const keys = document.getElementsByClassName("no-key")
 
 /** When the dom content is loaded, the predefined colors in the Options section are filled in*/
 document.addEventListener("DOMContentLoaded", function () {
@@ -68,13 +72,14 @@ function playButtonClicked() {
     // here add the setting of the initial state
 };
 
-function exitButtonClicked() {
-    winningPopUp.style.display = "none";
-}
 
 function playAgainButtonClicked() {
     winningPopUp.style.display = "none";
     // here add the setting of the initial state
+}
+
+function exitButtonClicked() {
+    winningPopUp.style.display = "none";
 }
 
 function playAgainButton2Clicked() {
@@ -100,8 +105,6 @@ function enableCheckButton() {
 /**  This function adds on-click event listeners to all the squares in the Options section 
  **/
 function addColorClickedHandlers() {
-
-
     for (let i = 0; i < colorChoices.length; i++) {
         colorChoices[i].addEventListener("click", function () {
             /** This function identifies which square in Options section was clicked 
@@ -142,13 +145,14 @@ function addButtonClickedHandlers() {
             // for a version where you can change your choices, you will need to add a check here if all the squares in the current row are taken
             if (this.getAttribute("data-type") === "check") {
 
-                let result = getResult();
+                result = getResult();
                 displayResult(result[0], result[1]);
                 disableCheckButton();
                 userGuessRow = [];
                 moves++;
                 currentRowIndex--;
                 displayMoves(moves);
+                guessed();
                 if (moves === 12) {
                     alert("You have exceeded your number of attempts")
                 }
@@ -171,7 +175,7 @@ function addButtonClickedHandlers() {
     }
 };
 
-/** This function generates a new secret code - assings each square in the Secret code section a random color, 
+/** This function generates a new secret code - assigns each square in the Secret code section a random color, 
  * the color is not applied/displayed until later when the game is over
  * it returns the currentSecretCode
  * */
@@ -181,6 +185,8 @@ function generateNewSecretCode() {
         let randomNumber = Math.floor(Math.random() * 8);
         secretCode.push(Object.values(colorPicker)[randomNumber]);
     }
+    console.log(secretCode);
+    // delete this console log
 };
 
 /** This function returns the number of black and white circles */
@@ -191,6 +197,8 @@ function getResult() {
     return [blackCount, whiteCount];
 };
 
+
+/**This function colors the correct number of circles in black or white */
 function displayResult(blacks, whites) {
     let currentRow = allRows[currentRowIndex];
     let currentRowCircle = currentRow.children[1];
@@ -215,6 +223,37 @@ function displayResult(blacks, whites) {
 function displayMoves(moves) {
     document.getElementById('moves-needed').textContent = moves;
 };
+
+function guessed() {
+    if (result[0] === 5) {
+        playWinningChime();
+        displayWinningPopUp();
+        displaySecretCode();
+        hideKeys();
+    }
+}
+
+function playWinningChime() {
+    winningChime.play()
+}
+
+function displayWinningPopUp() {
+    winningPopUp.style.display = "flex";
+}
+
+function displaySecretCode() {
+    for (let i = 0; i < secretCodeSquares.length; i++) {
+        let square = secretCodeSquares[i];
+        square.style.backgroundColor = secretCode[i]
+    }
+}
+
+function hideKeys() {
+    for (let i = 0; i < keys.length; i++) {
+        let key = keys[i];
+        key.style.display = "none";
+    }
+}
 
 // /**  functions startTimer and endTimer were taken for this webpage:
 //  * https://stackoverflow.com/questions/41632942/how-to-measure-time-elapsed-on-javascript

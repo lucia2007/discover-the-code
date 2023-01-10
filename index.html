@@ -21,11 +21,11 @@
         <h1 class="main-heading">Discover the Secret Code</h1>
         <div id="ctn-code-music-rules">
             <div id="ctn-secret-code">
-                <div class="secret-code-square"><i class="fa-solid fa-key"></i></div>
-                <div class="secret-code-square"><i class="fa-solid fa-key"></i></div>
-                <div class="secret-code-square"><i class="fa-solid fa-key"></i></div>
-                <div class="secret-code-square"><i class="fa-solid fa-key"></i></div>
-                <div class="secret-code-square"><i class="fa-solid fa-key"></i></div>
+                <div class="secret-code-square"><i class="fa-solid fa-key no-key"></i></div>
+                <div class="secret-code-square"><i class="fa-solid fa-key no-key"></i></div>
+                <div class="secret-code-square"><i class="fa-solid fa-key no-key"></i></div>
+                <div class="secret-code-square"><i class="fa-solid fa-key no-key"></i></div>
+                <div class="secret-code-square"><i class="fa-solid fa-key no-key"></i></div>
             </div>
             <div id="ctn-music-and-rules">
                 <div id="music">
@@ -63,6 +63,32 @@
             Enjoy!
         </p>
         <button type="button" id="play-button" class="button" data-type="play">Play</button>
+    </div>
+
+    <!-- https://www.learningguild.com/articles/coding-sound-with-javascript-beginner-s-guide/?rd=1 -->
+    <div id="you-won-pop-up" class="pop-up">
+        <audio id="winning-chime">
+            <source src="assets/music/Correct Answer.mp3">
+        </audio>
+        <img src="assets/images/congratulations-icon-31113.gif" alt="A colorful congratulations icon"
+            id="congrats-image">
+        <p>Hurray! You guessed the secret color code! It took you <span id="time-used">0</span> and you needed <span
+                id="moves-total">0</span> attempts to guess the code.</p>
+        <p>Do you want to play again?</p>
+        <div class="game-over-buttons">
+            <button type="button" id="play-again-button" class="button" data-type="play-again">Play again</button>
+            <button type="button" id="exit-button" class="button" data-type="exit">Exit</button>
+        </div>
+    </div>
+
+    <div id="you-lost-pop-up" class="pop-up">
+        <img src="assets/images/Game-Over-PNG-Image.png" alt="A black Game Over picture" id="commiseration-image">
+        <p>Sorry, not even 12 attempts were enough for you to guess the secret color code.</p>
+        <p>Do you want to play again?</p>
+        <div class="game-over-buttons">
+            <button type="button" class="button" data-type="play-again-2">Play again</button>
+            <button type="button" class="button" data-type="exit-2">Exit</button>
+        </div>
     </div>
 
     <div id="ctn-score">
@@ -280,28 +306,6 @@
         <div id="buttons">
             <button type="button" data-type="check" id="check-code" class="button">Check</button>
             <button type="button" data-type="restart" id="restart" class="button">Restart</button>
-        </div>
-    </div>
-
-    <div id="you-won-pop-up" class="pop-up">
-        <img src="assets/images/congratulations-icon-31113.gif" alt="A colorful congratulations icon"
-            id="congrats-image">
-        <p>Hurray! You guessed the secret color code! It took you <span id="time-used">0</span> and you needed <span
-                id="moves-total">0</span> attempts to guess the code.</p>
-        <p>Do you want to play again?</p>
-        <div class="game-over-buttons">
-            <button type="button" id="play-again-button" class="button" data-type="play-again">Play again</button>
-            <button type="button" id="exit-button" class="button" data-type="exit">Exit</button>
-        </div>
-    </div>
-
-    <div id="you-lost-pop-up" class="pop-up">
-        <img src="assets/images/Game-Over-PNG-Image.png" alt="A black Game Over picture" id="commiseration-image">
-        <p>Sorry, not even 12 attempts were enough for you to guess the secret color code.</p>
-        <p>Do you want to play again?</p>
-        <div class="game-over-buttons">
-            <button type="button" class="button" data-type="play-again-2">Play again</button>
-            <button type="button" class="button" data-type="exit-2">Exit</button>
         </div>
     </div>
 

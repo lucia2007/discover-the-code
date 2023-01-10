@@ -173,9 +173,13 @@ header {
     border: solid 3px black;
 }
 
-/* .pop-up {
+#you-won-pop-up {
     display: none;
-} */
+}
+
+#you-lost-pop-up {
+    display: none;
+}
 
 #congrats-image {
     max-width: 250px;
