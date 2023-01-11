@@ -23,13 +23,16 @@ const colorChoices = document.getElementsByClassName("color-choice");
 const allRows = document.getElementsByClassName("row");
 const closeIcon = document.getElementById("close");
 const welcomeMessage = document.getElementById("welcome-pop-up");
-const questionIcon = document.getElementById("question-mark")
-const winningPopUp = document.getElementById("you-won-pop-up")
-const losingPopUp = document.getElementById("you-lost-pop-up")
-const winningChime = document.getElementById("winning-chime")
-const losingChime = document.getElementById("losing-chime")
-const secretCodeSquares = document.getElementById("ctn-secret-code").children
-const keys = document.getElementsByClassName("no-key")
+const questionIcon = document.getElementById("question-mark");
+const winningPopUp = document.getElementById("you-won-pop-up");
+const losingPopUp = document.getElementById("you-lost-pop-up");
+const winningChime = document.getElementById("winning-chime");
+const losingChime = document.getElementById("losing-chime");
+const secretCodeSquares = document.getElementById("ctn-secret-code").children;
+const keys = document.getElementsByClassName("no-key");
+const squaresInit = document.getElementsByClassName("square-init");
+const circlesInit = document.getElementsByClassName("circle-init");
+const movesCount = document.getElementById("moves-needed");
 
 /** When the dom content is loaded, the predefined colors in the Options section are filled in*/
 document.addEventListener("DOMContentLoaded", function () {
@@ -76,6 +79,7 @@ function playButtonClicked() {
 
 function playAgainButtonClicked() {
     winningPopUp.style.display = "none";
+    setInitialState();
     // here add the setting of the initial state
 }
 
@@ -85,6 +89,7 @@ function exitButtonClicked() {
 
 function playAgainButton2Clicked() {
     losingPopUp.style.display = "none";
+    setInitialState();
     // here add the setting of the initial state
 }
 
@@ -196,19 +201,19 @@ function generateNewSecretCode() {
     // delete this console log
 
     // delete this function when finished
+    // https://bobbyhadz.com/blog/javascript-get-object-key-by-value
     function getObjectKey(obj, value) {
-        for (let i = 0; i < secretSquares.length; i++) {
-            return Object.keys(colorPicker).find(key => colorPicker[key] === value);
-            // keys.push(key);
-        }
+        return Object.keys(colorPicker).find(key => colorPicker[key] === value);
     }
 
-    console.log(getObjectKey(colorPicker, secretCode[0]));
-    console.log(getObjectKey(colorPicker, secretCode[1]));
-    console.log(getObjectKey(colorPicker, secretCode[2]));
-    console.log(getObjectKey(colorPicker, secretCode[3]));
-    console.log(getObjectKey(colorPicker, secretCode[4]));
+    for (let i = 0; i < secretSquares.length; i++) {
+        console.log(getObjectKey(colorPicker, secretCode[i]));
+    }
 };
+
+function clearSecretCode() {
+    secretCode = [];
+}
 
 /** This function returns the number of black and white circles */
 function getResult() {
@@ -244,7 +249,7 @@ function displayResult(blacks, whites) {
 };
 
 function displayMoves(moves) {
-    document.getElementById('moves-needed').textContent = moves;
+    movesCount.textContent = moves;
 };
 
 function guessed() {
@@ -252,7 +257,6 @@ function guessed() {
     displayWinningPopUp();
     displaySecretCode();
     hideKeys();
-
 }
 
 function youLost() {
@@ -278,8 +282,6 @@ function displayLosingPopUp() {
     losingPopUp.style.display = "flex";
 }
 
-
-
 function displaySecretCode() {
     for (let i = 0; i < secretCodeSquares.length; i++) {
         let square = secretCodeSquares[i];
@@ -292,6 +294,66 @@ function hideKeys() {
         let key = keys[i];
         key.style.display = "none";
     }
+}
+
+function showKeys() {
+    for (let i = 0; i < keys.length; i++) {
+        let key = keys[i];
+        key.style.display = "inline";
+    }
+}
+
+function setInitialState() {
+    let userGuessRow = [];
+
+    // let secretCode = [];
+    let currentRowIndex = 11;
+    // let moves = 0;
+    // displayMoves();
+    let result = []
+    resetMoves();
+    clearSecretCode();
+    generateNewSecretCode();
+    console.log(secretCode);
+    showKeys();
+    clearBackgroundColorSecretCodeSquares();
+    disableCheckButton();
+    clearBackgroundColorSquares();
+    clearBackgroundColorCircles();
+    clearBorderCircles();
+    // get rid off 'is-taken'
+    // clear score
+    // cleare timer
+}
+
+function clearBackgroundColorSquares() {
+    for (let squareInit of squaresInit) {
+        squareInit.style.backgroundColor = "#D9D9D9";
+    }
+}
+
+function clearBackgroundColorSecretCodeSquares() {
+    for (let square of secretCodeSquares) {
+        square.style.backgroundColor = "#D9D9D9";
+        // square.classList.remove("is-taken");
+    }
+}
+
+function clearBackgroundColorCircles() {
+    for (let circleInit of circlesInit) {
+        circleInit.style.backgroundColor = "#D9D9D9";
+    }
+}
+
+function clearBorderCircles() {
+    for (let circleInit of circlesInit) {
+        circleInit.style.border = "";
+        // circle.classList.remove("is-taken");
+    }
+}
+
+function resetMoves() {
+    movesCount.innerHTML = 0;
 }
 
 // /**  functions startTimer and endTimer were taken for this webpage:
