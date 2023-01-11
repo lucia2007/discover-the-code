@@ -12,10 +12,10 @@ const colorPicker = {
     orange: '#FFA400',
 }
 
-let userGuessRow = [];
-let secretCode = [];
-let currentRowIndex = 11;
-let moves = 0;
+let userGuessRow;
+let secretCode;
+let currentRowIndex;
+let moves;
 
 const checkCodeButton = document.getElementById("check-code");
 const colorChoices = document.getElementsByClassName("color-choice");
@@ -36,11 +36,11 @@ const movesCount = document.getElementById("moves-needed");
 /** When the dom content is loaded, the predefined colors in the Options section are filled in*/
 document.addEventListener("DOMContentLoaded", function () {
 
+    setInitialState();
     displayWelcomeMessage();
     addButtonClickedHandlers();
     addQuestionMarkHandler();
     addCloseIconHandler();
-    disableCheckButton();
 
     for (let i = 0; i < colorChoices.length; i++) {
         colorChoices[i].style.backgroundColor = Object.values(colorPicker)[i];
@@ -76,14 +76,12 @@ function addQuestionMarkHandler() {
 /** This function defines a set of tasks to be performed when the Play button is clicked */
 function playButtonClicked() {
     welcomeMessage.style.display = "none";
-    // here add the setting of the initial state
 };
 
 
 function playAgainButtonClicked() {
     winningPopUp.style.display = "none";
     setInitialState();
-    // here add the setting of the initial state
 }
 
 function exitButtonClicked() {
@@ -93,7 +91,6 @@ function exitButtonClicked() {
 function playAgainButton2Clicked() {
     losingPopUp.style.display = "none";
     setInitialState();
-    // here add the setting of the initial state
 }
 
 function exitButton2Clicked() {
@@ -165,13 +162,12 @@ function addButtonClickedHandlers() {
                 displayMoves();
                 if (currentRowIndex > -2 && result[0] === 5) {
                     guessed();
-                    // alert("You have exceeded your number of attempts")
                 } else if (currentRowIndex < 0 && result[0] !== 5) {
                     youLost();
                 }
 
             } else if (this.getAttribute("data-type") === "restart") {
-                alert("You clicked restart");
+                setInitialState();
             } else if (this.getAttribute("data-type") === "play") {
                 playButtonClicked();
             } else if (this.getAttribute("data-type") === "play-again") {
@@ -195,12 +191,11 @@ function addButtonClickedHandlers() {
  * */
 function generateNewSecretCode() {
     let secretSquares = document.getElementsByClassName('secret-code-square');
+    secretCode = [];
     for (let i = 0; i < secretSquares.length; i++) {
         let randomNumber = Math.floor(Math.random() * 8);
         secretCode.push(Object.values(colorPicker)[randomNumber]);
     }
-    console.log(secretCode);
-    // delete this console log
 
     // delete this function when finished
     // https://bobbyhadz.com/blog/javascript-get-object-key-by-value
@@ -212,10 +207,6 @@ function generateNewSecretCode() {
         console.log(getObjectKey(colorPicker, secretCode[i]));
     }
 };
-
-function clearSecretCode() {
-    secretCode = [];
-}
 
 /** This function returns the number of black and white circles */
 function getResult() {
@@ -306,26 +297,25 @@ function showKeys() {
 }
 
 function setInitialState() {
-    let userGuessRow = [];
-
-    // let secretCode = [];
-    let currentRowIndex = 11;
-    // let moves = 0;
-    // displayMoves();
-    let result = []
-    resetMoves();
-    clearSecretCode();
-    generateNewSecretCode();
-    console.log(secretCode);
-    showKeys();
-    clearBackgroundColorSecretCodeSquares();
-    disableCheckButton();
+    userGuessRow = [];
     clearBackgroundColorSquares();
+
     clearBackgroundColorCircles();
     clearBorderCircles();
-    // get rid off 'is-taken'
-    // clear score
-    // cleare timer
+
+    currentRowIndex = 11;
+    moves = 0;
+    displayMoves();
+
+    // clear timer
+
+    generateNewSecretCode();
+    clearBackgroundColorSecretCodeSquares();
+    showKeys();
+
+    disableCheckButton();
+
+    // unglow all rows/squares
 }
 
 function clearBackgroundColorSquares() {
@@ -352,10 +342,6 @@ function clearBorderCircles() {
         circleInit.style.border = "";
         circleInit.classList.remove("is-taken");
     }
-}
-
-function resetMoves() {
-    movesCount.innerHTML = 0;
 }
 
 // /**  functions startTimer and endTimer were taken for this webpage:
