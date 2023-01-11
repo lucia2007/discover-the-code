@@ -16,7 +16,6 @@ let userGuessRow = [];
 let secretCode = [];
 let currentRowIndex = 11;
 let moves = 0;
-let result = []
 
 const checkCodeButton = document.getElementById("check-code");
 const colorChoices = document.getElementsByClassName("color-choice");
@@ -157,7 +156,7 @@ function addButtonClickedHandlers() {
             // for a version where you can change your choices, you will need to add a check here if all the squares in the current row are taken
             if (this.getAttribute("data-type") === "check") {
 
-                result = getResult();
+                let result = getResult();
                 displayResult(result[0], result[1]);
                 disableCheckButton();
                 userGuessRow = [];
