@@ -331,13 +331,13 @@ function setInitialState() {
 function clearBackgroundColorSquares() {
     for (let squareInit of squaresInit) {
         squareInit.style.backgroundColor = "#D9D9D9";
+        squareInit.classList.remove("is-taken");
     }
 }
 
 function clearBackgroundColorSecretCodeSquares() {
     for (let square of secretCodeSquares) {
         square.style.backgroundColor = "#D9D9D9";
-        // square.classList.remove("is-taken");
     }
 }
 
@@ -350,7 +350,7 @@ function clearBackgroundColorCircles() {
 function clearBorderCircles() {
     for (let circleInit of circlesInit) {
         circleInit.style.border = "";
-        // circle.classList.remove("is-taken");
+        circleInit.classList.remove("is-taken");
     }
 }
 
