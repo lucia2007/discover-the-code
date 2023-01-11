@@ -25,8 +25,9 @@ const closeIcon = document.getElementById("close");
 const welcomeMessage = document.getElementById("welcome-pop-up");
 const questionIcon = document.getElementById("question-mark")
 const winningPopUp = document.getElementById("you-won-pop-up")
-const loosingPopUp = document.getElementById("you-lost-pop-up")
+const losingPopUp = document.getElementById("you-lost-pop-up")
 const winningChime = document.getElementById("winning-chime")
+const losingChime = document.getElementById("losing-chime")
 const secretCodeSquares = document.getElementById("ctn-secret-code").children
 const keys = document.getElementsByClassName("no-key")
 
@@ -83,12 +84,12 @@ function exitButtonClicked() {
 }
 
 function playAgainButton2Clicked() {
-    loosingPopUp.style.display = "none";
+    losingPopUp.style.display = "none";
     // here add the setting of the initial state
 }
 
 function exitButton2Clicked() {
-    loosingPopUp.style.display = "none";
+    losingPopUp.style.display = "none";
 }
 
 /** This function makes the Check button unclickable */
@@ -119,9 +120,11 @@ function addColorClickedHandlers() {
 
             /**This for loop lets the user fill in the five squares */
             for (let square of currentSquares) {
+                // square.style.border = "solid 2px black";
                 if (!square.classList.contains('is-taken')) {
                     square.style.backgroundColor = Object.values(colorPicker)[i];
                     square.classList.add('is-taken');
+                    // square.style.border = "";
                     userGuessRow.push(Object.values(colorPicker)[i]);
                     if (userGuessRow.length === 5) {
                         enableCheckButton();
@@ -152,10 +155,14 @@ function addButtonClickedHandlers() {
                 moves++;
                 currentRowIndex--;
                 displayMoves(moves);
-                guessed();
-                if (moves === 12) {
-                    alert("You have exceeded your number of attempts")
+                // guessed();
+                if (currentRowIndex > -2 && result[0] === 5) {
+                    guessed();
+                    // alert("You have exceeded your number of attempts")
+                } else if (currentRowIndex < 0 && result[0] !== 5) {
+                    youLost();
                 }
+
             } else if (this.getAttribute("data-type") === "restart") {
                 alert("You clicked restart");
             } else if (this.getAttribute("data-type") === "play") {
@@ -187,6 +194,20 @@ function generateNewSecretCode() {
     }
     console.log(secretCode);
     // delete this console log
+
+    // delete this function when finished
+    function getObjectKey(obj, value) {
+        for (let i = 0; i < secretSquares.length; i++) {
+            return Object.keys(colorPicker).find(key => colorPicker[key] === value);
+            // keys.push(key);
+        }
+    }
+
+    console.log(getObjectKey(colorPicker, secretCode[0]));
+    console.log(getObjectKey(colorPicker, secretCode[1]));
+    console.log(getObjectKey(colorPicker, secretCode[2]));
+    console.log(getObjectKey(colorPicker, secretCode[3]));
+    console.log(getObjectKey(colorPicker, secretCode[4]));
 };
 
 /** This function returns the number of black and white circles */
@@ -227,21 +248,37 @@ function displayMoves(moves) {
 };
 
 function guessed() {
-    if (result[0] === 5) {
-        playWinningChime();
-        displayWinningPopUp();
-        displaySecretCode();
-        hideKeys();
-    }
+    playWinningChime();
+    displayWinningPopUp();
+    displaySecretCode();
+    hideKeys();
+
+}
+
+function youLost() {
+    playLosingChime();
+    displayLosingPopUp();
+    displaySecretCode();
+    hideKeys();
 }
 
 function playWinningChime() {
-    winningChime.play()
+    winningChime.play();
+}
+
+function playLosingChime() {
+    losingChime.play();
 }
 
 function displayWinningPopUp() {
     winningPopUp.style.display = "flex";
 }
+
+function displayLosingPopUp() {
+    losingPopUp.style.display = "flex";
+}
+
+
 
 function displaySecretCode() {
     for (let i = 0; i < secretCodeSquares.length; i++) {
