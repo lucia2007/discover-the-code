@@ -65,7 +65,11 @@ function addCloseIconHandler() {
 
 function addQuestionMarkHandler() {
     questionIcon.addEventListener("click", function () {
+        if (welcomeMessage.style.display === "flex") {
+            welcomeMessage.style.display = "none";
+        } else {
         welcomeMessage.style.display = "flex";
+        }
     })
 }
 
