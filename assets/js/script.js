@@ -162,8 +162,7 @@ function addButtonClickedHandlers() {
                 userGuessRow = [];
                 moves++;
                 currentRowIndex--;
-                displayMoves(moves);
-                // guessed();
+                displayMoves();
                 if (currentRowIndex > -2 && result[0] === 5) {
                     guessed();
                     // alert("You have exceeded your number of attempts")
@@ -251,7 +250,7 @@ function displayResult(blacks, whites) {
     }
 };
 
-function displayMoves(moves) {
+function displayMoves() {
     movesCount.textContent = moves;
 };
 
