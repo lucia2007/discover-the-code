@@ -9,7 +9,7 @@ const colorPicker = {
     aqua: '#2ffffb',
     yellow: '#fff42f',
     purple: '#9d2fff',
-    orange: '#ffce2f',
+    orange: '#FFA400',
 }
 
 let userGuessRow = [];
@@ -61,7 +61,7 @@ function addCloseIconHandler() {
 
 function addQuestionMarkHandler() {
     questionIcon.addEventListener("click", function () {
-        welcomeMessage.style.display = "flex"
+        welcomeMessage.style.display = "flex";
     })
 }
 
@@ -210,10 +210,12 @@ function displayResult(blacks, whites) {
         }
         if (blacks > 0) {
             currentCircles[i].style.backgroundColor = "black";
+            currentCircles[i].style.border = "solid 2px black";
             currentCircles[i].classList.add('is-taken');
             blacks--;
         } else if (whites > 0) {
             currentCircles[i].style.backgroundColor = "white";
+            currentCircles[i].style.border = "solid 2px black";
             currentCircles[i].classList.add('is-taken');
             whites--;
         }
