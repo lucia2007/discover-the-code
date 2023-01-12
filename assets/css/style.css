@@ -71,7 +71,7 @@ body {
     border-radius: 10px;
     border: solid 1px black;
     margin: 0.5rem 1rem;
-    background-color: white;
+    background-color: rgba(201, 214, 20, 0.5);
     /* padding-top: 10px; */
     /* z-index: 1; */
     /* position: fixed;
