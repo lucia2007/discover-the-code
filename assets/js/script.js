@@ -174,10 +174,22 @@ function addButtonClickedHandlers() {
 
             } else if (this.getAttribute("data-type") === "play") {
                 playButtonClicked();
+                if (int !== null) {
+                    clearInterval(int);
+                }
+                int = setInterval(displayTime, 10);
             } else if (this.getAttribute("data-type") === "play-again") {
                 playAgainButtonClicked();
+                if (int !== null) {
+                    clearInterval(int);
+                }
+                int = setInterval(displayTime, 10);
             } else if (this.getAttribute("data-type") === "play-again-2") {
                 playAgainButton2Clicked();
+                if (int !== null) {
+                    clearInterval(int);
+                }
+                int = setInterval(displayTime, 10);
             } else if (this.getAttribute("data-type") === "close") {
                 closeButtonClicked();
             } else if (this.getAttribute("data-type") === "close-2") {
