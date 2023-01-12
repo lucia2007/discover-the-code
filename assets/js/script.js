@@ -257,6 +257,7 @@ function addColorClickedHandlers() {
              * */
 
             startTimer();
+            // here or when the Play button is pushed?
 
             let currentRow = allRows[currentRowIndex];
             let currentRowSquare = currentRow.children[0];
@@ -365,9 +366,9 @@ function playLosingChime() {
     losingChime.play();
 }
 
-function playFocusMusic() {
-    focusMusic.play();
-}
+// function playFocusMusic() {
+//     focusMusic.play();
+// }
 
 function displayWinningPopUp() {
     winningPopUp.style.display = "flex";
