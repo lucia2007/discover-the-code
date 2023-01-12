@@ -139,6 +139,56 @@ function playButtonClicked() {
  * */
 
 
+// code inspired by Love Maths
+/** This function adds on-click event listeners to all the buttons */
+function addButtonClickedHandlers() {
+    let buttons = document.getElementsByClassName('button');
+
+    for (let button of buttons) {
+        button.addEventListener("click", function () {
+            // endTimer();
+            // for a version where you can change your choices, you will need to add a check here if all the squares in the current row are taken
+            if (this.getAttribute("data-type") === "check") {
+
+                let result = getResult();
+                displayResult(result[0], result[1]);
+                disableCheckButton();
+                userGuessRow = [];
+                moves++;
+                currentRowIndex--;
+                displayMoves();
+
+
+                if (currentRowIndex > -2 && result[0] === 5) {
+                    guessed();
+                } else if (currentRowIndex < 0 && result[0] !== 5) {
+                    youLost();
+                }
+
+            } else if (this.getAttribute("data-type") === "restart") {
+                setInitialState();
+                if (int !== null) {
+                    clearInterval(int);
+                }
+                int = setInterval(displayTime, 10);
+
+            } else if (this.getAttribute("data-type") === "play") {
+                playButtonClicked();
+            } else if (this.getAttribute("data-type") === "play-again") {
+                playAgainButtonClicked();
+            } else if (this.getAttribute("data-type") === "play-again-2") {
+                playAgainButton2Clicked();
+            } else if (this.getAttribute("data-type") === "close") {
+                closeButtonClicked();
+            } else if (this.getAttribute("data-type") === "close-2") {
+                closeButton2Clicked();
+            } else {
+                alert("Something is wrong")
+            }
+        })
+    }
+};
+
 function displayTime() {
     milliseconds += 10;
     if (milliseconds == 1000) {
