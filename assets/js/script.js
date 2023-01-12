@@ -32,10 +32,8 @@ const secretCodeSquares = document.getElementById("ctn-secret-code").children;
 const keys = document.getElementsByClassName("no-key");
 const playgroundSquares = document.getElementsByClassName("playground-square");
 const playgroundCircles = document.getElementsByClassName("playground-circle");
-const movesCount = document.getElementById("moves-needed");
 const timer = document.getElementById("time-elapsed");
-// const timeElapsed = document.getElementById("time-elapsed");
-const movesNeeded = document.getElementById("moves-needed");
+const movesCount = document.getElementById("moves-needed");
 const focusMusic = document.getElementById("focus-music");
 
 // Can this be moved into some function or should it stay global?
@@ -373,9 +371,24 @@ function playFocusMusic() {
 
 function displayWinningPopUp() {
     winningPopUp.style.display = "flex";
-    let timeElapsed = (document.getElementById("time-elapsed")).innerHTML;
+    let timeElapsed = document.getElementById("time-elapsed").innerHTML;
     let finalTime = document.getElementById("final-time");
     finalTime.innerHTML = timeElapsed;
+
+
+    let movesNeeded = document.getElementById("moves-needed").innerHTML;
+    console.log(movesNeeded);
+    let movesTotal = document.getElementById("moves-total");
+    console.log(movesTotal);
+    movesTotal.innerHTML = movesNeeded;
+
+    let attempts = document.getElementById("attempts");
+
+    if (movesNeeded > 2) {
+        attempts.innerHTML = " attempts";
+    } else {
+        attempts.innerHTML = " attempt";
+    }
 }
 
 function displayLosingPopUp() {
