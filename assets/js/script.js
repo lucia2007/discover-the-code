@@ -29,8 +29,8 @@ const winningChime = document.getElementById("winning-chime");
 const losingChime = document.getElementById("losing-chime");
 const secretCodeSquares = document.getElementById("ctn-secret-code").children;
 const keys = document.getElementsByClassName("no-key");
-const squaresInit = document.getElementsByClassName("playground-square");
-const circlesInit = document.getElementsByClassName("playground-circle");
+const playgroundSquares = document.getElementsByClassName("playground-square");
+const playgroundCircles = document.getElementsByClassName("playground-circle");
 const movesCount = document.getElementById("moves-needed");
 const timer = document.getElementById("time");
 const timeElapsed = document.getElementById("time-elapsed");
@@ -369,9 +369,9 @@ function setInitialState() {
 }
 
 function clearBackgroundColorSquares() {
-    for (let squareInit of squaresInit) {
-        squareInit.style.backgroundColor = "#D9D9D9";
-        squareInit.classList.remove("is-taken");
+    for (let playgroundSquare of playgroundSquares) {
+        playgroundSquare.style.backgroundColor = "#D9D9D9";
+        playgroundSquare.classList.remove("is-taken");
     }
 }
 
@@ -382,33 +382,14 @@ function clearBackgroundColorSecretCodeSquares() {
 }
 
 function clearBackgroundColorCircles() {
-    for (let circleInit of circlesInit) {
-        circleInit.style.backgroundColor = "#D9D9D9";
+    for (let playgroundCircle of playgroundCircles) {
+        playgroundCircle.style.backgroundColor = "#D9D9D9";
     }
 }
 
 function clearBorderCircles() {
-    for (let circleInit of circlesInit) {
-        circleInit.style.border = "";
-        circleInit.classList.remove("is-taken");
+    for (let playgroundCircle of playgroundCircles) {
+        playgroundCircle.style.border = "";
+        playgroundCircle.classList.remove("is-taken");
     }
 }
-
-// /**  functions startTimer and endTimer were taken for this webpage:
-//  * https://stackoverflow.com/questions/41632942/how-to-measure-time-elapsed-on-javascript
-//  */
-
-// function startTimer() {
-//     startTime = performance.now();
-// };
-
-// function endTimer() {
-//     endTime = performance.now();
-//     var elapsedTime = endTime - startTime; //in ms
-//     // convert to seconds
-//     elapsedTime /= 1000;
-
-//     // get seconds 
-//     var seconds = Math.round(elapsedTime);
-//     console.log(seconds + 'seconds');
-// }
