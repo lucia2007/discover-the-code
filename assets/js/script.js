@@ -417,7 +417,7 @@ function setInitialState() {
     // this clears timer
     clearInterval(int);
     [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
-    timer.innerHTML = "00: 00: 00: 000";
+    timer.innerHTML = "00:00";
 
     generateNewSecretCode();
     clearBackgroundColorSecretCodeSquares();
