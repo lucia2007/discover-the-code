@@ -29,8 +29,8 @@ const winningChime = document.getElementById("winning-chime");
 const losingChime = document.getElementById("losing-chime");
 const secretCodeSquares = document.getElementById("ctn-secret-code").children;
 const keys = document.getElementsByClassName("no-key");
-const squaresInit = document.getElementsByClassName("square-init");
-const circlesInit = document.getElementsByClassName("circle-init");
+const squaresInit = document.getElementsByClassName("playground-square");
+const circlesInit = document.getElementsByClassName("playground-circle");
 const movesCount = document.getElementById("moves-needed");
 
 /** When the dom content is loaded, the predefined colors in the Options section are filled in*/
