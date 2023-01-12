@@ -64,8 +64,16 @@ body {
     border-radius: 10px;
     border: solid 1px black;
     margin: 0.5rem 1rem;
-    /* position: absolute; */
     background-color: white;
+    /* padding-top: 10px; */
+    /* z-index: 1; */
+    /* position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; */
+    /* background-color: rgba(3, 2, 1, 0.7); */
     /* max-height: 100vh; */
 }
 
@@ -75,14 +83,14 @@ body {
     margin: 0rem;
 }
 
-.close {
+/* .close {
     width: 20px;
     height: 20px;
     cursor: pointer;
     align-self: flex-end;
     margin-right: 0.5rem;
     margin-bottom: 1rem;
-}
+} */
 
 
 /* header section */
@@ -280,7 +288,9 @@ button {
 
     .fa-key {
         font-size: 140%;
-        padding-top: 5px;
+        /* text-align: center; */
+        padding-top: 0.1rem;
+        /* padding-top: 5px; */
     }
 
     #ctn-score p {

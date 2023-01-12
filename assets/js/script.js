@@ -20,7 +20,7 @@ let moves;
 const checkCodeButton = document.getElementById("check-code");
 const colorChoices = document.getElementsByClassName("color-choice");
 const allRows = document.getElementsByClassName("row");
-const closeIcon = document.getElementById("close");
+// const closeIcon = document.getElementById("close");
 const welcomeMessage = document.getElementById("welcome-pop-up");
 const questionIcon = document.getElementById("question-mark");
 const winningPopUp = document.getElementById("you-won-pop-up");
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     displayWelcomeMessage();
     addButtonClickedHandlers();
     addQuestionMarkHandler();
-    addCloseIconHandler();
+    // addCloseIconHandler();
 
     for (let i = 0; i < colorChoices.length; i++) {
         colorChoices[i].style.backgroundColor = Object.values(colorPicker)[i];
@@ -56,18 +56,18 @@ function displayWelcomeMessage() {
 };
 
 /**This function adds on-click event listener to the Close icon */
-function addCloseIconHandler() {
-    closeIcon.addEventListener("click", function () {
-        welcomeMessage.style.display = "none";
-    })
-};
+// function addCloseIconHandler() {
+//     closeIcon.addEventListener("click", function () {
+//         welcomeMessage.style.display = "none";
+//     })
+// };
 
 function addQuestionMarkHandler() {
     questionIcon.addEventListener("click", function () {
         if (welcomeMessage.style.display === "flex") {
             welcomeMessage.style.display = "none";
         } else {
-        welcomeMessage.style.display = "flex";
+            welcomeMessage.style.display = "flex";
         }
     })
 }
@@ -292,7 +292,9 @@ function hideKeys() {
 function showKeys() {
     for (let i = 0; i < keys.length; i++) {
         let key = keys[i];
-        key.style.display = "inline";
+        key.style.display = "block";
+        key.style.textAlign = "center";
+        key.style.paddingTop = "0.25rem";
     }
 }
 
