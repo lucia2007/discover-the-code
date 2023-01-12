@@ -70,6 +70,8 @@ function displayWelcomeMessage() {
 //     })
 // };
 
+
+/** This function opens and closes the Welcome pop-up */
 function addQuestionMarkHandler() {
     questionIcon.addEventListener("click", function () {
         if (welcomeMessage.style.display === "flex") {
@@ -80,8 +82,7 @@ function addQuestionMarkHandler() {
     })
 }
 
-
-/** This function defines a set of tasks to be performed when the Play button is clicked */
+/** This function hides the Welcome pop-up when the Play button is clicked */
 function playButtonClicked() {
     welcomeMessage.style.display = "none";
     if (int !== null) {
@@ -118,12 +119,14 @@ function displayTime() {
 
 
 
+/** This function defines a set of tasks to be performed when the Play again button is clicked */
 function playAgainButtonClicked() {
     winningPopUp.style.display = "none";
     setInitialState();
 }
 
-function exitButtonClicked() {
+
+function closeButtonClicked() {
     winningPopUp.style.display = "none";
 }
 
@@ -132,7 +135,7 @@ function playAgainButton2Clicked() {
     setInitialState();
 }
 
-function exitButton2Clicked() {
+function closeButton2Clicked() {
     losingPopUp.style.display = "none";
 }
 
@@ -217,10 +220,10 @@ function addButtonClickedHandlers() {
                 playAgainButtonClicked();
             } else if (this.getAttribute("data-type") === "play-again-2") {
                 playAgainButton2Clicked();
-            } else if (this.getAttribute("data-type") === "exit") {
-                exitButtonClicked();
-            } else if (this.getAttribute("data-type") === "exit-2") {
-                exitButton2Clicked();
+            } else if (this.getAttribute("data-type") === "close") {
+                closeButtonClicked();
+            } else if (this.getAttribute("data-type") === "close-2") {
+                closeButton2Clicked();
             } else {
                 alert("Something is wrong")
             }
@@ -344,12 +347,15 @@ function showKeys() {
 }
 
 function setInitialState() {
+    // changes the color of the squares back to grey
     userGuessRow = [];
     clearBackgroundColorSquares();
 
+    // changes the color of the circles back to grey and takes away border
     clearBackgroundColorCircles();
     clearBorderCircles();
 
+    // this moves us back to the first (11th) row
     currentRowIndex = 11;
     moves = 0;
     displayMoves();
