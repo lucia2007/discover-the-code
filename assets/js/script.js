@@ -33,8 +33,8 @@ const keys = document.getElementsByClassName("no-key");
 const playgroundSquares = document.getElementsByClassName("playground-square");
 const playgroundCircles = document.getElementsByClassName("playground-circle");
 const movesCount = document.getElementById("moves-needed");
-const timer = document.getElementById("time");
-const timeElapsed = document.getElementById("time-elapsed");
+const timer = document.getElementById("time-elapsed");
+// const timeElapsed = document.getElementById("time-elapsed");
 const movesNeeded = document.getElementById("moves-needed");
 const focusMusic = document.getElementById("focus-music");
 
@@ -211,7 +211,7 @@ function displayTime() {
     let m = minutes < 10 ? "0" + minutes : minutes;
     let s = seconds < 10 ? "0" + seconds : seconds;
     let ms = milliseconds < 10 ? "0" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
-    timer.innerHTML = `Time: ${m} : ${s}`;
+    timer.innerHTML = `${m} : ${s}`;
 };
 
 
@@ -375,6 +375,9 @@ function playFocusMusic() {
 
 function displayWinningPopUp() {
     winningPopUp.style.display = "flex";
+    let timeElapsed = (document.getElementById("time-elapsed")).innerHTML;
+    let finalTime = document.getElementById("final-time");
+    finalTime.innerHTML = timeElapsed;
 }
 
 function displayLosingPopUp() {
