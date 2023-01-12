@@ -128,10 +128,7 @@ function displayWelcomeMessage() {
 /** This function hides the Welcome pop-up when the Play button is clicked */
 function playButtonClicked() {
     welcomeMessage.style.display = "none";
-    if (int !== null) {
-        clearInterval(int);
-    }
-    int = setInterval(displayTime, 10);
+    startTimer();
 };
 
 /** All timer/stopwatch related code was taken from this tutorial:
@@ -167,29 +164,16 @@ function addButtonClickedHandlers() {
 
             } else if (this.getAttribute("data-type") === "restart") {
                 setInitialState();
-                if (int !== null) {
-                    clearInterval(int);
-                }
-                int = setInterval(displayTime, 10);
-
+                startTimer();
             } else if (this.getAttribute("data-type") === "play") {
                 playButtonClicked();
-                if (int !== null) {
-                    clearInterval(int);
-                }
-                int = setInterval(displayTime, 10);
+                startTimer();
             } else if (this.getAttribute("data-type") === "play-again") {
                 playAgainButtonClicked();
-                if (int !== null) {
-                    clearInterval(int);
-                }
-                int = setInterval(displayTime, 10);
+                startTimer();
             } else if (this.getAttribute("data-type") === "play-again-2") {
                 playAgainButton2Clicked();
-                if (int !== null) {
-                    clearInterval(int);
-                }
-                int = setInterval(displayTime, 10);
+                startTimer();
             } else if (this.getAttribute("data-type") === "close") {
                 closeButtonClicked();
             } else if (this.getAttribute("data-type") === "close-2") {
@@ -200,6 +184,14 @@ function addButtonClickedHandlers() {
         })
     }
 };
+
+function startTimer() {
+    if (int !== null) {
+        clearInterval(int);
+    }
+    int = setInterval(displayTime, 10);
+}
+
 
 function displayTime() {
     milliseconds += 10;
