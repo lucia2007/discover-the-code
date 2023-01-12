@@ -61,11 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
     generateNewSecretCode();
 })
 
-//** This function makes the Welcome pop-up appear */
-function displayWelcomeMessage() {
-    welcomeMessage.style.display = "flex";
-};
-
 /**This function adds on-click event listener to the Close icon */
 // function addCloseIconHandler() {
 //     closeIcon.addEventListener("click", function () {
@@ -128,6 +123,7 @@ function addCurrentRowSquaresHandler() {
 function displayWelcomeMessage() {
     welcomeMessage.style.display = "flex";
 };
+
 
 /** This function hides the Welcome pop-up when the Play button is clicked */
 function playButtonClicked() {
@@ -214,11 +210,9 @@ function addColorClickedHandlers() {
 
             /**This for loop lets the user fill in the five squares */
             for (let square of currentSquares) {
-                // square.style.border = "solid 2px black";
                 if (!square.classList.contains('is-taken')) {
                     square.style.backgroundColor = Object.values(colorPicker)[i];
                     square.classList.add('is-taken');
-                    // square.style.border = "";
                     userGuessRow.push(Object.values(colorPicker)[i]);
                     if (userGuessRow.length === 5) {
                         enableCheckButton();
@@ -231,52 +225,6 @@ function addColorClickedHandlers() {
     }
 };
 
-// code inspired by Love Maths
-/** This function adds on-click event listeners to all the buttons */
-function addButtonClickedHandlers() {
-    let buttons = document.getElementsByClassName('button');
-
-    for (let button of buttons) {
-        button.addEventListener("click", function () {
-            // endTimer();
-            // for a version where you can change your choices, you will need to add a check here if all the squares in the current row are taken
-            if (this.getAttribute("data-type") === "check") {
-
-                let result = getResult();
-                displayResult(result[0], result[1]);
-                disableCheckButton();
-                userGuessRow = [];
-                moves++;
-                currentRowIndex--;
-                displayMoves();
-                if (currentRowIndex > -2 && result[0] === 5) {
-                    guessed();
-                } else if (currentRowIndex < 0 && result[0] !== 5) {
-                    youLost();
-                }
-
-            } else if (this.getAttribute("data-type") === "restart") {
-                setInitialState();
-                if (int !== null) {
-                    clearInterval(int);
-                }
-                int = setInterval(displayTime, 10);
-            } else if (this.getAttribute("data-type") === "play") {
-                playButtonClicked();
-            } else if (this.getAttribute("data-type") === "play-again") {
-                playAgainButtonClicked();
-            } else if (this.getAttribute("data-type") === "play-again-2") {
-                playAgainButton2Clicked();
-            } else if (this.getAttribute("data-type") === "close") {
-                closeButtonClicked();
-            } else if (this.getAttribute("data-type") === "close-2") {
-                closeButton2Clicked();
-            } else {
-                alert("Something is wrong")
-            }
-        })
-    }
-};
 
 /** This function generates a new secret code - assigns each square in the Secret code section a random color, 
  * the color is not applied/displayed until later when the game is over
