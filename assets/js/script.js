@@ -128,13 +128,8 @@ function displayWelcomeMessage() {
 /** This function hides the Welcome pop-up when the Play button is clicked */
 function playButtonClicked() {
     welcomeMessage.style.display = "none";
-    startTimer();
+    // startTimer();
 };
-
-/** All timer/stopwatch related code was taken from this tutorial:
- * https://foolishdeveloper.com/create-a-simple-stopwatch-using-javascript-tutorial-code/ 
- * */
-
 
 // code inspired by Love Maths
 /** This function adds on-click event listeners to all the buttons */
@@ -164,16 +159,16 @@ function addButtonClickedHandlers() {
 
             } else if (this.getAttribute("data-type") === "restart") {
                 setInitialState();
-                startTimer();
+                // startTimer();
             } else if (this.getAttribute("data-type") === "play") {
                 playButtonClicked();
-                startTimer();
+                // startTimer();
             } else if (this.getAttribute("data-type") === "play-again") {
                 playAgainButtonClicked();
-                startTimer();
+                // startTimer();
             } else if (this.getAttribute("data-type") === "play-again-2") {
                 playAgainButton2Clicked();
-                startTimer();
+                // startTimer();
             } else if (this.getAttribute("data-type") === "close") {
                 closeButtonClicked();
             } else if (this.getAttribute("data-type") === "close-2") {
@@ -185,6 +180,9 @@ function addButtonClickedHandlers() {
     }
 };
 
+/** All timer/stopwatch related code was taken from this tutorial:
+ * https://foolishdeveloper.com/create-a-simple-stopwatch-using-javascript-tutorial-code/ 
+ * */
 function startTimer() {
     if (int !== null) {
         clearInterval(int);
@@ -260,7 +258,7 @@ function addColorClickedHandlers() {
              * and assigns its color to the first square in row[currentRowIndex] which is not yet colored/taken
              * */
 
-            // startTimer();
+            startTimer();
 
             let currentRow = allRows[currentRowIndex];
             let currentRowSquare = currentRow.children[0];
