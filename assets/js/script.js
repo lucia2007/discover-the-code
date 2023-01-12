@@ -23,6 +23,7 @@ const allRows = document.getElementsByClassName("row");
 // const closeIcon = document.getElementById("close");
 const welcomeMessage = document.getElementById("welcome-pop-up");
 const questionIcon = document.getElementById("question-mark");
+const musicIcon = document.getElementById("music-note");
 const winningPopUp = document.getElementById("you-won-pop-up");
 const losingPopUp = document.getElementById("you-lost-pop-up");
 const winningChime = document.getElementById("winning-chime");
@@ -35,6 +36,7 @@ const movesCount = document.getElementById("moves-needed");
 const timer = document.getElementById("time");
 const timeElapsed = document.getElementById("time-elapsed");
 const movesNeeded = document.getElementById("moves-needed");
+const focusMusic = document.getElementById("focus-music");
 
 // Can this be moved into some function or should it stay global?
 let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
@@ -48,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     displayWelcomeMessage();
     addButtonClickedHandlers();
     addQuestionMarkHandler();
+    addMusicIconHandler();
     // addCloseIconHandler();
 
     for (let i = 0; i < colorChoices.length; i++) {
@@ -81,6 +84,50 @@ function addQuestionMarkHandler() {
         }
     })
 }
+
+/** This function turns music on/off.
+ * Tutorial: https://www.youtube.com/watch?v=wffK2OIt8u0
+ */
+function addMusicIconHandler() {
+    let count = 0;
+
+    musicIcon.addEventListener("click", function () {
+        if (count == 0) {
+            count = 1;
+            focusMusic.play();
+        } else {
+            count = 0;
+            focusMusic.pause();
+        }
+    });
+};
+
+
+function addCurrentRowSquaresHandler() {
+
+    let currentRow = allRows[currentRowIndex];
+    let currentRowSquare = currentRow.children[0];
+    let currentSquares = currentRowSquare.children;
+
+    // This function lets the user delete a previously chosen color
+    // Add an if statement which checks if you are in the current row
+    for (let square of currentSquares) {
+        // maybe these 3 lines can be global, as I use them in two different places
+
+        square.addEventListener("click", function () {
+            if (square.classList.contains('is-taken')) {
+                square.classList.remove('is-taken');
+                square.style.backgroundColor = "#D9D9D9";
+            }
+            // square.classList.add("is-taken");
+        });
+    };
+};
+
+//** This function makes the Welcome pop-up appear */
+function displayWelcomeMessage() {
+    welcomeMessage.style.display = "flex";
+};
 
 /** This function hides the Welcome pop-up when the Play button is clicked */
 function playButtonClicked() {
@@ -313,6 +360,10 @@ function playWinningChime() {
 
 function playLosingChime() {
     losingChime.play();
+}
+
+function playFocusMusic() {
+    focusMusic.play();
 }
 
 function displayWinningPopUp() {
