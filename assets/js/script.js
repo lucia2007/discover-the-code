@@ -32,6 +32,14 @@ const keys = document.getElementsByClassName("no-key");
 const squaresInit = document.getElementsByClassName("playground-square");
 const circlesInit = document.getElementsByClassName("playground-circle");
 const movesCount = document.getElementById("moves-needed");
+const timer = document.getElementById("time");
+const timeElapsed = document.getElementById("time-elapsed");
+const movesNeeded = document.getElementById("moves-needed");
+
+// Can this be moved into some function or should it stay global?
+let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+let int = null;
+
 
 /** When the dom content is loaded, the predefined colors in the Options section are filled in*/
 document.addEventListener("DOMContentLoaded", function () {
@@ -76,7 +84,38 @@ function addQuestionMarkHandler() {
 /** This function defines a set of tasks to be performed when the Play button is clicked */
 function playButtonClicked() {
     welcomeMessage.style.display = "none";
+    if (int !== null) {
+        clearInterval(int);
+    }
+    int = setInterval(displayTime, 10);
 };
+
+/** All timer/stopwatch related code was taken from this tutorial:
+ * https://foolishdeveloper.com/create-a-simple-stopwatch-using-javascript-tutorial-code/ 
+ * */
+
+
+function displayTime() {
+    milliseconds += 10;
+    if (milliseconds == 1000) {
+        milliseconds = 0;
+        seconds++;
+        if (seconds == 60) {
+            seconds = 0;
+            minutes++;
+            if (minutes == 60) {
+                minutes = 0;
+                hours++;
+            }
+        }
+    }
+    let h = hours < 10 ? "0" + hours : hours;
+    let m = minutes < 10 ? "0" + minutes : minutes;
+    let s = seconds < 10 ? "0" + seconds : seconds;
+    let ms = milliseconds < 10 ? "0" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
+    timer.innerHTML = `Time: ${m} : ${s}`;
+};
+
 
 
 function playAgainButtonClicked() {
@@ -168,6 +207,10 @@ function addButtonClickedHandlers() {
 
             } else if (this.getAttribute("data-type") === "restart") {
                 setInitialState();
+                if (int !== null) {
+                    clearInterval(int);
+                }
+                int = setInterval(displayTime, 10);
             } else if (this.getAttribute("data-type") === "play") {
                 playButtonClicked();
             } else if (this.getAttribute("data-type") === "play-again") {
@@ -246,6 +289,7 @@ function displayMoves() {
 };
 
 function guessed() {
+    clearInterval(int);
     playWinningChime();
     displayWinningPopUp();
     displaySecretCode();
@@ -253,6 +297,7 @@ function guessed() {
 }
 
 function youLost() {
+    clearInterval(int);
     playLosingChime();
     displayLosingPopUp();
     displaySecretCode();
@@ -309,7 +354,10 @@ function setInitialState() {
     moves = 0;
     displayMoves();
 
-    // clear timer
+    // this clears timer
+    clearInterval(int);
+    [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+    timer.innerHTML = "00: 00: 00: 000";
 
     generateNewSecretCode();
     clearBackgroundColorSecretCodeSquares();
