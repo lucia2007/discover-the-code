@@ -235,11 +235,15 @@ function closeButton2Clicked() {
 /** This function makes the Check button unclickable */
 function disableCheckButton() {
     checkCodeButton.disabled = true;
+    checkCodeButton.style.backgroundColor = "#D9D9D9";
+    checkCodeButton.style.color = "#2B303A";
 };
 
 /** This function makes the Check button clickable */
 function enableCheckButton() {
     checkCodeButton.disabled = false;
+    checkCodeButton.style.backgroundColor = "#2B303A";
+    checkCodeButton.style.color = "white";
 };
 
 
@@ -297,6 +301,7 @@ function generateNewSecretCode() {
     for (let i = 0; i < secretSquares.length; i++) {
         console.log(getObjectKey(colorPicker, secretCode[i]));
     }
+    console.log("\n");
 };
 
 /** This function returns the number of black and white circles */
