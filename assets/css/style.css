@@ -254,9 +254,21 @@ button {
     border-radius: 5px;
     font-weight: 700;
     cursor: pointer;
-    /* border: none;
-    outline: none; */
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    background-color: #2B303A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 110%;
 }
+
+button:hover {
+    cursor: pointer;
+}
+
+
 
 /* media query for tablets */
 @media screen and (min-width: 440px) {
