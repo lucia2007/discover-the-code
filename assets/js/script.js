@@ -366,10 +366,6 @@ function playLosingChime() {
     losingChime.play();
 }
 
-// function playFocusMusic() {
-//     focusMusic.play();
-// }
-
 function displayWinningPopUp() {
     winningPopUp.style.display = "flex";
     let timeElapsed = document.getElementById("time-elapsed").innerHTML;
