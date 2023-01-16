@@ -67,11 +67,11 @@ body {
     align-items: center;
     padding: 1rem 2rem;
     font-size: 90%;
-    text-align: center;
+    text-align: left;
     border-radius: 10px;
     border: solid 1px black;
     margin: 0.5rem 1rem;
-    background-color: rgba(201, 214, 20, 0.5);
+    /* background-color: rgba(201, 214, 20, 0.5); */
     /* padding-top: 10px; */
     /* z-index: 1; */
     /* position: fixed;
