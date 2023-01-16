@@ -78,8 +78,10 @@ function addQuestionMarkHandler() {
     questionIcon.addEventListener("click", function () {
         if (welcomeMessage.style.display === "flex") {
             welcomeMessage.style.display = "none";
+            showScoreAndPlaygroundAndColorPicker();
         } else {
             welcomeMessage.style.display = "flex";
+            hideScoreAndPlaygroundAndColorPicker();
         }
     })
 }
