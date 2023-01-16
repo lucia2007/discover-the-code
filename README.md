@@ -1,108 +1,258 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Discover the Code
 
-Welcome Lucia Ferencik,
+The purpose of this website is to allow a user to play a logical game which is fun and straightforward. This app was inspired by a game called <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="blank" rel="noopener">Mastermind</a> which is widely known. This game can be played in a few minutes and it is an ideal pass time when waiting at a doctors office or when commuting.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+The site is targeted towards people who like to strech their mind and improve their logical skills. It can be played both by children and adults.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+Discover the Code is useful for all users who want to be entertained and at the same time work on their logical skills.
 
-## Gitpod Reminders
+<a href="https://lucia2007.github.io/discover-the-code/index.html" target="_blank" rel="noopener">Discover the Code</a>
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+<!-- ![Discover the Code responsive design](./readme-images/responsive_layout.png) -->
 
-`python3 -m http.server`
+# Contents
 
-A blue button should appear to click: _Make Public_,
+- [Discover the Code](#discover-the-code)
+- [Contents](#contents)
+- [User Experience](#user-experience)
+  - [Dependency diagram](#dependency-diagram)
+  - [Wireframes](#wireframes)
+  - [Site Structure](#site-structure)
+  - [Design Choices](#design-choices)
+- [Features](#features)
+  - [Home Page](#home-page)
+    - [Header](#header)
+    - [Welcome message](#welcome-message)
+    - [Scores](#scores)
+    - [Playground](#playground)
+    - [Pick Your Color](#pick-your-color)
+    - [Winning message](#winning-message)
+    - [Losing message](#losing-message)
+    - [Test Driven Development](#test-driven-development)
+    - [Future Features](#future-features)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+- [Deployment](#deployment)
+  - [**Project Deployment**](#project-deployment)
+  - [**To fork the repository on GitHub**](#to-fork-the-repository-on-github)
+  - [**To create a local clone of a project**](#to-create-a-local-clone-of-a-project)
+- [Credits](#credits)
+  - [Content](#content)
+  - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
 
-Another blue button should appear to click: _Open Browser_.
+# User Experience
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Dependency diagram
 
-A blue button should appear to click: _Make Public_,
+<!-- Add dependency diagram and explain the flow of the game -->
 
-Another blue button should appear to click: _Open Browser_.
+## Wireframes
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+The wireframes were created in [Figma](https://figma.com). Originally I intended to make the app very colorful, but later I opted for a cleaner look. Also at first I thought I would do a different layout for the desktop with the rules on the right, but in the end I opted for a uniform look across different devices and screen widths.
 
-To log into the Heroku toolbelt CLI:
+In comparison with the original design, I changed the look of the sercret row and instead of question marks I used images of keys. Instead of a toggle I used a music not icon to make it clear what this button was intended for.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+[Wireframes for all devices](./readme-images/wireframes.png)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+[Back to top](#contents)
 
-------
+## Site Structure
 
-## Release History
+Discover the Code app contains only one page to keep the app simple.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+[Back to top](#contents)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Design Choices
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+- ### Typography
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+  "Noto Sans", weight 300, 400 and 700 were downloaded originally, but only the regular weight is being used throughout the app. The font is easily legible. The chosen font was downloaded from [Google Fonts](https://fonts.google.com/).
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+- ### Color Scheme
+  <!-- The chosen color scheme reflects the colors most often seen on tennis courts: green, orange, blue. The complementary colors were chosen using [Color pallete generator](coolors.co). -->
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+<!-- ![Colour Pallete image](./readme-images/color_pallete.png) -->
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+[Back to top](#contents)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+# Features
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+## Home Page
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Header
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+![Header](./readme-images/navbar.png) <!-- change the image>
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- The header firstly contains the name of the game which should intice the user to want to try to decode the secret sequence of colors
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+- The second row contains five squares with keys in them which imply a secret to be guessed.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- The music note icon allows the user to turn on and off deep focus music.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- The question mark icon works as a toggle and displays or hides the welcome message which contains the rules of the game
 
-------
+[Back to top](#contents)
 
-## FAQ about the uptime script
+### Welcome message
 
-**Why have you added this script?**
+![Welcome message](./readme-images/) <!-- change the image>
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+As soon as the page is loaded, a welcome message is displayed. In the welcome message the rules and the clues are explained. When a Play button is clicked, the modal is hidden and the plaground and the rest of the features are displayed.
 
-**How will this affect me?**
+### Scores
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+![Scores](./readme-images/) <!-- change the image>
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+This section displays the time the user needed to guess the code and also how many attempts were used. 
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+The timer starts as soon as the user clicks on any of the squares in the Pick You Color section. The timer stops when the secret code is guessed or when the user used all 12 attempts and has not guessed the code.
 
-**So….?**
+[Back to top](#contents)
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Playground
 
-**Can I opt out?**
+![Playground](./readme-images/) <!-- change the image>
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+The playground section contains 12 rows of 5 squares and 5 circles next to each other. The squares are used for guessing the code, the circles display the clues after the Check button is clicked.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+[Back to top](#contents)
 
-**Anything more?**
+### Pick Your Color
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+![Pick Your Color](./readme-images/pick_color_rm.png)
 
----
+In this section there are eight colors from which the user can choose. Colors can be used repeatedly. The user clicks on a color he wants to use and the color is assigned to the first square on the left in the last/bottom row. The next color will fill the next square to the right and so on until five colors are chosen.
 
-Happy coding!
+<!-- Future feature: When the user is unhappy with his color choice, he can click on the square the color of which he would like to change, the square turns back to grey and lets the user choose a different color. -->
+
+![Clues](./readme-images/scoring_rules_rm.png)
+
+As soon as five colors are chosen, the Check button is enabled and the user can see the clues displayed in the set of five circles next to the row of squares which was currently used.
+
+- Black circle - you guessed a color, and its position
+- White circle - you guessed a color, but not its position
+- Grey circle - wrong color was chosen
+
+
+[Back to top](#contents)
+
+### Winning message
+
+![The Winning message](./readme-images/) <!-- change the image>
+
+When the user manages to guess all the five colors in their correct order within the 12 attempts a winning message pops up accompanied by a winning chime. In the winning message the user can see how much time it took him to guess the code and how many attempts he/she needed. At the same time as the message is displayed, the secret row is revealed and the user can compare his guess to the secret code. At the end of the pop up message the user gets a choice to play again or to hide the winning message. When the user chooses the Play again option, the pop up is closed and the game is reset to the intial settings. When he chooses to close the modal, he can look more closely at his choices.
+
+[Back to top](#contents)
+
+### Losing message
+
+![The Losing message](./readme-images/) <!--change the image>
+
+If the user does not manage to guess the correct color sequence in the 12 attempts, a losing message is displayed. At the same time a "game-over" chime is played and the user is commiserated on his lack of success. The secret code is revealed so the user can see where he made a mistake. At the end, the user has an option to play again or close the message.
+
+[Back to top](#contents)
+
+### Test Driven Development
+
+[Back to top](#contents)
+
+### Future Features
+
+- This game could have different levels depending on the age or self-confidence of the players. 
+  - To make the game easier, I could forbid the repetion of colors or decrease the number of colors. In the easier version the position of the clues could correspond to the individual color choices.
+  - To make the game more challenging, even more colors could be made available in the color picker or perhaps I could construct a countdown timer to put the player under pressure.
+
+[Back to top](#contents)
+
+# Technologies Used
+
+- [HTML5](https://html.spec.whatwg.org/) - provided the structure and content for the website
+- [CSS](https://www.w3.org/Style/CSS/Overview.en.html) - enabled applying own styles and design
+- [Figma](https://figma.com/wireframes/) - used for creating the wireframes
+- [Gitpod](https://www.gitpod.io/#get-started) - used for deploying the website
+- [Github](https://github.com/) - used for hosting and editing the website
+- [Favicon converter](https://favicon.io/favicon-converter/)
+- [JavaScript]() <!-- Add a link>
+
+[Back to top](#contents)
+
+# Testing
+
+For detailed results of all the tests conducted, please refer to this [_file_](TESTING.md).
+
+[Back to top](#contents)
+
+# Deployment
+
+## **Project Deployment**
+
+The site was deployed to GitHub pages. In order to deploy, the following steps were taken:
+
+1. Navigate to the **Settings** tab in the GitHub repository.
+2. When in **Settings**, navigate to the **Pages** tab below the middle of the list on the left hand side.
+3. From the **Branch** drop-down menu select the option **main**, then click **save**.
+4. After the main branch has been selected and confirmed, the page will be automatically refreshed. The refresh might take several minutes. A detailed message will appear at the top of the page indicating the successful deployment. The message will include a link to the deployed site.
+
+![GitHub deploying process image](./readme-images/deployment.png)
+
+The link to the the live site can be found here - https://lucia2007.github.io/tennis-for-all/
+
+[Back to top](#contents)
+
+## **To fork the repository on GitHub**
+
+A copy of the GitHub Repository can be made by forking the GitHub account. This copy can be viewed and changed without affecting the original repository. Take the following steps to fork the repository:
+
+1. Log in to **GitHub** and locate the [repository](https://github.com/lucia2007/tennis-for-all).
+2. On the top right hand side of the page is a button called **'Fork'**. Click on the button to create a copy of the original repository in your GitHub Account.
+
+![GitHub forking process image](./readme-images/forking_process.png)
+
+[Back to top](#contents)
+
+## **To create a local clone of a project**
+
+Take the following steps to create a clone of a project:
+
+1. Click on the **Code** button in the left top corner.
+2. Next to the green **GitPod** button, click on **Code** drop-down menu.
+3. In the **HTTPS** section, click on the clipboard icon to copy the displayed URL.
+4. In your IDE of choice, open **Git Bash**.
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type **git clone**, and then paste the URL copied from GitHub.
+7. Press **enter** and the local clone will be created.
+
+![Github cloning process image](./readme-images/cloning_process.png)
+
+[Back to top](#contents)
+
+# Credits
+
+## Content
+
+- The overall inspiration came from the well-known game called <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="blank" rel="noopener">Mastermind</a> which I used to love to play as a child. In the postcommunist countries this game was called Logik.
+- The styling of "Find Your Group" section was inspired by [Czechitas](https://czechitas.cz).
+- The fonts were downloaded from [Google Fonts](https://fonts.google.com/).
+<!-- - The color pallete was downloaded from [coolors](https://coolors.co). -->
+- The icons were found at [Font Awesome](https://fontawesome.com/), [Free Icons](https://www.freeiconspng.com) and [PNG ARTS](https://www.pngarts.com/).
+- [Figma](https://figma.com/) was used to create the wireframes and the dependency diagram.
+- The framework for the readme file was originally taken from [Wawas Wood](https://github.com/EwanColquhoun/wawaswoods/blob/master/README.md) and from [Scoops](https://github.com/amylour/scoops_pp1/blob/main/README.md#testing).
+
+## Media
+
+- The images were downloaded from [PNG ARTS](https://pngarts.com/), [Free Icosn](https://www.freeiconspng.com/).
+<!-- - The photos were compressed using the [Squoosh app](https://squoosh.app//). -->
+
+## Acknowledgements
+
+- Extra help and guidance was received from my mentor Precious Ijege, from my husband Sam and fellow colleagues from the Code Institute.
+- My husband Sam encouraged me to try the test driven development for the logical part of the game and guided me through it. He laso helped me by installing the necessary packages.
+- I used several tutorial for different features:
+  - This [tutorial](https://www.youtube.com/watch?v=wffK2OIt8u0) was used to help me turn on and turn off the deep focus music when the music icon is pressed.
+  - I used this [tutorial](https://foolishdeveloper.com/create-a-simple-stopwatch-using-javascript-tutorial-code/) to help me set up the timer/stopwatch.
+  - I used these [instructions](https://bobbyhadz.com/blog/javascript-get-object-key-by-value) to get the object key by value for a helping function when I wanted to reveal the secret code in console.log so I could test the features more quickly.
+
+Thank you all for your support and encouragement.
+
+[Back to top](#contents)
