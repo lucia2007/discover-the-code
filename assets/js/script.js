@@ -30,6 +30,11 @@ const winningChime = document.getElementById("winning-chime");
 const losingChime = document.getElementById("losing-chime");
 const secretCodeSquares = document.getElementById("ctn-secret-code").children;
 const keys = document.getElementsByClassName("no-key");
+const score = document.getElementById("ctn-score");
+const playground = document.getElementById("ctn-playground");
+const secondHeading = document.getElementById("second-heading");
+const colors = document.getElementById("ctn-colors");
+const buttons = document.getElementById("buttons");
 const playgroundSquares = document.getElementsByClassName("playground-square");
 const playgroundCircles = document.getElementsByClassName("playground-circle");
 const timer = document.getElementById("time-elapsed");
@@ -46,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInitialState();
     displayWelcomeMessage();
+    hideScoreAndPlaygroundAndColorPicker();
     addButtonClickedHandlers();
     addQuestionMarkHandler();
     addMusicIconHandler();
@@ -125,6 +131,7 @@ function displayWelcomeMessage() {
 
 /** This function hides the Welcome pop-up when the Play button is clicked */
 function playButtonClicked() {
+    showScoreAndPlaygroundAndColorPicker();
     welcomeMessage.style.display = "none";
     // startTimer();
 };
@@ -215,21 +222,25 @@ function displayTime() {
 /** This function defines a set of tasks to be performed when the Play again button is clicked */
 function playAgainButtonClicked() {
     winningPopUp.style.display = "none";
+    showScoreAndPlaygroundAndColorPicker();
     setInitialState();
 }
 
 
 function closeButtonClicked() {
     winningPopUp.style.display = "none";
+    showScoreAndPlaygroundAndColorPicker();
 }
 
 function playAgainButton2Clicked() {
     losingPopUp.style.display = "none";
+    showScoreAndPlaygroundAndColorPicker();
     setInitialState();
 }
 
 function closeButton2Clicked() {
     losingPopUp.style.display = "none";
+    showScoreAndPlaygroundAndColorPicker();
 }
 
 /** This function makes the Check button unclickable */
@@ -346,6 +357,7 @@ function guessed() {
     clearInterval(int);
     playWinningChime();
     displayWinningPopUp();
+    hideScoreAndPlaygroundAndColorPicker();
     displaySecretCode();
     hideKeys();
 }
@@ -354,6 +366,7 @@ function youLost() {
     clearInterval(int);
     playLosingChime();
     displayLosingPopUp();
+    hideScoreAndPlaygroundAndColorPicker();
     displaySecretCode();
     hideKeys();
 }
@@ -413,6 +426,22 @@ function showKeys() {
         key.style.textAlign = "center";
         key.style.paddingTop = "0.25rem";
     }
+}
+
+function hideScoreAndPlaygroundAndColorPicker() {
+    score.style.display = "none";
+    playground.style.display = "none";
+    secondHeading.style.display = "none";
+    colors.style.display = "none";
+    buttons.style.display = "none";
+}
+
+function showScoreAndPlaygroundAndColorPicker() {
+    score.style.display = "flex";
+    playground.style.display = "flex";
+    secondHeading.style.display = "block";
+    colors.style.display = "flex";
+    buttons.style.display = "flex";
 }
 
 function setInitialState() {
