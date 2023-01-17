@@ -75,6 +75,63 @@ document.addEventListener("DOMContentLoaded", function () {
     generateNewSecretCode();
 })
 
+// code inspired by Love Maths
+/** This function adds on-click event listeners to all the buttons */
+function addButtonClickedHandlers() {
+    let buttons = document.getElementsByClassName('button');
+
+    for (let button of buttons) {
+        button.addEventListener("click", function () {
+            // endTimer();
+            // for a version where you can change your choices, you will need to add a check here if all the squares in the current row are taken
+            // depending on which button was clicked, different events will take place
+
+            if (this.getAttribute("data-type") === "check") { // if check button is clicked
+
+                let result = getResult();
+                displayResult(result[0], result[1]); // clues are displayed in the circles
+                disableCheckButton(); // check button is disabled
+                userGuessRow = [];
+                moves++; // number of moves is increased
+                currentRowIndex--; // current row index is decreased
+                displayMoves(); // number of moves is displayed
+
+
+                if (currentRowIndex > -2 && result[0] === 5) {
+                    guessed(); // this checks if the secret code was quessed in less than 13 attempts; if yes, the guessed() function runs
+                } else if (currentRowIndex < 0 && result[0] !== 5) {
+                    youLost(); // this checks if the secret code was not guessed despite using 12 attempts
+                }
+
+            } else if (this.getAttribute("data-type") === "restart") { // if restart button is clicked, the game is reset into intial state    
+                setInitialState();
+                // startTimer();
+
+            } else if (this.getAttribute("data-type") === "play") { // if play button is clicked, a function runs which resets the game to initial state
+                playButtonClicked();
+                // startTimer();
+
+            } else if (this.getAttribute("data-type") === "play-again") { // if play again button is clicked (when a user won), a function runs which resets the game to initial state    
+                playAgainButtonClicked();
+                // startTimer();
+
+            } else if (this.getAttribute("data-type") === "play-again-2") { // if play again 2 button is clicked (when a user lost), a function runs which resets the game to initial state    
+                playAgainButton2Clicked();
+                // startTimer();
+
+            } else if (this.getAttribute("data-type") === "close") { // if close button is clicked (when a user won), the user is shown the playground with his guesses
+                closeButtonClicked();
+
+            } else if (this.getAttribute("data-type") === "close-2") { // if close 2 button is clicked (when a user lost), the user is shown the playground with his guesses
+                closeButton2Clicked();
+
+            } else {
+                alert("Something is wrong")
+            }
+        })
+    }
+};
+
 /**This function adds on-click event listener to the Close icon */
 // function addCloseIconHandler() {
 //     closeIcon.addEventListener("click", function () {
@@ -112,6 +169,44 @@ function addMusicIconHandler() {
     });
 };
 
+/**  This function adds on-click event listeners to all the squares in the Options section 
+ * starts the stopwatch when one of the squares in the Pick your Color section is clicked
+ * assignes the clicked color to the first grey square starting from the left
+ **/
+function addColorClickedHandlers() {
+    for (let i = 0; i < colorChoices.length; i++) {
+        colorChoices[i].addEventListener("click", function () {
+            /** This function identifies which square in Options section was clicked 
+             * and assigns its color to the first square in row[currentRowIndex] which is not yet colored/taken
+             * */
+
+            // when any of the squares are clicked, the timer/stopwatch starts
+            startTimer();
+
+            /**This for loop lets the user fill in the five grey squares in the current row
+             * When a certain color is clicked, the respective color is assigned to the left-most square which has grey background color, until all five squares are filled
+             */
+
+            let currentRow = allRows[currentRowIndex];
+            let currentRowSquare = currentRow.children[0];
+            let currentSquares = currentRowSquare.children;
+
+            for (let square of currentSquares) {
+                if (!square.classList.contains('is-taken')) {
+                    square.style.backgroundColor = Object.values(colorPicker)[i];
+                    square.classList.add('is-taken');
+                    userGuessRow.push(Object.values(colorPicker)[i]);
+                    // checkBackgroundColor();
+                    if (userGuessRow.length === 5) {
+                        enableCheckButton();
+                    } else {
+                        break;
+                    }
+                }
+            }
+        })
+    }
+};
 
 function addCurrentRowSquaresHandler() {
 
@@ -143,55 +238,6 @@ function displayWelcomeMessage() {
 function playButtonClicked() {
     showScoreAndPlaygroundAndColorPicker();
     welcomeMessage.style.display = "none";
-};
-
-// code inspired by Love Maths
-/** This function adds on-click event listeners to all the buttons */
-function addButtonClickedHandlers() {
-    let buttons = document.getElementsByClassName('button');
-
-    for (let button of buttons) {
-        button.addEventListener("click", function () {
-            // endTimer();
-            // for a version where you can change your choices, you will need to add a check here if all the squares in the current row are taken
-            if (this.getAttribute("data-type") === "check") {
-
-                let result = getResult();
-                displayResult(result[0], result[1]);
-                disableCheckButton();
-                userGuessRow = [];
-                moves++;
-                currentRowIndex--;
-                displayMoves();
-
-
-                if (currentRowIndex > -2 && result[0] === 5) {
-                    guessed();
-                } else if (currentRowIndex < 0 && result[0] !== 5) {
-                    youLost();
-                }
-
-            } else if (this.getAttribute("data-type") === "restart") {
-                setInitialState();
-                // startTimer();
-            } else if (this.getAttribute("data-type") === "play") {
-                playButtonClicked();
-                // startTimer();
-            } else if (this.getAttribute("data-type") === "play-again") {
-                playAgainButtonClicked();
-                // startTimer();
-            } else if (this.getAttribute("data-type") === "play-again-2") {
-                playAgainButton2Clicked();
-                // startTimer();
-            } else if (this.getAttribute("data-type") === "close") {
-                closeButtonClicked();
-            } else if (this.getAttribute("data-type") === "close-2") {
-                closeButton2Clicked();
-            } else {
-                alert("Something is wrong")
-            }
-        })
-    }
 };
 
 /** All timer/stopwatch related code was taken from this tutorial:
@@ -272,41 +318,6 @@ function enableCheckButton() {
     checkCodeButton.style.backgroundColor = "#2B303A";
     checkCodeButton.style.color = "white";
 };
-
-
-/**  This function adds on-click event listeners to all the squares in the Options section 
- **/
-function addColorClickedHandlers() {
-    for (let i = 0; i < colorChoices.length; i++) {
-        colorChoices[i].addEventListener("click", function () {
-            /** This function identifies which square in Options section was clicked 
-             * and assigns its color to the first square in row[currentRowIndex] which is not yet colored/taken
-             * */
-
-            startTimer();
-            // here or when the Play button is pushed?
-
-            let currentRow = allRows[currentRowIndex];
-            let currentRowSquare = currentRow.children[0];
-            let currentSquares = currentRowSquare.children;
-
-            /**This for loop lets the user fill in the five squares */
-            for (let square of currentSquares) {
-                if (!square.classList.contains('is-taken')) {
-                    square.style.backgroundColor = Object.values(colorPicker)[i];
-                    square.classList.add('is-taken');
-                    userGuessRow.push(Object.values(colorPicker)[i]);
-                    if (userGuessRow.length === 5) {
-                        enableCheckButton();
-                    } else {
-                        break;
-                    }
-                }
-            }
-        })
-    }
-};
-
 
 /** This function generates a new secret code - assigns each square in the Secret code section a random color, 
  * the color is not applied/displayed until later when the game is over
