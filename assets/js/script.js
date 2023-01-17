@@ -66,12 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
     addQuestionMarkHandler();
     addMusicIconHandler();
     // addCloseIconHandler();
-
-    for (let i = 0; i < colorChoices.length; i++) {
-        colorChoices[i].style.backgroundColor = Object.values(colorPicker)[i];
-    }
-
     addColorClickedHandlers();
+    fillInTheColorPicker();
     generateNewSecretCode();
 })
 
@@ -243,6 +239,14 @@ function addColorClickedHandlers() {
     }
 };
 
+// Each square in the Pick Your color section is assigned a color from the color picker which is an array of available colors
+function fillInTheColorPicker() {
+    for (let i = 0; i < colorChoices.length; i++) {
+        colorChoices[i].style.backgroundColor = Object.values(colorPicker)[i];
+    }
+}
+
+/** This function generates a new secret code - it assigns each square in the Secret code section a random color, 
 function addCurrentRowSquaresHandler() {
 
     let currentRow = allRows[currentRowIndex];
