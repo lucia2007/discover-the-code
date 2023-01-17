@@ -41,12 +41,22 @@ const timer = document.getElementById("time-elapsed");
 const movesCount = document.getElementById("moves-needed");
 const focusMusic = document.getElementById("focus-music");
 
-// Can this be moved into some function or should it stay global?
 let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
 let int = null;
 
 
-/** When the dom content is loaded, the predefined colors in the Options section are filled in*/
+/** When the dom content is loaded:
+ * initial state is set
+ * welcome message is displayed
+ * playground and pick your color sections are hidden
+ * buttons handlers are added based on event listeners
+ * question mark handler is added based on event listeners
+ * music icon is added based on event listeners
+ * color clicked handlers based on event listeners are added
+ * the predefined colors in the Options section are filled in
+ * new secret code is generated
+ * colors in the color picker are filled in
+ * */
 document.addEventListener("DOMContentLoaded", function () {
 
     setInitialState();
@@ -72,8 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //     })
 // };
 
-
-/** This function opens and closes the Welcome pop-up */
+/** This function opens and closes the Welcome pop-up and shows or hides the plaground and pick your color sections */
 function addQuestionMarkHandler() {
     questionIcon.addEventListener("click", function () {
         if (welcomeMessage.style.display === "flex") {
@@ -130,12 +139,10 @@ function displayWelcomeMessage() {
     welcomeMessage.style.display = "flex";
 };
 
-
-/** This function hides the Welcome pop-up when the Play button is clicked */
+/** This function hides the Welcome pop-up  and shows the plaground and the color picker when the Play button is clicked */
 function playButtonClicked() {
     showScoreAndPlaygroundAndColorPicker();
     welcomeMessage.style.display = "none";
-    // startTimer();
 };
 
 // code inspired by Love Maths
@@ -219,27 +226,34 @@ function displayTime() {
     timer.innerHTML = `${m} : ${s}`;
 };
 
-
-
-/** This function defines a set of tasks to be performed when the Play again button is clicked */
+/** This function defines a set of tasks to be performed when the Play again button is clicked 
+ * The game is reset to the inital state
+ */
 function playAgainButtonClicked() {
     winningPopUp.style.display = "none";
     showScoreAndPlaygroundAndColorPicker();
     setInitialState();
 }
 
-
+/** This function hides the winning modal and shows the playground with the user's guesses and the color picker after the Close button was clicked*/
 function closeButtonClicked() {
     winningPopUp.style.display = "none";
     showScoreAndPlaygroundAndColorPicker();
 }
 
+/** This function hides the losing pop up and shows the playground 
+ * and the color picker after the Play again button was clicked. 
+ * It also resets the game to the initial state.
+ * */
 function playAgainButton2Clicked() {
     losingPopUp.style.display = "none";
     showScoreAndPlaygroundAndColorPicker();
     setInitialState();
 }
 
+/** This function closes the losing pop up and displays the playground and the color picker
+ * after the close button on the losing modal was clicked.
+ */
 function closeButton2Clicked() {
     losingPopUp.style.display = "none";
     showScoreAndPlaygroundAndColorPicker();
@@ -318,7 +332,10 @@ function generateNewSecretCode() {
     console.log("\n");
 };
 
-/** This function returns the number of black and white circles */
+/** This function returns the number of black and white circles 
+ * A separate file is used for functions countBlacks and countWhites as test driven development was used for making sure
+ * the logical part of the game functions correctly
+ */
 function getResult() {
     let blackCount = logic.countBlacks(secretCode, userGuessRow);
     let whiteCount = logic.countWhites(secretCode, userGuessRow);
@@ -327,7 +344,7 @@ function getResult() {
 };
 
 
-/**This function colors the correct number of circles in black or white */
+/**This function colors the correct number of circles in black or white in the current row*/
 function displayResult(blacks, whites) {
     let currentRow = allRows[currentRowIndex];
     let currentRowCircle = currentRow.children[1];
@@ -337,12 +354,12 @@ function displayResult(blacks, whites) {
         if (currentCircles[i].classList.contains('is-taken')) {
             continue;
         }
-        if (blacks > 0) {
+        if (blacks > 0) { // sets the color of the circle to black
             currentCircles[i].style.backgroundColor = "black";
             currentCircles[i].style.border = "solid 2px black";
             currentCircles[i].classList.add('is-taken');
             blacks--;
-        } else if (whites > 0) {
+        } else if (whites > 0) { // set the color of the circle to white and makes a black border around the circle for contrast
             currentCircles[i].style.backgroundColor = "white";
             currentCircles[i].style.border = "solid 2px black";
             currentCircles[i].classList.add('is-taken');
@@ -351,10 +368,19 @@ function displayResult(blacks, whites) {
     }
 };
 
+// this function displays the number of moves
 function displayMoves() {
     movesCount.textContent = moves;
 };
 
+/**  When the user guessed the secret code:
+ * the timer is cleared
+ * the winning chime playes
+ * the winning pop up is displayed
+ * the playground and color picker are hidden
+ * the secret code is revealed
+ * the keys on the secret code squares are hidden
+ */
 function guessed() {
     clearInterval(int);
     playWinningChime();
@@ -364,6 +390,14 @@ function guessed() {
     hideKeys();
 }
 
+/** When the user loses:
+ * the timer is cleared
+ * the losing chime is played
+ * the losing pop up is displayed
+ * the playground and color picker are hidden
+ * the secret code is displayed
+ * the keys on the secret code squares are hidden
+ */
 function youLost() {
     clearInterval(int);
     playLosingChime();
@@ -381,6 +415,11 @@ function playLosingChime() {
     losingChime.play();
 }
 
+/** This function displays the winning pop up
+ * it displays the time elapsed since the beggining of the game
+ * it shows the number of moves used
+ * it uses the singular/plural form of attempt/s depending of the number of moves used
+ */
 function displayWinningPopUp() {
     winningPopUp.style.display = "flex";
     let timeElapsed = document.getElementById("time-elapsed").innerHTML;
@@ -407,6 +446,7 @@ function displayLosingPopUp() {
     losingPopUp.style.display = "flex";
 }
 
+// This function colors the secret code squares background to the generated random colors
 function displaySecretCode() {
     for (let i = 0; i < secretCodeSquares.length; i++) {
         let square = secretCodeSquares[i];
@@ -414,6 +454,7 @@ function displaySecretCode() {
     }
 }
 
+// This function hides the keys from the secret code squares
 function hideKeys() {
     for (let i = 0; i < keys.length; i++) {
         let key = keys[i];
@@ -421,6 +462,7 @@ function hideKeys() {
     }
 }
 
+// This function reveals the keys in the secret code squares
 function showKeys() {
     for (let i = 0; i < keys.length; i++) {
         let key = keys[i];
@@ -430,6 +472,7 @@ function showKeys() {
     }
 }
 
+// This function hides the playground and the color picker section
 function hideScoreAndPlaygroundAndColorPicker() {
     score.style.display = "none";
     playground.style.display = "none";
@@ -438,6 +481,7 @@ function hideScoreAndPlaygroundAndColorPicker() {
     buttons.style.display = "none";
 }
 
+// This function reveals the playground and the color picker section
 function showScoreAndPlaygroundAndColorPicker() {
     score.style.display = "flex";
     playground.style.display = "flex";
@@ -474,6 +518,7 @@ function setInitialState() {
     // unglow all rows/squares
 }
 
+// This function clears the background color of the squares in the playground
 function clearBackgroundColorSquares() {
     for (let playgroundSquare of playgroundSquares) {
         playgroundSquare.style.backgroundColor = "#D9D9D9";
@@ -481,18 +526,21 @@ function clearBackgroundColorSquares() {
     }
 }
 
+// This function clears the background color of the squares in the secret code squares
 function clearBackgroundColorSecretCodeSquares() {
     for (let square of secretCodeSquares) {
         square.style.backgroundColor = "#D9D9D9";
     }
 }
 
+// This function clears the background color of the circles
 function clearBackgroundColorCircles() {
     for (let playgroundCircle of playgroundCircles) {
         playgroundCircle.style.backgroundColor = "#D9D9D9";
     }
 }
 
+// This function clears the border from the white circles
 function clearBorderCircles() {
     for (let playgroundCircle of playgroundCircles) {
         playgroundCircle.style.border = "";
