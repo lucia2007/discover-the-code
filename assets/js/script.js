@@ -2,17 +2,16 @@ import logic from './logic.js';
 
 // define the available colors in the Options section
 const colorPicker = {
-    blue: '#3a2fff',
-    pink: '#ff2fa8',
-    green: '#adff2f',
-    red: '#ff442f',
-    aqua: '#2ffffb',
-    yellow: '#fff42f',
-    purple: '#9d2fff',
-    orange: '#FFA400',
+    blue: "rgb(58, 47, 255)",
+    pink: "rgb(255, 47, 168)",
+    green: "rgb(173, 255, 47)",
+    red: "rgb(255, 68, 47)",
+    aqua: "rgb(47, 255, 251)",
+    yellow: "rgb(255, 244, 47)",
+    purple: "rgb(157, 47, 255)",
+    orange: "rgb(255, 164, 0)",
 }
 
-let userGuessRow;
 let secretCode;
 let currentRowIndex;
 let moves;
@@ -73,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function setInitialState() {
     // changes the color of the squares back to grey
-    userGuessRow = [];
     clearBackgroundColorSquares();
 
     // changes the color of the circles back to grey and takes away border
@@ -126,7 +124,6 @@ function addButtonClickedHandlers() {
                 let result = getResult();
                 displayResult(result[0], result[1]); // clues are displayed in the circles
                 disableCheckButton(); // check button is disabled
-                userGuessRow = [];
                 moves++; // number of moves is increased
                 currentRowIndex--; // current row index is decreased
                 displayMoves(); // number of moves is displayed
@@ -230,9 +227,7 @@ function addColorClickedHandlers() {
                 if (!square.classList.contains('is-taken')) {
                     square.style.backgroundColor = Object.values(colorPicker)[i];
                     square.classList.add('is-taken');
-                    userGuessRow.push(Object.values(colorPicker)[i]);
-                    // checkBackgroundColor();
-                    if (userGuessRow.length === 5) {
+                    if (getCurrentRowColors().length === 5) {
                         enableCheckButton();
                     } else {
                         break;
@@ -336,7 +331,6 @@ function displayTime() {
     timer.innerHTML = `${m} : ${s}`;
 };
 
-
 /** This function defines a set of tasks to be performed when the Play again button is clicked 
  * The game is reset to the inital state
  */
@@ -380,17 +374,33 @@ function disableCheckButton() {
 /** This function makes the Check button clickable */
 function enableCheckButton() {
     checkCodeButton.disabled = false;
-    checkCodeButton.style.backgroundColor = "#2B303A";
-    checkCodeButton.style.color = "white";
+    checkCodeButton.style.backgroundColor = '';
+    checkCodeButton.style.color = '';
 };
+
+// This function returns an array with chosen colors as strings like "rgb(0, 0, 0)". This array can have 0 to five elements.
+function getCurrentRowColors() {
+    let currentRowColors = [];
+    let currentRow = allRows[currentRowIndex];
+    let currentRowSquare = currentRow.children[0];
+    let currentSquares = currentRowSquare.children;
+
+    for (let square of currentSquares) {
+        if (square.classList.contains('is-taken')) {
+            currentRowColors.push(square.style.backgroundColor);
+        }
+    }
+
+    return currentRowColors;
+}
 
 /** This function returns the number of black and white circles 
  * A separate file is used for functions countBlacks and countWhites as test driven development was used for making sure
  * the logical part of the game functions correctly
  */
 function getResult() {
-    let blackCount = logic.countBlacks(secretCode, userGuessRow);
-    let whiteCount = logic.countWhites(secretCode, userGuessRow);
+    let blackCount = logic.countBlacks(secretCode, getCurrentRowColors());
+    let whiteCount = logic.countWhites(secretCode, getCurrentRowColors());
 
     return [blackCount, whiteCount];
 };
@@ -502,7 +512,7 @@ function displayLosingPopUp() {
 function displaySecretCode() {
     for (let i = 0; i < secretCodeSquares.length; i++) {
         let square = secretCodeSquares[i];
-        square.style.backgroundColor = secretCode[i]
+        square.style.backgroundColor = secretCode[i];
     }
 }
 
@@ -545,7 +555,7 @@ function showScoreAndPlaygroundAndColorPicker() {
 // This function clears the background color of the squares in the playground
 function clearBackgroundColorSquares() {
     for (let playgroundSquare of playgroundSquares) {
-        playgroundSquare.style.backgroundColor = "#D9D9D9";
+        playgroundSquare.style.backgroundColor = '';
         playgroundSquare.classList.remove("is-taken");
     }
 }
@@ -553,14 +563,14 @@ function clearBackgroundColorSquares() {
 // This function clears the background color of the squares in the secret code squares
 function clearBackgroundColorSecretCodeSquares() {
     for (let square of secretCodeSquares) {
-        square.style.backgroundColor = "#D9D9D9";
+        square.style.backgroundColor = '';
     }
 }
 
 // This function clears the background color of the circles
 function clearBackgroundColorCircles() {
     for (let playgroundCircle of playgroundCircles) {
-        playgroundCircle.style.backgroundColor = "#D9D9D9";
+        playgroundCircle.style.backgroundColor = '';
     }
 }
 
