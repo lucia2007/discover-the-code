@@ -75,6 +75,41 @@ document.addEventListener("DOMContentLoaded", function () {
     generateNewSecretCode();
 })
 
+function setInitialState() {
+    // changes the color of the squares back to grey
+    userGuessRow = [];
+    clearBackgroundColorSquares();
+
+    // changes the color of the circles back to grey and takes away border
+    clearBackgroundColorCircles();
+    clearBorderCircles();
+
+    // this moves us back to the first (11th) row
+    currentRowIndex = 11;
+    moves = 0;
+    displayMoves();
+
+    // this clears timer
+    clearInterval(int);
+    [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+    timer.innerHTML = "00:00";
+
+    // this function generates a new secret code
+    generateNewSecretCode();
+
+    // this function sets the background color of the secret code squares back to grey
+    clearBackgroundColorSecretCodeSquares();
+
+    // this function displays the keys on the grey secret code sqaures
+    showKeys();
+
+    // this function disables the check button
+    disableCheckButton();
+
+    // unglow all rows/squares
+}
+
+//** This function makes the Welcome pop-up appear */
 // code inspired by Love Maths
 /** This function adds on-click event listeners to all the buttons */
 function addButtonClickedHandlers() {
@@ -499,34 +534,6 @@ function showScoreAndPlaygroundAndColorPicker() {
     secondHeading.style.display = "block";
     colors.style.display = "flex";
     buttons.style.display = "flex";
-}
-
-function setInitialState() {
-    // changes the color of the squares back to grey
-    userGuessRow = [];
-    clearBackgroundColorSquares();
-
-    // changes the color of the circles back to grey and takes away border
-    clearBackgroundColorCircles();
-    clearBorderCircles();
-
-    // this moves us back to the first (11th) row
-    currentRowIndex = 11;
-    moves = 0;
-    displayMoves();
-
-    // this clears timer
-    clearInterval(int);
-    [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
-    timer.innerHTML = "00:00";
-
-    generateNewSecretCode();
-    clearBackgroundColorSecretCodeSquares();
-    showKeys();
-
-    disableCheckButton();
-
-    // unglow all rows/squares
 }
 
 // This function clears the background color of the squares in the playground
