@@ -251,6 +251,29 @@ function fillInTheColorPicker() {
 }
 
 /** This function generates a new secret code - it assigns each square in the Secret code section a random color, 
+ * the color is not displayed until later when the game is over
+ * it returns the currentSecretCode  --- delete this when finished
+ * */
+function generateNewSecretCode() {
+    let secretSquares = document.getElementsByClassName('secret-code-square');
+    secretCode = [];
+    for (let i = 0; i < secretSquares.length; i++) {
+        let randomNumber = Math.floor(Math.random() * 8);
+        secretCode.push(Object.values(colorPicker)[randomNumber]);
+    }
+
+    // delete this function when finished
+    // https://bobbyhadz.com/blog/javascript-get-object-key-by-value
+    function getObjectKey(obj, value) {
+        return Object.keys(colorPicker).find(key => colorPicker[key] === value);
+    }
+
+    for (let i = 0; i < secretSquares.length; i++) {
+        console.log(getObjectKey(colorPicker, secretCode[i]));
+    }
+    console.log("\n");
+};
+
 function addCurrentRowSquaresHandler() {
 
     let currentRow = allRows[currentRowIndex];
@@ -355,30 +378,6 @@ function enableCheckButton() {
     checkCodeButton.disabled = false;
     checkCodeButton.style.backgroundColor = "#2B303A";
     checkCodeButton.style.color = "white";
-};
-
-/** This function generates a new secret code - assigns each square in the Secret code section a random color, 
- * the color is not applied/displayed until later when the game is over
- * it returns the currentSecretCode
- * */
-function generateNewSecretCode() {
-    let secretSquares = document.getElementsByClassName('secret-code-square');
-    secretCode = [];
-    for (let i = 0; i < secretSquares.length; i++) {
-        let randomNumber = Math.floor(Math.random() * 8);
-        secretCode.push(Object.values(colorPicker)[randomNumber]);
-    }
-
-    // delete this function when finished
-    // https://bobbyhadz.com/blog/javascript-get-object-key-by-value
-    function getObjectKey(obj, value) {
-        return Object.keys(colorPicker).find(key => colorPicker[key] === value);
-    }
-
-    for (let i = 0; i < secretSquares.length; i++) {
-        console.log(getObjectKey(colorPicker, secretCode[i]));
-    }
-    console.log("\n");
 };
 
 /** This function returns the number of black and white circles 
