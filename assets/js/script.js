@@ -311,7 +311,10 @@ function startTimer() {
     int = setInterval(displayTime, 10);
 }
 
-
+/** This function converts milliseconds to seconds, seconds to minutes, minutes to hours
+ * and assings the minutes and seconds to the relevant HTML element.
+ * * https://foolishdeveloper.com/create-a-simple-stopwatch-using-javascript-tutorial-code/ 
+ */
 function displayTime() {
     milliseconds += 10;
     if (milliseconds == 1000) {
@@ -332,6 +335,7 @@ function displayTime() {
     let ms = milliseconds < 10 ? "0" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
     timer.innerHTML = `${m} : ${s}`;
 };
+
 
 /** This function defines a set of tasks to be performed when the Play again button is clicked 
  * The game is reset to the inital state
