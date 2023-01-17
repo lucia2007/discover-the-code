@@ -106,6 +106,10 @@ function setInitialState() {
 }
 
 //** This function makes the Welcome pop-up appear */
+function displayWelcomeMessage() {
+    welcomeMessage.style.display = "flex";
+};
+
 // code inspired by Love Maths
 /** This function adds on-click event listeners to all the buttons */
 function addButtonClickedHandlers() {
@@ -266,11 +270,6 @@ function addCurrentRowSquaresHandler() {
             // square.classList.add("is-taken");
         });
     };
-};
-
-//** This function makes the Welcome pop-up appear */
-function displayWelcomeMessage() {
-    welcomeMessage.style.display = "flex";
 };
 
 /** This function hides the Welcome pop-up  and shows the plaground and the color picker when the Play button is clicked */
