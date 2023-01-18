@@ -118,12 +118,10 @@ function addButtonClickedHandlers() {
 
     for (let button of buttons) {
         button.addEventListener("click", function () {
-            // endTimer();
             // for a version where you can change your choices, you will need to add a check here if all the squares in the current row are taken
+
             // depending on which button was clicked, different events will take place
-
             if (this.getAttribute("data-type") === "check") { // if check button is clicked
-
                 let result = getResult();
                 displayResult(result[0], result[1]); // clues are displayed in the circles
                 disableCheckButton(); // check button is disabled
@@ -140,19 +138,15 @@ function addButtonClickedHandlers() {
 
             } else if (this.getAttribute("data-type") === "restart") { // if restart button is clicked, the game is reset into intial state    
                 setInitialState();
-                // startTimer();
 
             } else if (this.getAttribute("data-type") === "play") { // if play button is clicked, a function runs which resets the game to initial state
                 playButtonClicked();
-                // startTimer();
 
             } else if (this.getAttribute("data-type") === "play-again") { // if play again button is clicked (when a user won), a function runs which resets the game to initial state    
                 playAgainButtonClicked();
-                // startTimer();
 
             } else if (this.getAttribute("data-type") === "play-again-2") { // if play again 2 button is clicked (when a user lost), a function runs which resets the game to initial state    
                 playAgainButton2Clicked();
-                // startTimer();
 
             } else if (this.getAttribute("data-type") === "close") { // if close button is clicked (when a user won), the user is shown the playground with his guesses
                 closeButtonClicked();
