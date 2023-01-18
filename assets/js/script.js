@@ -23,6 +23,7 @@ const allRows = document.getElementsByClassName("row");
 const welcomeMessage = document.getElementById("welcome-pop-up");
 const questionIcon = document.getElementById("question-mark");
 const musicIcon = document.getElementById("music-note");
+const stopMusicIcon = document.getElementById("music-stop");
 const winningPopUp = document.getElementById("you-won-pop-up");
 const losingPopUp = document.getElementById("you-lost-pop-up");
 const winningChime = document.getElementById("winning-chime");
@@ -64,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     addButtonClickedHandlers();
     addQuestionMarkHandler();
     addMusicIconHandler();
+    addStopMusicIconHandler();
     // addCloseIconHandler();
     addColorClickedHandlers();
     fillInTheColorPicker();
@@ -184,7 +186,7 @@ function addQuestionMarkHandler() {
     })
 }
 
-/** This function turns music on/off.
+/** This function turns music on when the music icon is pressed.
  * Tutorial: https://www.youtube.com/watch?v=wffK2OIt8u0
  */
 function addMusicIconHandler() {
@@ -194,12 +196,34 @@ function addMusicIconHandler() {
         if (count == 0) {
             count = 1;
             focusMusic.play();
+            musicIcon.style.display = "none";
+            stopMusicIcon.style.display = "flex";
         } else {
             count = 0;
             focusMusic.pause();
         }
     });
 };
+
+/** This function turns music off when the stop music icon is pressed.
+ * Tutorial: https://www.youtube.com/watch?v=wffK2OIt8u0
+ */
+function addStopMusicIconHandler() {
+    let count = 0;
+
+    stopMusicIcon.addEventListener("click", function () {
+        if (count == 0) {
+            count = 1;
+            focusMusic.play();
+        } else {
+            count = 0;
+            musicIcon.style.display = "block";
+            stopMusicIcon.style.display = "none";
+            focusMusic.pause();
+        }
+    });
+};
+
 
 /**  This function adds on-click event listeners to all the squares in the Options section 
  * starts the stopwatch when one of the squares in the Pick your Color section is clicked
