@@ -83,6 +83,7 @@ function setInitialState() {
 
     // this moves us back to the first (11th) row
     currentRowIndex = 11;
+    addCurrentRowSquaresHandler(); // This function adds event listeners to squares in row 11
     moves = 0;
     displayMoves();
 
@@ -125,8 +126,10 @@ function addButtonClickedHandlers() {
                 let result = getResult();
                 displayResult(result[0], result[1]); // clues are displayed in the circles
                 disableCheckButton(); // check button is disabled
+                removeClassShadow(); // square shadows are removed from the row which has been checked
                 moves++; // number of moves is increased
                 currentRowIndex--; // current row index is decreased
+                addCurrentRowSquaresHandler(); // event listeners are added to the next row
                 displayMoves(); // number of moves is displayed
 
 
@@ -290,25 +293,34 @@ function generateNewSecretCode() {
 };
 
 function addCurrentRowSquaresHandler() {
-
     let currentRow = allRows[currentRowIndex];
     let currentRowSquare = currentRow.children[0];
     let currentSquares = currentRowSquare.children;
 
-    // This function lets the user delete a previously chosen color
-    // Add an if statement which checks if you are in the current row
+    // This function lets the user delete a previously chosen color and adds a shadow to the square in the current row
     for (let square of currentSquares) {
-        // maybe these 3 lines can be global, as I use them in two different places
-
+        square.classList.add("shadow");
         square.addEventListener("click", function () {
-            if (square.classList.contains('is-taken')) {
+            if (square.classList.contains('is-taken') && square.classList.contains('shadow')) {
                 square.classList.remove('is-taken');
-                square.style.backgroundColor = "#D9D9D9";
+                square.style.backgroundColor = "";
+                disableCheckButton();
             }
-            // square.classList.add("is-taken");
         });
     };
 };
+
+/** This function removes shadow from the squares in the current row */
+function removeClassShadow() {
+    let currentRow = allRows[currentRowIndex];
+    let currentRowSquare = currentRow.children[0];
+    let currentSquares = currentRowSquare.children;
+
+    for (let square of currentSquares) {
+        square.classList.remove("shadow");
+    }
+}
+
 
 /** This function hides the Welcome pop-up  and shows the plaground and the color picker when the Play button is clicked */
 function playButtonClicked() {
