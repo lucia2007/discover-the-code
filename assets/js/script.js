@@ -35,6 +35,7 @@ const playground = document.getElementById("ctn-playground");
 const secondHeading = document.getElementById("second-heading");
 const colors = document.getElementById("ctn-colors");
 const buttons = document.getElementById("buttons");
+const playButton = document.getElementById("play-button");
 const playgroundSquares = document.getElementsByClassName("playground-square");
 const playgroundCircles = document.getElementsByClassName("playground-circle");
 const timer = document.getElementById("time-elapsed");
@@ -181,6 +182,7 @@ function addQuestionMarkHandler() {
             showScoreAndPlaygroundAndColorPicker();
         } else {
             welcomeMessage.style.display = "flex";
+            playButton.innerHTML = "Close";
             hideScoreAndPlaygroundAndColorPicker();
         }
     })
