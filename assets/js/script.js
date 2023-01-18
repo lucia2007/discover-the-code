@@ -129,12 +129,15 @@ function addButtonClickedHandlers() {
                 removeClassShadow(); // square shadows are removed from the row which has been checked
                 moves++; // number of moves is increased
                 currentRowIndex--; // current row index is decreased
+                if (currentRowIndex > -1) {
                 addCurrentRowSquaresHandler(); // event listeners are added to the next row
+                }
                 displayMoves(); // number of moves is displayed
 
 
                 if (currentRowIndex > -2 && result[0] === 5) {
                     guessed(); // this checks if the secret code was quessed in less than 13 attempts; if yes, the guessed() function runs
+                    removeClassShadow();
                 } else if (currentRowIndex < 0 && result[0] !== 5) {
                     youLost(); // this checks if the secret code was not guessed despite using 12 attempts
                 }
