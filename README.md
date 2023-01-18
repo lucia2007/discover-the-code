@@ -234,8 +234,7 @@ Take the following steps to create a clone of a project:
 - The overall inspiration came from the well-known game called <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="blank" rel="noopener">Mastermind</a> which I used to love to play as a child. In the postcommunist countries this game was called Logik.
 - The styling of "Find Your Group" section was inspired by [Czechitas](https://czechitas.cz).
 - The fonts were downloaded from [Google Fonts](https://fonts.google.com/).
-<!-- - The color pallete was downloaded from [coolors](https://coolors.co). -->
-- The icons were found at [Font Awesome](https://fontawesome.com/), [Free Icons](https://www.freeiconspng.com) and [PNG ARTS](https://www.pngarts.com/).
+- The icons were found at [Font Awesome](https://fontawesome.com/), [Free Icons](https://www.freeiconspng.com), [PNG ARTS](https://www.pngarts.com/), [The Noun Project](https://thenounproject.com/) and [Flat Icon](https://www.flaticon.com/).
 - [Figma](https://figma.com/) was used to create the wireframes and the dependency diagram.
 - The framework for the readme file was originally taken from [Wawas Wood](https://github.com/EwanColquhoun/wawaswoods/blob/master/README.md) and from [Scoops](https://github.com/amylour/scoops_pp1/blob/main/README.md#testing).
 
