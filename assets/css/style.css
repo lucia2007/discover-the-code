@@ -208,6 +208,10 @@ header {
     background-color: #D9D9D9;
 }
 
+.shadow {
+    box-shadow: 0 0 1px 0.5px black;
+}
+
 #you-won-pop-up {
     display: none;
 }
