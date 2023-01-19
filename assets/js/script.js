@@ -13,8 +13,8 @@ const colorPicker = {
     aqua: "rgb(47, 255, 251)",
     yellow: "rgb(255, 244, 47)",
     purple: "rgb(157, 47, 255)",
-    orange: "rgb(255, 164, 0)",
-}
+    orange: "rgb(255, 164, 0)"
+};
 
 let secretCode;
 let currentRowIndex;
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     addColorClickedHandlers();
     fillInTheColorPicker();
     generateNewSecretCode();
-})
+});
 
 /** This function is used when the game is to start
  * it sets all the necessary values into their initial state
@@ -166,11 +166,11 @@ function addButtonClickedHandlers() {
                 closeButton2Clicked();
 
             } else {
-                alert("Something is wrong")
+                alert("Something is wrong");
             }
-        })
+        });
     }
-};
+}
 
 /** This function opens and closes the Welcome pop-up and shows or hides the Playground and Pick your color sections */
 function addQuestionMarkHandler() {
@@ -183,7 +183,7 @@ function addQuestionMarkHandler() {
             playButton.innerHTML = "Close";
             hideScoreAndPlaygroundAndColorPicker();
         }
-    })
+    });
 }
 
 /** This function turns music on when the music icon is pressed.
@@ -204,7 +204,7 @@ function addMusicIconHandler() {
             focusMusic.pause();
         }
     });
-};
+}
 
 /** This function turns music off when the stop music icon is pressed.
  * It also changes to stop music icon to play music icon.
@@ -224,7 +224,7 @@ function addStopMusicIconHandler() {
             focusMusic.pause();
         }
     });
-};
+}
 
 
 /**  This function adds on-click event listeners to all the squares in the Options section 
@@ -261,9 +261,9 @@ function addColorClickedHandlers() {
                     }
                 }
             }
-        })
+        });
     }
-};
+}
 
 // Each square in the Pick Your color section is assigned a color from the color picker which is an array of available colors
 function fillInTheColorPicker() {
@@ -294,7 +294,7 @@ function generateNewSecretCode() {
         console.log(getObjectKey(colorPicker, secretCode[i]));
     }
     console.log("\n");
-};
+}
 
 /** This function adds event listeners to the squares in the current row
  * When a square in the current row is clicked, its background color is set to default and can later be filled in again
@@ -315,8 +315,9 @@ function addCurrentRowSquaresHandler() {
                 disableCheckButton();
             }
         });
-    };
-};
+    }
+}
+
 /** This function removes shadow from the squares in the current row */
 function removeClassShadow() {
     let currentRow = allRows[currentRowIndex];
@@ -361,14 +362,14 @@ function displayTime() {
     let s = seconds < 10 ? "0" + seconds : seconds;
     let ms = milliseconds < 10 ? "0" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
     timer.innerHTML = `${m} : ${s}`;
-};
+}
 
 
 /** This function hides the Welcome pop-up  and shows the plaground and the color picker when the Play button is clicked */
 function playButtonClicked() {
     showScoreAndPlaygroundAndColorPicker();
     welcomeMessage.style.display = "none";
-};
+}
 
 /** This function defines a set of tasks to be performed when the Play again button is clicked 
  * The game is reset to the inital state
@@ -408,14 +409,14 @@ function disableCheckButton() {
     checkCodeButton.disabled = true;
     checkCodeButton.style.backgroundColor = "#D9D9D9";
     checkCodeButton.style.color = "#2B303A";
-};
+}
 
 /** This function makes the Check button clickable */
 function enableCheckButton() {
     checkCodeButton.disabled = false;
     checkCodeButton.style.backgroundColor = "";
     checkCodeButton.style.color = "";
-};
+}
 
 // This function returns an array with chosen colors as strings like "rgb(0, 0, 0)". This array can have 0 to five elements.
 function getCurrentRowColors() {
@@ -442,7 +443,7 @@ function getResult() {
     let whiteCount = logic.countWhites(secretCode, getCurrentRowColors());
 
     return [blackCount, whiteCount];
-};
+}
 
 
 /**This function colors the correct number of circles in black or white in the current row*/
@@ -467,12 +468,12 @@ function displayResult(blacks, whites) {
             whites--;
         }
     }
-};
+}
 
 // This function displays the number of moves
 function displayMoves() {
     movesCount.textContent = moves;
-};
+}
 
 /**  When the user guessed the secret code:
  * the timer is cleared
