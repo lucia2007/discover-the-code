@@ -2,7 +2,7 @@
  * where the core logic functions were written based on TDD
  * my husband helped me import all the necessary modules to allow the use of logic.js file
  */
-import logic from './logic.js';
+import logic from "./logic.js";
 
 // define the available colors in the Options section
 const colorPicker = {
@@ -112,12 +112,12 @@ function setInitialState() {
 //** This function makes the Welcome pop-up appear */
 function displayWelcomeMessage() {
     welcomeMessage.style.display = "flex";
-};
+}
 
 // code inspired by Love Maths
 /** This function adds on-click event listeners to all the buttons */
 function addButtonClickedHandlers() {
-    let buttons = document.getElementsByClassName('button');
+    let buttons = document.getElementsByClassName("button");
 
     for (let button of buttons) {
         button.addEventListener("click", function () {
@@ -251,9 +251,9 @@ function addColorClickedHandlers() {
             let currentSquares = currentRowSquare.children;
 
             for (let square of currentSquares) {
-                if (!square.classList.contains('is-taken')) {
+                if (!square.classList.contains("is-taken")) {
                     square.style.backgroundColor = Object.values(colorPicker)[i];
-                    square.classList.add('is-taken');
+                    square.classList.add("is-taken");
                     if (getCurrentRowColors().length === 5) {
                         enableCheckButton();
                     } else {
@@ -277,7 +277,7 @@ function fillInTheColorPicker() {
  * it returns the currentSecretCode  --- delete this when finished
  * */
 function generateNewSecretCode() {
-    let secretSquares = document.getElementsByClassName('secret-code-square');
+    let secretSquares = document.getElementsByClassName("secret-code-square");
     secretCode = [];
     for (let i = 0; i < secretSquares.length; i++) {
         let randomNumber = Math.floor(Math.random() * 8);
@@ -309,8 +309,8 @@ function addCurrentRowSquaresHandler() {
     for (let square of currentSquares) {
         square.classList.add("shadow");
         square.addEventListener("click", function () {
-            if (square.classList.contains('is-taken') && square.classList.contains('shadow')) {
-                square.classList.remove('is-taken');
+            if (square.classList.contains("is-taken") && square.classList.contains("shadow")) {
+                square.classList.remove("is-taken");
                 square.style.backgroundColor = "";
                 disableCheckButton();
             }
@@ -379,7 +379,7 @@ function playAgainButtonClicked() {
     setInitialState();
 }
 
-/** This function hides the winning modal and shows the playground with the user's guesses and the color picker after the Close button was clicked*/
+/** This function hides the winning modal and shows the playground with the user"s guesses and the color picker after the Close button was clicked*/
 function closeButtonClicked() {
     winningPopUp.style.display = "none";
     showScoreAndPlaygroundAndColorPicker();
@@ -413,8 +413,8 @@ function disableCheckButton() {
 /** This function makes the Check button clickable */
 function enableCheckButton() {
     checkCodeButton.disabled = false;
-    checkCodeButton.style.backgroundColor = '';
-    checkCodeButton.style.color = '';
+    checkCodeButton.style.backgroundColor = "";
+    checkCodeButton.style.color = "";
 };
 
 // This function returns an array with chosen colors as strings like "rgb(0, 0, 0)". This array can have 0 to five elements.
@@ -425,7 +425,7 @@ function getCurrentRowColors() {
     let currentSquares = currentRowSquare.children;
 
     for (let square of currentSquares) {
-        if (square.classList.contains('is-taken')) {
+        if (square.classList.contains("is-taken")) {
             currentRowColors.push(square.style.backgroundColor);
         }
     }
@@ -452,18 +452,18 @@ function displayResult(blacks, whites) {
     let currentCircles = currentRowCircle.children;
 
     for (let i = 0; i < currentCircles.length; i++) {
-        if (currentCircles[i].classList.contains('is-taken')) {
+        if (currentCircles[i].classList.contains("is-taken")) {
             continue;
         }
         if (blacks > 0) { // sets the color of the circle to black
             currentCircles[i].style.backgroundColor = "black";
             currentCircles[i].style.border = "solid 2px black";
-            currentCircles[i].classList.add('is-taken');
+            currentCircles[i].classList.add("is-taken");
             blacks--;
         } else if (whites > 0) { // set the color of the circle to white and makes a black border around the circle for contrast
             currentCircles[i].style.backgroundColor = "white";
             currentCircles[i].style.border = "solid 2px black";
-            currentCircles[i].classList.add('is-taken');
+            currentCircles[i].classList.add("is-taken");
             whites--;
         }
     }
@@ -596,7 +596,7 @@ function showScoreAndPlaygroundAndColorPicker() {
 // This function clears the background color of the squares in the playground
 function clearBackgroundColorSquares() {
     for (let playgroundSquare of playgroundSquares) {
-        playgroundSquare.style.backgroundColor = '';
+        playgroundSquare.style.backgroundColor = "";
         playgroundSquare.classList.remove("is-taken");
     }
 }
@@ -604,14 +604,14 @@ function clearBackgroundColorSquares() {
 // This function clears the background color of the squares in the secret code squares
 function clearBackgroundColorSecretCodeSquares() {
     for (let square of secretCodeSquares) {
-        square.style.backgroundColor = '';
+        square.style.backgroundColor = "";
     }
 }
 
 // This function clears the background color of the circles
 function clearBackgroundColorCircles() {
     for (let playgroundCircle of playgroundCircles) {
-        playgroundCircle.style.backgroundColor = '';
+        playgroundCircle.style.backgroundColor = "";
     }
 }
 
