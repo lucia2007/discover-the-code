@@ -1,16 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap');
 
 /* Box model credit to czechitas.cz */
-/* html,
-body {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-} */
-
-
 html {
     box-sizing: border-box;
 }
@@ -21,10 +11,8 @@ html {
     box-sizing: inherit;
 }
 
-
 body {
     margin: 0;
-    /* margin: auto auto; */
     padding: 0;
     font-family: 'Noto Sans', sans-serif;
     font-size: 16px;
@@ -32,8 +20,6 @@ body {
     line-height: 1.5;
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
     min-height: 100vh;
     background-color: white;
 }
@@ -47,14 +33,6 @@ body {
 }
 
 /*
-   Colors
-   dark-blue: #162450
-   light-blue: #1E91D6
-   green: #8FC93A
-   yellow: #E4CC37
-   orange: #E18335   
-   grey: #D9D9D9
-   
    FONTS
    Noto Sans - light 300, regular 400, bold 700
    https://fonts.google.com/noto/specimen/Noto+Sans
@@ -71,17 +49,6 @@ body {
     border-radius: 10px;
     border: solid 1px black;
     margin: 0.5rem 1rem;
-    /* background-color: rgba(201, 214, 20, 0.5); */
-    /* padding-top: 10px; */
-    /* z-index: 1; */
-    /* position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto; */
-    /* background-color: rgba(3, 2, 1, 0.7); */
-    /* max-height: 100vh; */
 }
 
 #welcome-pop-up h2 {
@@ -89,16 +56,6 @@ body {
     font-size: 16px;
     margin: 0rem;
 }
-
-/* .close {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    align-self: flex-end;
-    margin-right: 0.5rem;
-    margin-bottom: 1rem;
-} */
-
 
 /* header section */
 header {
@@ -170,7 +127,7 @@ header {
 
 /* playground section */
 #ctn-playground {
-    padding: 0, 5rem 1rem 0rem 1rem;
+    padding: 0.5rem 1rem 0rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -239,7 +196,6 @@ header {
     width: auto;
 }
 
-
 /* Options section */
 #second-heading {
     text-align: center;
@@ -278,8 +234,6 @@ button:hover {
     cursor: pointer;
 }
 
-
-
 /* media query for tablets */
 @media screen and (min-width: 440px) {
     .main-heading {
@@ -291,8 +245,6 @@ button:hover {
         font-size: 120%;
     }
 }
-
-
 
 @media screen and (min-width: 750px) {
     body {
@@ -318,9 +270,7 @@ button:hover {
 
     .fa-key {
         font-size: 140%;
-        /* text-align: center; */
         padding-top: 0.1rem;
-        /* padding-top: 5px; */
     }
 
     #ctn-score p {
