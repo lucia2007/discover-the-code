@@ -130,7 +130,7 @@ function addButtonClickedHandlers() {
                 moves++; // number of moves is increased
                 currentRowIndex--; // current row index is decreased
                 if (currentRowIndex > -1) {
-                addCurrentRowSquaresHandler(); // event listeners are added to the next row
+                    addCurrentRowSquaresHandler(); // event listeners are added to the next row
                 }
                 displayMoves(); // number of moves is displayed
 
