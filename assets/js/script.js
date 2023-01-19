@@ -1,3 +1,7 @@
+/** This import is necessary to include the logic.js file 
+ * where the core logic functions were written based on TDD
+ * my husband helped me import all the necessary modules to allow the use of logic.js file
+ */
 import logic from './logic.js';
 
 // define the available colors in the Options section
@@ -15,7 +19,10 @@ const colorPicker = {
 let secretCode;
 let currentRowIndex;
 let moves;
+let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+let int = null;
 
+// Elements from HTML which need to be accessed
 const checkCodeButton = document.getElementById("check-code");
 const colorChoices = document.getElementsByClassName("color-choice");
 const allRows = document.getElementsByClassName("row");
@@ -40,10 +47,6 @@ const playgroundCircles = document.getElementsByClassName("playground-circle");
 const timer = document.getElementById("time-elapsed");
 const movesCount = document.getElementById("moves-needed");
 const focusMusic = document.getElementById("focus-music");
-
-let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
-let int = null;
-
 
 /** When the dom content is loaded:
  * initial state is set
@@ -71,21 +74,24 @@ document.addEventListener("DOMContentLoaded", function () {
     generateNewSecretCode();
 })
 
+/** This function is used when the game is to start
+ * it sets all the necessary values into their initial state
+ * */
 function setInitialState() {
-    // changes the color of the squares back to grey
+    // changes the color of the playground squares back to the default color
     clearBackgroundColorSquares();
 
-    // changes the color of the circles back to grey and takes away border
+    // changes the color of the circles back to the default color and takes away border
     clearBackgroundColorCircles();
     clearBorderCircles();
 
-    // this moves us back to the first (11th) row
+    // this moves us back to the first (11th) row from the bottom
     currentRowIndex = 11;
-    addCurrentRowSquaresHandler(); // This function adds event listeners to squares in row 11
+    addCurrentRowSquaresHandler(); // This function adds event listeners to squares in the current row
     moves = 0;
     displayMoves();
 
-    // this clears timer
+    // this clears the timer
     clearInterval(int);
     [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
     timer.innerHTML = "00 : 00";
@@ -93,16 +99,14 @@ function setInitialState() {
     // this function generates a new secret code
     generateNewSecretCode();
 
-    // this function sets the background color of the secret code squares back to grey
+    // this function sets the background color of the secret code squares back to the default color
     clearBackgroundColorSecretCodeSquares();
 
-    // this function displays the keys on the grey secret code sqaures
+    // this function displays the keys on the default color of secret code squares
     showKeys();
 
     // this function disables the check button
     disableCheckButton();
-
-    // unglow all rows/squares
 }
 
 //** This function makes the Welcome pop-up appear */
