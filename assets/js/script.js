@@ -19,7 +19,6 @@ let moves;
 const checkCodeButton = document.getElementById("check-code");
 const colorChoices = document.getElementsByClassName("color-choice");
 const allRows = document.getElementsByClassName("row");
-// const closeIcon = document.getElementById("close");
 const welcomeMessage = document.getElementById("welcome-pop-up");
 const questionIcon = document.getElementById("question-mark");
 const musicIcon = document.getElementById("music-note");
@@ -67,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
     addQuestionMarkHandler();
     addMusicIconHandler();
     addStopMusicIconHandler();
-    // addCloseIconHandler();
     addColorClickedHandlers();
     fillInTheColorPicker();
     generateNewSecretCode();
@@ -166,13 +164,6 @@ function addButtonClickedHandlers() {
         })
     }
 };
-
-/**This function adds on-click event listener to the Close icon */
-// function addCloseIconHandler() {
-//     closeIcon.addEventListener("click", function () {
-//         welcomeMessage.style.display = "none";
-//     })
-// };
 
 /** This function opens and closes the Welcome pop-up and shows or hides the plaground and pick your color sections */
 function addQuestionMarkHandler() {
