@@ -145,7 +145,9 @@ function addButtonClickedHandlers() {
                 }
 
             } else if (this.getAttribute("data-type") === "restart") { // if restart button is clicked, the game is reset into intial state    
+                if (currentRowIndex > -1) {
                 removeClassShadow(); //removes class shadow from the last filled in row
+                }
                 setInitialState();
 
             } else if (this.getAttribute("data-type") === "play") { // if play button is clicked, a function runs which resets the game to initial state
