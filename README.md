@@ -232,26 +232,29 @@ Take the following steps to create a clone of a project:
 ## Content
 
 - The overall inspiration came from the well-known game called <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="blank" rel="noopener">Mastermind</a> which I used to love to play as a child. In the postcommunist countries this game was called Logik.
-- The styling of "Find Your Group" section was inspired by [Czechitas](https://czechitas.cz).
 - The fonts were downloaded from [Google Fonts](https://fonts.google.com/).
-- The icons were found at [Font Awesome](https://fontawesome.com/), [Free Icons](https://www.freeiconspng.com), [PNG ARTS](https://www.pngarts.com/), [The Noun Project](https://thenounproject.com/) and [Flat Icon](https://www.flaticon.com/).
 - [Figma](https://figma.com/) was used to create the wireframes and the dependency diagram.
 - The framework for the readme file was originally taken from [Wawas Wood](https://github.com/EwanColquhoun/wawaswoods/blob/master/README.md) and from [Scoops](https://github.com/amylour/scoops_pp1/blob/main/README.md#testing).
 
 ## Media
 
-- The images were downloaded from [PNG ARTS](https://pngarts.com/), [Free Icosn](https://www.freeiconspng.com/).
+- The icons were found at [Font Awesome](https://fontawesome.com/), [Free Icons](https://www.freeiconspng.com), [PNG ARTS](https://www.pngarts.com/), [The Noun Project](https://thenounproject.com/) and [Flat Icon](https://www.flaticon.com/).
+- Winning and losing chimes were downloaded [here](https://www.dropbox.com/s/mbmhocwo4bbdsgp/Correct%20Answer.mp3?dl=0), and [here](https://www.dropbox.com/s/kulc9u7r69d8odl/Wrong%2002.wav?dl=0).
+- Focus music was downloaded [here](https://www.chosic.com/free-music/study/). 
 <!-- - The photos were compressed using the [Squoosh app](https://squoosh.app//). -->
 
 ## Acknowledgements
 
 - Extra help and guidance was received from my mentor Precious Ijege, from my husband Sam and fellow colleagues from the Code Institute.
-- My husband Sam encouraged me to try the test driven development for the logical part of the game and guided me through it. He laso helped me by installing the necessary packages.
+- My husband Sam encouraged me to try the test driven development for the logical part of the game and guided me through it. He also helped me by installing the necessary packages and with the import of the logic.js file.
 - I used several tutorial for different features:
   - This [tutorial](https://www.youtube.com/watch?v=wffK2OIt8u0) was used to help me turn on and turn off the deep focus music when the music icon is pressed.
   - I used this [tutorial](https://foolishdeveloper.com/create-a-simple-stopwatch-using-javascript-tutorial-code/) to help me set up the timer/stopwatch.
   - I used these [instructions](https://bobbyhadz.com/blog/javascript-get-object-key-by-value) to get the object key by value for a helping function when I wanted to reveal the secret code in console.log so I could test the features more quickly.
+  - The following [tutorial](https://www.youtube.com/watch?v=IFoG8-oAELM) helped me with setting up the pop up modals.
+  - The playground structure was inspired by this [project](https://github.com/LudovicLeGuen/Mastermind).
+  - I also got inspiration for the button handlers from the [Love Maths Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LM101+2021_T1/courseware/2d651bf3f23e48aeb9b9218871912b2e/78f3c10a937c4fe09640c7c0098d16bd/)
 
-Thank you all for your support and encouragement.
+Thank you all for your support and encouragement. I couldn't have done it without you.
 
 [Back to top](#contents)
