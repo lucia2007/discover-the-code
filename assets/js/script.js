@@ -138,14 +138,14 @@ function addButtonClickedHandlers() {
 
 
                 if (currentRowIndex > -2 && result[0] === 5) {
-                    guessed(); // this checks if the secret code was quessed in less than 13 attempts; if yes, the guessed() function runs
+                    guessed(); // This checks if the secret code was quessed in less than 13 attempts; if yes, the guessed() function runs
                     removeClassShadow();
                 } else if (currentRowIndex < 0 && result[0] !== 5) {
-                    youLost(); // this checks if the secret code was not guessed despite using 12 attempts
+                    youLost(); // This checks if the secret code was not guessed despite using 12 attempts
                 }
 
             } else if (this.getAttribute("data-type") === "restart") { // if restart button is clicked, the game is reset into intial state    
-                removeClassShadow();
+                removeClassShadow(); //removes class shadow from the last filled in row
                 setInitialState();
 
             } else if (this.getAttribute("data-type") === "play") { // if play button is clicked, a function runs which resets the game to initial state
@@ -170,7 +170,7 @@ function addButtonClickedHandlers() {
     }
 };
 
-/** This function opens and closes the Welcome pop-up and shows or hides the plaground and pick your color sections */
+/** This function opens and closes the Welcome pop-up and shows or hides the Playground and Pick your color sections */
 function addQuestionMarkHandler() {
     questionIcon.addEventListener("click", function () {
         if (welcomeMessage.style.display === "flex") {
@@ -185,6 +185,7 @@ function addQuestionMarkHandler() {
 }
 
 /** This function turns music on when the music icon is pressed.
+ * It also changes the play music icon into stop music icon.
  * Tutorial: https://www.youtube.com/watch?v=wffK2OIt8u0
  */
 function addMusicIconHandler() {
@@ -204,6 +205,7 @@ function addMusicIconHandler() {
 };
 
 /** This function turns music off when the stop music icon is pressed.
+ * It also changes to stop music icon to play music icon.
  * Tutorial: https://www.youtube.com/watch?v=wffK2OIt8u0
  */
 function addStopMusicIconHandler() {
@@ -225,22 +227,23 @@ function addStopMusicIconHandler() {
 
 /**  This function adds on-click event listeners to all the squares in the Options section 
  * starts the stopwatch when one of the squares in the Pick your Color section is clicked
- * assignes the clicked color to the first grey square starting from the left
+ * assigns the clicked color to the first default color/grey square starting from the left
  **/
 function addColorClickedHandlers() {
     for (let i = 0; i < colorChoices.length; i++) {
         colorChoices[i].addEventListener("click", function () {
             /** This function identifies which square in Options section was clicked 
-             * and assigns its color to the first square in row[currentRowIndex] which is not yet colored/taken
+             * and assigns its color to the first square in row[currentRowIndex] which is has a default color
              * */
 
-            // when any of the squares are clicked, the timer/stopwatch starts
+            // when any of the color picker squares are clicked, the timer/stopwatch starts
             startTimer();
 
             /**This for loop lets the user fill in the five grey squares in the current row
-             * When a certain color is clicked, the respective color is assigned to the left-most square which has grey background color, until all five squares are filled
+             * When a certain color is clicked, the respective color is assigned to the left-most square 
+             * which has default/grey background color
+             * When all five squares are filled in, the Check button is enabled
              */
-
             let currentRow = allRows[currentRowIndex];
             let currentRowSquare = currentRow.children[0];
             let currentSquares = currentRowSquare.children;
@@ -268,7 +271,7 @@ function fillInTheColorPicker() {
 }
 
 /** This function generates a new secret code - it assigns each square in the Secret code section a random color, 
- * the color is not displayed until later when the game is over
+ * the colors are not displayed until when the game is over
  * it returns the currentSecretCode  --- delete this when finished
  * */
 function generateNewSecretCode() {
@@ -291,6 +294,10 @@ function generateNewSecretCode() {
     console.log("\n");
 };
 
+/** This function adds event listeners to the squares in the current row
+ * When a square in the current row is clicked, its background color is set to default and can later be filled in again
+ * by clicking on a desired color in the color picker
+ */
 function addCurrentRowSquaresHandler() {
     let currentRow = allRows[currentRowIndex];
     let currentRowSquare = currentRow.children[0];
@@ -308,7 +315,6 @@ function addCurrentRowSquaresHandler() {
         });
     };
 };
-
 /** This function removes shadow from the squares in the current row */
 function removeClassShadow() {
     let currentRow = allRows[currentRowIndex];
@@ -319,13 +325,6 @@ function removeClassShadow() {
         square.classList.remove("shadow");
     }
 }
-
-
-/** This function hides the Welcome pop-up  and shows the plaground and the color picker when the Play button is clicked */
-function playButtonClicked() {
-    showScoreAndPlaygroundAndColorPicker();
-    welcomeMessage.style.display = "none";
-};
 
 /** All timer/stopwatch related code was taken from this tutorial:
  * https://foolishdeveloper.com/create-a-simple-stopwatch-using-javascript-tutorial-code/ 
@@ -360,6 +359,13 @@ function displayTime() {
     let s = seconds < 10 ? "0" + seconds : seconds;
     let ms = milliseconds < 10 ? "0" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
     timer.innerHTML = `${m} : ${s}`;
+};
+
+
+/** This function hides the Welcome pop-up  and shows the plaground and the color picker when the Play button is clicked */
+function playButtonClicked() {
+    showScoreAndPlaygroundAndColorPicker();
+    welcomeMessage.style.display = "none";
 };
 
 /** This function defines a set of tasks to be performed when the Play again button is clicked 
@@ -461,7 +467,7 @@ function displayResult(blacks, whites) {
     }
 };
 
-// this function displays the number of moves
+// This function displays the number of moves
 function displayMoves() {
     movesCount.textContent = moves;
 };
@@ -483,29 +489,9 @@ function guessed() {
     hideKeys();
 }
 
-/** When the user loses:
- * the timer is cleared
- * the losing chime is played
- * the losing pop up is displayed
- * the playground and color picker are hidden
- * the secret code is displayed
- * the keys on the secret code squares are hidden
- */
-function youLost() {
-    clearInterval(int);
-    playLosingChime();
-    displayLosingPopUp();
-    hideScoreAndPlaygroundAndColorPicker();
-    displaySecretCode();
-    hideKeys();
-}
-
+//This function plays the winning chime
 function playWinningChime() {
     winningChime.play();
-}
-
-function playLosingChime() {
-    losingChime.play();
 }
 
 /** This function displays the winning pop up
@@ -534,6 +520,28 @@ function displayWinningPopUp() {
         attempts.innerHTML = " attempt";
     }
 }
+
+/** When the user loses:
+ * the timer is cleared
+ * the losing chime is played
+ * the losing pop up is displayed
+ * the playground and color picker are hidden
+ * the secret code is displayed
+ * the keys on the secret code squares are hidden
+ */
+function youLost() {
+    clearInterval(int);
+    playLosingChime();
+    displayLosingPopUp();
+    hideScoreAndPlaygroundAndColorPicker();
+    displaySecretCode();
+    hideKeys();
+}
+
+function playLosingChime() {
+    losingChime.play();
+}
+
 
 function displayLosingPopUp() {
     losingPopUp.style.display = "flex";
