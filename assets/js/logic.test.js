@@ -8,15 +8,15 @@ test("Returns one black", () => {
     expect(logic.countBlacks(['a', 'b', 'a', 'c', 'd'], ['e', 'e', 'e', 'c', 'e'])).toBe(1);
 });
 
-test("Returns only one black despite repetion in the secret", () => {
+test("Returns only one black despite repetition in the secret code", () => {
     expect(logic.countBlacks(['a', 'b', 'a', 'c', 'd'], ['e', 'e', 'a', 'e', 'e'])).toBe(1);
 });
 
-test("Returns only one black despite repetion in the guess", () => {
+test("Returns only one black despite repetition in the user's guess", () => {
     expect(logic.countBlacks(['a', 'b', 'a', 'c', 'd'], ['b', 'b', 'b', 'b', 'b'])).toBe(1);
 });
 
-test("Returns only one black despite repetion in the guess and the secret", () => {
+test("Returns only one black despite repetition in the user's guess and the secret", () => {
     expect(logic.countBlacks(['a', 'b', 'a', 'c', 'd'], ['a', 'a', 'a', 'a', 'a'])).toBe(2);
 });
 
@@ -28,7 +28,7 @@ test("Returns no whites", () => {
     expect(logic.countWhites(['a', 'b', 'a', 'c', 'd'], ['e', 'e', 'e', 'e', 'e'])).toBe(0);
 });
 
-test("More duplicates in guess than in Secret", () => {
+test("More duplicates in user's guess than in secret code", () => {
     expect(logic.countWhites(['a', 'b', 'a', 'c', 'd'], ['e', 'a', 'a', 'a', 'e'])).toBe(1);
 });
 

@@ -357,10 +357,10 @@ function displayTime() {
             }
         }
     }
-    let h = hours < 10 ? "0" + hours : hours;
+    // let h = hours < 10 ? "0" + hours : hours;
     let m = minutes < 10 ? "0" + minutes : minutes;
     let s = seconds < 10 ? "0" + seconds : seconds;
-    let ms = milliseconds < 10 ? "0" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
+    // let ms = milliseconds < 10 ? "0" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
     timer.innerHTML = `${m} : ${s}`;
 }
 

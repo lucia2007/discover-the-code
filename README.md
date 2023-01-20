@@ -6,9 +6,7 @@ The site is targeted towards people who like to strech their mind and improve th
 
 In the future versions I would like to add levels so a wider audience can enjoy this game.
 
-Discover the Code is useful for all users who want to be entertained and at the same time work on their logical skills.
-
-<a href="https://lucia2007.github.io/discover-the-code/index.html" target="_blank" rel="noopener">Discover the Code</a>
+Discover the Code is useful for all users who want to be entertained and at the same time work on their logical skills. The app can be accessed at <a href="https://lucia2007.github.io/discover-the-code/index.html" target="_blank" rel="noopener">Discover the Code</a>. Enjoy!
 
 <!-- ![Discover the Code responsive design](./....png) --> 
 
@@ -16,16 +14,21 @@ Discover the Code is useful for all users who want to be entertained and at the 
 
 - [Discover the Code](#discover-the-code)
 - [Contents](#contents)
-- [User Experience](#user-experience)
-  - [User Experience (UX)](#user-experience-ux)
-    - [**User Stories**](#user-stories)
+- [User Experience (UX)](#user-experience-ux)
+  - [**User Stories**](#user-stories)
     - [**Primary Goal**](#primary-goal)
     - [**Visitor Goals**](#visitor-goals)
-    - [**First Time Visitor**](#first-time-visitor)
-    - [**Returning Visitor**](#returning-visitor)
-    - [**Frequent Visitor**](#frequent-visitor)
-  - [Dependency diagram](#dependency-diagram)
+      - [**First Time Visitor**](#first-time-visitor)
+      - [**Returning Visitor**](#returning-visitor)
+      - [**Frequent Visitor**](#frequent-visitor)
+  - [Creation Process](#creation-process)
+    - [**1. Strategy**](#1-strategy)
+    - [**2. Scope**](#2-scope)
+    - [**3. Structural**](#3-structural)
+    - [**4. Skeleton**](#4-skeleton)
+    - [**5. Surface**](#5-surface)
   - [Wireframes](#wireframes)
+  - [Dependency diagram](#dependency-diagram)
   - [Site Structure](#site-structure)
   - [Design Choices](#design-choices)
 - [Features](#features)
@@ -37,7 +40,6 @@ Discover the Code is useful for all users who want to be entertained and at the 
     - [Pick Your Color](#pick-your-color)
     - [Winning message](#winning-message)
     - [Losing message](#losing-message)
-    - [Test Driven Development](#test-driven-development)
     - [Future Features](#future-features)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
@@ -50,11 +52,9 @@ Discover the Code is useful for all users who want to be entertained and at the 
   - [Media](#media)
   - [Acknowledgements](#acknowledgements)
 
-# User Experience
+# User Experience (UX)
 
-## User Experience (UX)
-
-### **User Stories**
+## **User Stories**
 
 ### **Primary Goal**
 
@@ -64,7 +64,7 @@ Discover The Code game/puzzle is inspired by the game of <a href="https://www.am
 
 Discover The Code game has been designed to be straightforward, with minimalist and yet attractive design. The current version is aimed at people who enjoy puzzles and challenges so they can put their logical skills to test. The player can play deep focus music which helps the user to relax and think deeply. The game is responses to different media screen sizes, but at the same time the design is kept uniform accross different devices. A stopwatch and the moves counter measure the user's progress.
 
-### **First Time Visitor**
+#### **First Time Visitor**
 
   - A user can find the game rules in a modal window.
   - A user can start the game by pressing a Play button.
@@ -78,24 +78,72 @@ Discover The Code game has been designed to be straightforward, with minimalist 
   - A user can expect the scores to be displayed in the winning modal window.
   - A user can choose to Play again after they have won or lost, or choose to close the modal and look at the playground board more closely again.
   - A user can reset the game by clicking a reset button.
-  
-
-### **Returning Visitor**
+#### **Returning Visitor**
 
   - A user is familiar with the rules and can start the game by clicking the Play button.
   - A user can choose to play the deep focus music.
 
-### **Frequent Visitor**
+#### **Frequent Visitor**
 
   - A user can try to beat their time or score. (This feature to be included in future versions.)
 
----
+[Back to top](#contents)
+## Creation Process
 
-## Dependency diagram
+### **1. Strategy**
 
-As the game of Mastermind is quite complex, I began by creating [a dependency diagram](https://www.figma.com/file/QEIjBXsR941WeLv8P5d6R9/Dependency-graph?node-id=0%3A1&t=tmvBBQln2l3eHZIf-0) to help me organize/plan the flow of the game. This was extremely useful especially in moments, when it was not clear were a certain function or feature belonged what the dependencies were or with what should be tackled next. I started by working on the HTML and the most basic functionalities, adding complexity and new features as I went along, finishing by adding "nice-to-have" features like adding an option to play deep focus music.
+The project goal was to build an interactive logical game suitable for anyone who likes to be challenged and is not afraid to think hard.
+  - The user is able to acquaint themselves with the rules of the game as soon as the page is loaded 
+  - The user can improve their logical skills by playing the game repeatedly and by trying to improve their score. (Historical score tracking is not a part of this version of the app.)
 
-When I was working on the logical part of the game, I was encouraged by my husband, who is an IT engineer, to apply TDD (test driven development) to make sure my scoring system worked correctly (assets/js/logic.test.js). It was a great relief not to have to worry about this part of the app in the later stages, when I could just rely on the fact that the logic had been thoroughly tested and worked seamlessly.
+[Back to top](#contents)
+### **2. Scope**
+
+The game is to be responsive and playable on mobiles, tablets and desktops. 
+
+  - The game will have a uniform look which will be slightly adjusted for larger screens. The main goal is for the content to fit on the screen so the user does not have to scroll for the Check and Restart buttons.
+  - The game will allow a deep focus music file to play to help with concentration of the user.
+  - It will be possible to reset the game at any chosen moment.
+  - The game will display time and moves counters which give the user information about their progress.
+  - The game will show the scores in the winning modal.
+  - It will be possible to display the rules at any time to be reminded of the rules of the game.
+  - It is to be clear to the user which row is going to be next filled in with colors.
+  - The check button is enabled only if 5 colors are applied to the squares. If fewer than 5 colors are chosen, the button becomes disabled and it is impossible to check the score.
+  - It is to be possible for the user to amend colors, after they have decided to try a different one instead.
+  
+[Back to top](#contents)
+
+### **3. Structural**
+
+The interactive features of this game need to be intuitive and easily accessible.
+
+  - The player is acquainted with the rules through a welcome modal window as soon as the game is loaded.
+  - The user can choose to play by pushing the Play button.
+  - Buttons and clickable icons give the user an option to play music, display rules, reset the game, to close the modals or to play again.
+  - The user is informed by the display of a winning message modal of their win, the amount of time and the number of moves it took them to guess the correct answer. A winning chime is played to congratulate the user on a win.
+  - In case the user loses, a commiseration modal is displayed, losing chime is played and the user is given an option to close the window and study his moves more deeply or to try again.
+  - At the moment of win/loss the scores are displayed and the secret code is revealed.
+  - The design of the game is to be kept uniform across devices, so the user is not confused by unnecessary changes in layout or style.
+  - When a modal window is displayed, the rest of the page's content, except for the header section, is hidden to not distract.
+  
+[Back to top](#contents)
+### **4. Skeleton**
+
+The game is to have a minimalist design to keep the user concentrated on the puzzle.
+
+  - When the game is loaded, a welcome modal pops up, informs the user of the rules and lets them start the game by pressing the Play button.
+  - The game is placed in the middle of the larger screens and takes the whole screen of mobile devices of width of 375px without the necessity to scroll.
+  - The name of the game is introduced in the Header.
+  - Five grey squares with a key icon on them signify a mystery/puzzle to be solved.
+  - A music note icon which is situated in the top right corner, allows the user to turn on and turn off the deep focus music.
+  - The question mark icon displayes the rules and is placed next to the music note icon.
+  - Timer and moves counter are located above the playground to be clearly visible.
+  - The playground consists of 12 rows of 5 squares and 5 circles. The squares are intended for the user's guess, the circles will display the black and white clues when the check button is pressed.
+  - A set of 8 contrasting colors is available below the playground. The user can choose which color to apply to the squares in the current row.
+  - A Check and a Reset button are available below the Pick Your Color section. The Check button becomes available when the user has chosen five colors, and is disabled if a user deletes a color or has not yet chosen five of them.
+
+[Back to top](#contents)
+### **5. Surface**
 
 ## Wireframes
 
@@ -105,24 +153,31 @@ In comparison with the original design, I changed the look of the sercret row an
 
 [Wireframes for all devices](./readme-images/wireframes.png)
 
-[Back to top](#contents)
+## Dependency diagram
 
+As the game of Mastermind is quite complex, I began by creating [a dependency diagram](https://www.figma.com/file/QEIjBXsR941WeLv8P5d6R9/Dependency-graph?node-id=0%3A1&t=tmvBBQln2l3eHZIf-0) to help me organize/plan the flow of the game. This was extremely useful especially in moments, when it was not clear were a certain function or feature belonged what the dependencies were or with what should be tackled next. I started by working on the HTML and the most basic functionalities, adding complexity and new features as I went along, finishing by adding "nice-to-have" features like adding an option to play deep focus music.
+
+When I was working on the logical part of the game, I was encouraged by my husband, who is an IT engineer, to apply TDD (test driven development) to make sure my scoring system worked correctly (assets/js/logic.test.js). It was a great relief not to have to worry about this part of the app in the later stages, when I could just rely on the fact that the logic had been thoroughly tested and worked seamlessly.
+
+---
+
+[Back to top](#contents)
 ## Site Structure
 
-Discover the Code app contains only one page to keep the app simple.
+Discover The Code app contains only one page to keep the app simple and straightforward.
 
 [Back to top](#contents)
 
 ## Design Choices
+
+At first I intended to make the game colorful and playful, as is visible from the original wireframes. As I am using a large number of colors in the color picker, it was very hard to find contrasting backgrounds. I changed the color of the background to white and with time I started to appreciate the minimalist design more and more. I had to add black borders around the white clues to keep the clues visible.
 
 - ### Typography
 
   "Noto Sans", weight 300, 400 and 700 were downloaded originally, but only the regular weight is being used throughout the app. The font is easily legible. The chosen font was downloaded from [Google Fonts](https://fonts.google.com/).
 
 - ### Color Scheme
-  <!-- The chosen color scheme reflects the colors most often seen on tennis courts: green, orange, blue. The complementary colors were chosen using [Color pallete generator](coolors.co). -->
-
-<!-- ![Colour Pallete image](./readme-images/color_pallete.png) -->
+- The opted to use hex/rgb format of the colors at the beginning of the app development, so I could play with them later in case I need to choose a more contrasting color.
 
 [Back to top](#contents)
 
@@ -164,7 +219,7 @@ The timer starts as soon as the user clicks on any of the squares in the Pick Yo
 
 ![Playground](./readme-images/) <!-- change the image>
 
-The playground section contains 12 rows of 5 squares and 5 circles next to each other. The squares are used for guessing the code, the circles display the clues after the Check button is clicked.
+The playground section contains 12 rows of 5 squares and 5 circles next to each other. The squares are used for guessing the code, the circles display the clues after the Check button is clicked. If a user is unhappy with a chosen color, they can click on it and thus delete it/revert to the default background color. By clicking on a color in the color picker, this deleted color can be replaced by a new color.
 
 [Back to top](#contents)
 
@@ -174,8 +229,6 @@ The playground section contains 12 rows of 5 squares and 5 circles next to each 
 
 In this section there are eight colors from which the user can choose. Colors can be used repeatedly. The user clicks on a color he wants to use and the color is assigned to the first square on the left in the last/bottom row. The next color will fill the next square to the right and so on until five colors are chosen.
 
-<!-- Future feature: When the user is unhappy with his color choice, he can click on the square the color of which he would like to change, the square turns back to grey and lets the user choose a different color. -->
-
 ![Clues](./readme-images/scoring_rules_rm.png)
 
 As soon as five colors are chosen, the Check button is enabled and the user can see the clues displayed in the set of five circles next to the row of squares which was currently used.
@@ -184,6 +237,7 @@ As soon as five colors are chosen, the Check button is enabled and the user can 
 - White circle - you guessed a color, but not its position
 - Grey circle - wrong color was chosen
 
+If five colors have not yet been chosen, or if the user deletes one of the five chosen colors, the Check button is disabled and it is impossible to check the guessed color sequence.
 
 [Back to top](#contents)
 
@@ -191,7 +245,7 @@ As soon as five colors are chosen, the Check button is enabled and the user can 
 
 ![The Winning message](./readme-images/) <!-- change the image>
 
-When the user manages to guess all the five colors in their correct order within the 12 attempts a winning message pops up accompanied by a winning chime. In the winning message the user can see how much time it took him to guess the code and how many attempts he/she needed. At the same time as the message is displayed, the secret row is revealed and the user can compare his guess to the secret code. At the end of the pop up message the user gets a choice to play again or to hide the winning message. When the user chooses the Play again option, the pop up is closed and the game is reset to the intial settings. When he chooses to close the modal, he can look more closely at his choices.
+When the user manages to guess all the five colors in their correct order within 12 attempts, a winning message pops up accompanied by a winning chime. In the winning message the user can see how much time it took him to guess the code and how many attempts he/she needed. At the same time as the message is displayed, the secret row is revealed and the user can compare his guess to the secret code. At the end of the pop up message the user gets a choice to play again or to hide the winning message. When the user chooses the Play again option, the pop up is closed and the game is reset to the intial settings. When he chooses to close the modal, he can look more closely at his choices.
 
 [Back to top](#contents)
 
@@ -203,15 +257,17 @@ If the user does not manage to guess the correct color sequence in the 12 attemp
 
 [Back to top](#contents)
 
-### Test Driven Development
-
-[Back to top](#contents)
-
 ### Future Features
+- From the beginning I was aware that the current version of the game will not be appealing to those users who are looking for an easy game. It is quite challenging to guess the code and not everyone has the patience, determination or the time to finish playing it. This expectation was confirmed to me by a number of friends who found it difficult to understand the original rules, or simply thought it was too hard or took too much time.
+  
+- I could make this game more accessible to wider audience, including children by introducing different levels of the game. A user would have a choice at the beginning of the game to indicate easy, medium or hard level. (The current version is the hard level.) The easier levels could be achieved:
+- By decreasing the number of colors (6 for easy, 7 for medium and 8 for hard.)
+- Repetition of colors could be forbidden for the secret code and for the user.
+- The position of the black and white clues could directly correspond to a particular color.
 
-- This game could have different levels depending on the age or self-confidence of the players. 
-  - To make the game easier, I could forbid the repetion of colors or decrease the number of colors. In the easier version the position of the clues could correspond to the individual color choices.
-  - To make the game more challenging, even more colors could be made available in the color picker or perhaps I could construct a countdown timer to put the player under pressure.
+Taking the current game's code structure, it would be easiest to restrict the number of colors, next forbid the repetition of color and the most time consuming would be the last option of the pegs corresponding to the color choice.
+
+If someone was seeking to play at an even more difficult level, more colors could be added or a countdown function used instead of a stopwatch to put the player under time pressure.
 
 [Back to top](#contents)
 
@@ -304,6 +360,7 @@ Take the following steps to create a clone of a project:
   - The following [tutorial](https://www.youtube.com/watch?v=IFoG8-oAELM) helped me with setting up the pop up modals.
   - The playground structure was inspired by this [project](https://github.com/LudovicLeGuen/Mastermind).
   - I also got inspiration for the button handlers from the [Love Maths Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LM101+2021_T1/courseware/2d651bf3f23e48aeb9b9218871912b2e/78f3c10a937c4fe09640c7c0098d16bd/)
+  - [This](https://www.freecodecamp.org/news/how-to-start-unit-testing-javascript/) and [this](https://solaaremupelumi.medium.com/using-es6-import-and-export-statements-for-jest-testing-in-node-js-b20c8bd9041c) tutorials were used for import of the testing and logic files
 
 Thank you all for your support and encouragement. I couldn't have done it without you.
 
