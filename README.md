@@ -1,20 +1,29 @@
 # Discover the Code
 
-The purpose of this website is to allow a user to play a logical game which is fun and straightforward. This app was inspired by a game called <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="blank" rel="noopener">Mastermind</a> which is widely known. This game can be played in a few minutes and it is an ideal pass time when waiting at a doctors office or when commuting.
+The purpose of this website is to allow a user to play a logical game/puzzle which is fun and straightforward. Guessing the secret code is not easy, so the user needs to be determined and willing to think hard. This app was inspired by a game called <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="blank" rel="noopener">Mastermind</a> which is widely known. This game can be played in a relatively short time and it is an ideal pass time when waiting at a doctors office or when commuting.
 
-The site is targeted towards people who like to strech their mind and improve their logical skills. It can be played both by children and adults.
+The site is targeted towards people who like to strech their mind and improve their logical skills. The current version of the game is targeted at adults or those users who are not easily dissuaded.
+
+In the future versions I would like to add levels so a wider audience can enjoy this game.
 
 Discover the Code is useful for all users who want to be entertained and at the same time work on their logical skills.
 
 <a href="https://lucia2007.github.io/discover-the-code/index.html" target="_blank" rel="noopener">Discover the Code</a>
 
-<!-- ![Discover the Code responsive design](./readme-images/responsive_layout.png) -->
+<!-- ![Discover the Code responsive design](./....png) --> 
 
 # Contents
 
 - [Discover the Code](#discover-the-code)
 - [Contents](#contents)
 - [User Experience](#user-experience)
+  - [User Experience (UX)](#user-experience-ux)
+    - [**User Stories**](#user-stories)
+    - [**Primary Goal**](#primary-goal)
+    - [**Visitor Goals**](#visitor-goals)
+    - [**First Time Visitor**](#first-time-visitor)
+    - [**Returning Visitor**](#returning-visitor)
+    - [**Frequent Visitor**](#frequent-visitor)
   - [Dependency diagram](#dependency-diagram)
   - [Wireframes](#wireframes)
   - [Site Structure](#site-structure)
@@ -43,9 +52,50 @@ Discover the Code is useful for all users who want to be entertained and at the 
 
 # User Experience
 
+## User Experience (UX)
+
+### **User Stories**
+
+### **Primary Goal**
+
+Discover The Code game/puzzle is inspired by the game of <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="blank" rel="noopener">Mastermind</a>. The game is suitable for anyone who is not afraid of being challenged, perhaps stuck and likes to think hard to figure out the solution.
+
+### **Visitor Goals**
+
+Discover The Code game has been designed to be straightforward, with minimalist and yet attractive design. The current version is aimed at people who enjoy puzzles and challenges so they can put their logical skills to test. The player can play deep focus music which helps the user to relax and think deeply. The game is responses to different media screen sizes, but at the same time the design is kept uniform accross different devices. A stopwatch and the moves counter measure the user's progress.
+
+### **First Time Visitor**
+
+  - A user can find the game rules in a modal window.
+  - A user can start the game by pressing a Play button.
+  - A user can turn on and off the deep focus music.
+  - A user can display and hide the rules in case they need to be reminded of them by clicking on the question mark icon.
+  - A user can click on the colors in the Color Picker to assign them to the current guess row.
+  - A user can change a previously chosen color in the current guess row by clicking on it and thus deleting it. Then the user can proceed to choose a different one.
+  - A user can see the timer start when they have made their first color choice.
+  - A user can see the moves counter update after a Check button has been pressed.
+  - A user can see the stopwatch stop when the last unsuccessful guess is checked or when a winning messages is displayed in case of a win.
+  - A user can expect the scores to be displayed in the winning modal window.
+  - A user can choose to Play again after they have won or lost, or choose to close the modal and look at the playground board more closely again.
+  - A user can reset the game by clicking a reset button.
+  
+
+### **Returning Visitor**
+
+  - A user is familiar with the rules and can start the game by clicking the Play button.
+  - A user can choose to play the deep focus music.
+
+### **Frequent Visitor**
+
+  - A user can try to beat their time or score. (This feature to be included in future versions.)
+
+---
+
 ## Dependency diagram
 
-<!-- Add dependency diagram and explain the flow of the game -->
+As the game of Mastermind is quite complex, I began by creating [a dependency diagram](https://www.figma.com/file/QEIjBXsR941WeLv8P5d6R9/Dependency-graph?node-id=0%3A1&t=tmvBBQln2l3eHZIf-0) to help me organize/plan the flow of the game. This was extremely useful especially in moments, when it was not clear were a certain function or feature belonged what the dependencies were or with what should be tackled next. I started by working on the HTML and the most basic functionalities, adding complexity and new features as I went along, finishing by adding "nice-to-have" features like adding an option to play deep focus music.
+
+When I was working on the logical part of the game, I was encouraged by my husband, who is an IT engineer, to apply TDD (test driven development) to make sure my scoring system worked correctly (assets/js/logic.test.js). It was a great relief not to have to worry about this part of the app in the later stages, when I could just rely on the fact that the logic had been thoroughly tested and worked seamlessly.
 
 ## Wireframes
 
