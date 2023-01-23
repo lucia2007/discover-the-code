@@ -6,7 +6,7 @@ The site is targeted towards people who like to strech their mind and improve th
 
 In the future versions I would like to add levels so a wider audience can enjoy this game.
 
-Discover the Code is useful for all users who want to be entertained and at the same time work on their logical skills. The app can be accessed at <a href="https://lucia2007.github.io/discover-the-code/index.html" target="_blank" rel="noopener">Discover the Code</a>. Enjoy!
+Discover the Code is useful for all users who want to be entertained and at the same time work on their logical skills. The app can be accessed at <a href="https://lucia2007.github.io/discover-the-code/index.html" target="_blank" rel="noopener">Discover The Code</a>. Enjoy!
 
 ![Discover The Code responsive design](./readme-images/amiresponsive.png) 
 
@@ -29,7 +29,6 @@ Discover the Code is useful for all users who want to be entertained and at the 
     - [**5. Surface**](#5-surface)
   - [Wireframes](#wireframes)
   - [Dependency diagram](#dependency-diagram)
-  - [When I was working on the logical part of the game, I was encouraged by my husband, who is an IT engineer, to apply TDD (test driven development) to make sure my scoring system worked correctly (assets/js/logic.test.js). It was a great relief not to have to worry about this part of the app in the later stages, when I could just rely on the fact that the logic had been thoroughly tested and worked seamlessly.](#when-i-was-working-on-the-logical-part-of-the-game-i-was-encouraged-by-my-husband-who-is-an-it-engineer-to-apply-tdd-test-driven-development-to-make-sure-my-scoring-system-worked-correctly-assetsjslogictestjs-it-was-a-great-relief-not-to-have-to-worry-about-this-part-of-the-app-in-the-later-stages-when-i-could-just-rely-on-the-fact-that-the-logic-had-been-thoroughly-tested-and-worked-seamlessly)
   - [Site Structure](#site-structure)
   - [Design Choices](#design-choices)
 - [Features](#features)
@@ -157,7 +156,6 @@ In comparison with the original design, I changed the look of the sercret row an
 As the game of Mastermind is quite complex, I began by creating [a dependency diagram](https://www.figma.com/file/QEIjBXsR941WeLv8P5d6R9/Dependency-graph?node-id=0%3A1&t=tmvBBQln2l3eHZIf-0) to help me organize/plan the flow of the game. This was extremely useful especially in moments, when it was not clear were a certain function or feature belonged what the dependencies were or with what should be tackled next. I started by working on the HTML and the most basic functionalities, adding complexity and new features as I went along, finishing by adding "nice-to-have" features like adding an option to play deep focus music.
 
 When I was working on the logical part of the game, I was encouraged by my husband, who is an IT engineer, to apply TDD (test driven development) to make sure my scoring system worked correctly (assets/js/logic.test.js). It was a great relief not to have to worry about this part of the app in the later stages, when I could just rely on the fact that the logic had been thoroughly tested and worked seamlessly.
----
 
 [Back to top](#contents)
 ## Site Structure
@@ -191,6 +189,7 @@ At first I intended to make the game colorful and playful, as is visible from th
 - The music note icon allows the user to turn on deep focus music.
 
 - When the music is playing, the music note changes into a crossed out music note. When this icon is pressed, the music will stop playing.
+![No Music](./readme-images/stopmusic.png)
 
 - The question mark icon works displays or hides the welcome message which contains the rules of the game.
 
