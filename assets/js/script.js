@@ -191,38 +191,24 @@ function addQuestionMarkHandler() {
  * Tutorial: https://www.youtube.com/watch?v=wffK2OIt8u0
  */
 function addMusicIconHandler() {
-    let count = 0;
 
     musicIcon.addEventListener("click", function () {
-        if (count == 0) {
-            count = 1;
-            focusMusic.play();
-            musicIcon.style.display = "none";
-            stopMusicIcon.style.display = "flex";
-        } else {
-            count = 0;
-            focusMusic.pause();
-        }
+        focusMusic.play();
+        musicIcon.style.display = "none";
+        stopMusicIcon.style.display = "flex";
     });
 }
 
 /** This function turns music off when the stop music icon is pressed.
- * It also changes to stop music icon to play music icon.
+ * It also changes the stop music icon to play music icon.
  * Tutorial: https://www.youtube.com/watch?v=wffK2OIt8u0
  */
 function addStopMusicIconHandler() {
-    let count = 0;
 
     stopMusicIcon.addEventListener("click", function () {
-        if (count == 0) {
-            count = 1;
-            focusMusic.play();
-        } else {
-            count = 0;
-            musicIcon.style.display = "block";
-            stopMusicIcon.style.display = "none";
-            focusMusic.pause();
-        }
+        musicIcon.style.display = "block";
+        stopMusicIcon.style.display = "none";
+        focusMusic.pause();
     });
 }
 
