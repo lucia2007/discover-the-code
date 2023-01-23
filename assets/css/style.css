@@ -57,7 +57,8 @@ body {
     margin: 0rem;
 }
 
-#clues {
+#clues,
+#colors {
     width: 280px;
     height: auto;
 }
