@@ -8,7 +8,7 @@ In the future versions I would like to add levels so a wider audience can enjoy 
 
 Discover the Code is useful for all users who want to be entertained and at the same time work on their logical skills. The app can be accessed at <a href="https://lucia2007.github.io/discover-the-code/index.html" target="_blank" rel="noopener">Discover the Code</a>. Enjoy!
 
-<!-- ![Discover the Code responsive design](./....png) --> 
+![Discover The Code responsive design](./readme-images/amiresponsive.png) 
 
 # Contents
 
@@ -29,10 +29,10 @@ Discover the Code is useful for all users who want to be entertained and at the 
     - [**5. Surface**](#5-surface)
   - [Wireframes](#wireframes)
   - [Dependency diagram](#dependency-diagram)
+  - [When I was working on the logical part of the game, I was encouraged by my husband, who is an IT engineer, to apply TDD (test driven development) to make sure my scoring system worked correctly (assets/js/logic.test.js). It was a great relief not to have to worry about this part of the app in the later stages, when I could just rely on the fact that the logic had been thoroughly tested and worked seamlessly.](#when-i-was-working-on-the-logical-part-of-the-game-i-was-encouraged-by-my-husband-who-is-an-it-engineer-to-apply-tdd-test-driven-development-to-make-sure-my-scoring-system-worked-correctly-assetsjslogictestjs-it-was-a-great-relief-not-to-have-to-worry-about-this-part-of-the-app-in-the-later-stages-when-i-could-just-rely-on-the-fact-that-the-logic-had-been-thoroughly-tested-and-worked-seamlessly)
   - [Site Structure](#site-structure)
   - [Design Choices](#design-choices)
 - [Features](#features)
-  - [Home Page](#home-page)
     - [Header](#header)
     - [Welcome message](#welcome-message)
     - [Scores](#scores)
@@ -144,7 +144,6 @@ The game is to have a minimalist design to keep the user concentrated on the puz
 
 [Back to top](#contents)
 ### **5. Surface**
-
 ## Wireframes
 
 The wireframes were created in [Figma](https://figma.com). Originally I intended to make the app very colorful, but later I opted for a cleaner look. Also at first I thought I would do a different layout for the desktop with the rules on the right, but in the end I opted for a uniform look across different devices and screen widths.
@@ -158,7 +157,6 @@ In comparison with the original design, I changed the look of the sercret row an
 As the game of Mastermind is quite complex, I began by creating [a dependency diagram](https://www.figma.com/file/QEIjBXsR941WeLv8P5d6R9/Dependency-graph?node-id=0%3A1&t=tmvBBQln2l3eHZIf-0) to help me organize/plan the flow of the game. This was extremely useful especially in moments, when it was not clear were a certain function or feature belonged what the dependencies were or with what should be tackled next. I started by working on the HTML and the most basic functionalities, adding complexity and new features as I went along, finishing by adding "nice-to-have" features like adding an option to play deep focus music.
 
 When I was working on the logical part of the game, I was encouraged by my husband, who is an IT engineer, to apply TDD (test driven development) to make sure my scoring system worked correctly (assets/js/logic.test.js). It was a great relief not to have to worry about this part of the app in the later stages, when I could just rely on the fact that the logic had been thoroughly tested and worked seamlessly.
-
 ---
 
 [Back to top](#contents)
@@ -182,32 +180,31 @@ At first I intended to make the game colorful and playful, as is visible from th
 [Back to top](#contents)
 
 # Features
-
-## Home Page
-
 ### Header
 
-![Header](./readme-images/navbar.png) <!-- change the image>
+![Header](./readme-images/header.png)
 
-- The header firstly contains the name of the game which should intice the user to want to try to decode the secret sequence of colors
+- The header firstly contains the name of the game which should intice the user to want to try to decode the secret sequence of colors.
 
 - The second row contains five squares with keys in them which imply a secret to be guessed.
 
-- The music note icon allows the user to turn on and off deep focus music.
+- The music note icon allows the user to turn on deep focus music.
 
-- The question mark icon works as a toggle and displays or hides the welcome message which contains the rules of the game
+- When the music is playing, the music note changes into a crossed out music note. When this icon is pressed, the music will stop playing.
+
+- The question mark icon works displays or hides the welcome message which contains the rules of the game.
 
 [Back to top](#contents)
 
 ### Welcome message
 
-![Welcome message](./readme-images/) <!-- change the image>
+![Welcome message](./readme-images/welcome_message.png)
 
 As soon as the page is loaded, a welcome message is displayed. In the welcome message the rules and the clues are explained. When a Play button is clicked, the modal is hidden and the plaground and the rest of the features are displayed.
 
 ### Scores
 
-![Scores](./readme-images/) <!-- change the image>
+![Scores](./readme-images/scores.png)
 
 This section displays the time the user needed to guess the code and also how many attempts were used. 
 
@@ -217,7 +214,7 @@ The timer starts as soon as the user clicks on any of the squares in the Pick Yo
 
 ### Playground
 
-![Playground](./readme-images/) <!-- change the image>
+![Playground](./readme-images/playground.png)
 
 The playground section contains 12 rows of 5 squares and 5 circles next to each other. The squares are used for guessing the code, the circles display the clues after the Check button is clicked. If a user is unhappy with a chosen color, they can click on it and thus delete it/revert to the default background color. By clicking on a color in the color picker, this deleted color can be replaced by a new color.
 
@@ -229,7 +226,7 @@ The playground section contains 12 rows of 5 squares and 5 circles next to each 
 
 In this section there are eight colors from which the user can choose. Colors can be used repeatedly. The user clicks on a color he wants to use and the color is assigned to the first square on the left in the last/bottom row. The next color will fill the next square to the right and so on until five colors are chosen.
 
-![Clues](./readme-images/scoring_rules_rm.png)
+![Clues](./readme-images/clues.png)
 
 As soon as five colors are chosen, the Check button is enabled and the user can see the clues displayed in the set of five circles next to the row of squares which was currently used.
 
@@ -243,7 +240,7 @@ If five colors have not yet been chosen, or if the user deletes one of the five 
 
 ### Winning message
 
-![The Winning message](./readme-images/) <!-- change the image>
+![The Winning message](./readme-images/congratulations.png)
 
 When the user manages to guess all the five colors in their correct order within 12 attempts, a winning message pops up accompanied by a winning chime. In the winning message the user can see how much time it took him to guess the code and how many attempts he/she needed. At the same time as the message is displayed, the secret row is revealed and the user can compare his guess to the secret code. At the end of the pop up message the user gets a choice to play again or to hide the winning message. When the user chooses the Play again option, the pop up is closed and the game is reset to the intial settings. When he chooses to close the modal, he can look more closely at his choices.
 
@@ -251,7 +248,7 @@ When the user manages to guess all the five colors in their correct order within
 
 ### Losing message
 
-![The Losing message](./readme-images/) <!--change the image>
+![The Losing message](./readme-images/gameover.png)
 
 If the user does not manage to guess the correct color sequence in the 12 attempts, a losing message is displayed. At the same time a "game-over" chime is played and the user is commiserated on his lack of success. The secret code is revealed so the user can see where he made a mistake. At the end, the user has an option to play again or close the message.
 
@@ -279,7 +276,7 @@ If someone was seeking to play at an even more difficult level, more colors coul
 - [Gitpod](https://www.gitpod.io/#get-started) - used for deploying the website
 - [Github](https://github.com/) - used for hosting and editing the website
 - [Favicon converter](https://favicon.io/favicon-converter/)
-- [JavaScript]() <!-- Add a link>
+- [JavaScript](https://www.javascript.com/)
 
 [Back to top](#contents)
 
@@ -347,7 +344,6 @@ Take the following steps to create a clone of a project:
 - The icons were found at [Font Awesome](https://fontawesome.com/), [Free Icons](https://www.freeiconspng.com), [PNG ARTS](https://www.pngarts.com/), [The Noun Project](https://thenounproject.com/) and [Flat Icon](https://www.flaticon.com/).
 - Winning and losing chimes were downloaded [here](https://www.dropbox.com/s/mbmhocwo4bbdsgp/Correct%20Answer.mp3?dl=0), and [here](https://www.dropbox.com/s/kulc9u7r69d8odl/Wrong%2002.wav?dl=0).
 - Focus music was downloaded [here](https://www.chosic.com/free-music/study/). 
-<!-- - The photos were compressed using the [Squoosh app](https://squoosh.app//). -->
 
 ## Acknowledgements
 
@@ -359,7 +355,7 @@ Take the following steps to create a clone of a project:
   - I used these [instructions](https://bobbyhadz.com/blog/javascript-get-object-key-by-value) to get the object key by value for a helping function when I wanted to reveal the secret code in console.log so I could test the features more quickly.
   - The following [tutorial](https://www.youtube.com/watch?v=IFoG8-oAELM) helped me with setting up the pop up modals.
   - The playground structure was inspired by this [project](https://github.com/LudovicLeGuen/Mastermind).
-  - I also got inspiration for the button handlers from the [Love Maths Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LM101+2021_T1/courseware/2d651bf3f23e48aeb9b9218871912b2e/78f3c10a937c4fe09640c7c0098d16bd/)
+  - I also got inspiration for the button handlers from the [Love Maths Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LM101+2021_T1/courseware/2d651bf3f23e48aeb9b9218871912b2e/78f3c10a937c4fe09640c7c0098d16bd/).
   - [This](https://www.freecodecamp.org/news/how-to-start-unit-testing-javascript/) and [this](https://solaaremupelumi.medium.com/using-es6-import-and-export-statements-for-jest-testing-in-node-js-b20c8bd9041c) tutorials were used for import of the testing and logic files
 
 Thank you all for your support and encouragement. I couldn't have done it without you.
