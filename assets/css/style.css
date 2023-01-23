@@ -57,6 +57,11 @@ body {
     margin: 0rem;
 }
 
+#clues {
+    width: 280px;
+    height: auto;
+}
+
 /* header section */
 header {
     padding: 0.5rem 1rem 0rem 0.5rem;
