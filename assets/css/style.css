@@ -64,7 +64,7 @@ body {
 
 /* header section */
 header {
-    padding: 0.5rem 1rem 0rem 0.5rem;
+    padding: 0rem 1rem 0rem 0.5rem;
     margin: 0;
 }
 
@@ -127,7 +127,7 @@ header {
 
 #ctn-score p {
     margin: 0;
-    padding: 1rem;
+    padding: 0.5rem 0.5rem 0rem;
 }
 
 /* playground section */
@@ -264,7 +264,7 @@ button:hover {
     }
 
     .main-heading {
-        font-size: 140%;
+        font-size: 160%;
     }
 
     .secret-code-square,
