@@ -37,7 +37,7 @@ function countWhites(secret, guess) {
     while (guessWithoutBlacks.length > 0) {
         if (secretWithoutBlacks.includes(guessWithoutBlacks[0])) { // As now we don't care about the position of the elements being identical, we can use includes() which tells us if the element in one array is included in the other array
             whiteCounter++; // If a guessed color is included in the secretWithoutBlacks, we increase the counter of white clues
-            let x = secretWithoutBlacks.indexOf(guessWithoutBlacks[0])
+            let x = secretWithoutBlacks.indexOf(guessWithoutBlacks[0]);
             secretWithoutBlacks.splice(x, 1); // After an element has been checked, we take it out of the secretWithoutBlacks array so it wouldn't return an incorrect number of white clues
         }
         guessWithoutBlacks.shift(); // Here we take away the element which has been checked from the guessWithoutBlacks array so we don't check it repeatedly
@@ -50,4 +50,4 @@ function countWhites(secret, guess) {
 export default {
     countBlacks,
     countWhites
-}
+};
