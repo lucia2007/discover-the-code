@@ -27,17 +27,17 @@ The only devices where the whole content would not fit on the screen where the o
 
 |                                        BUG                                       | WHERE |                                      HOW                                      |                   COMMIT                   |
 |:--------------------------------------------------------------------------------:|:-----:|:-----------------------------------------------------------------------------:|:------------------------------------------:|
-| Wrong format for the music files names                                           | HTML  |  I renamed both files with no spaces in the name.                             | 5c7645acdbb2ce3398845ce38ec78be90a180847   |
-| Wrong use of semicolons in JS                                                    | JS    | I deleted unnecessary and added missing semicolons                            | mW2ac667f0c6c3f4a9c9369c99d8ac498e441187d8 |
-| Inconsistent use of single and double quotes                                     | JS    | I changed all the relevant quotes into double quotes                          | 9bf82ff697032dbbbaaa02f91b6004951eb65840   |
-| Duplicate call of the addButtonClickedHandlers()                                 | JS    | I deleted the duplicate call                                                  | a8e0d309f1fbee5c1eca094e95e3469b29b9a46b   |
-| The scores were updating only after an alert was closed                          | JS    | I changed the order of the relevant code lines                                | ec2e4eca7ad3961baae8692b94232d19749cf6c6   |
-| The moves counter was not updating                                               | JS    | I change the displayMoves(moves) into a function w/ parameters                | 302f4e99b69e82dd40f44a1769938e43ecebe6b3   |
-| Square and circles had class 'is-taken' when set in initial state                | JS    | I removed the class from squares and circles so they could be filled in again | 56b98e9ba339fce489aaf7271a43e5dbf5c65f61   |
-| Music file was not playing on the deployed page.                                 | JS    | I needed to commit the file.                                                  | 25c6609fca9aa5f858db8a7e368e4243f2d40cda   |
-| addCurrentRowSquaresHandler() was giving an error after row 12 was checked        | JS    | I had to add a condition so the function would stop after row 12              | 0a9ac731cfe54be1032b4ef79578596a12d7815d   |
-| When Restart button was pressed, the "shadows" remained on the last used squares | JS    | I had to use removeClassShadow() after Restart was clicked                    | 859bcb9f4775cc72479ea22f0de3259a8e85c0a2   |
-| When I wanted to switch the focus music off, I had to click twice on the icon    | JS    | I had to refactor both the play/stop music functions                          | d4838147c9dc94292d8c2c8930e95575cfa26f0f   |
+| Wrong format for the music files names                                           | HTML  |  I renamed both files with no spaces in the name.                             | [5c7645a](https://github.com/lucia2007/discover-the-code/commit/5c7645a)  |
+| Wrong use of semicolons in JS                                                    | JS    | I deleted unnecessary and added missing semicolons                            | [2ac667f](https://github.com/lucia2007/discover-the-code/commit/2ac667f)  |
+| Inconsistent use of single and double quotes                                     | JS    | I changed all the relevant quotes into double quotes                          | [bf82ff](https://github.com/lucia2007/discover-the-code/commit/9bf82ff)  |
+| Duplicate call of the addButtonClickedHandlers()                                 | JS    | I deleted the duplicate call                                                  | [a8e0d30](https://github.com/lucia2007/discover-the-code/commit/a8e0d30)  |
+| The scores were updating only after an alert was closed                          | JS    | I changed the order of the relevant code lines                                | [ec2e4ec](https://github.com/lucia2007/discover-the-code/commit/ec2e4ec)  |
+| The moves counter was not updating                                               | JS    | I change the displayMoves(moves) into a function w/ parameters                | [302f4e9](https://github.com/lucia2007/discover-the-code/commit/302f4e9)  |
+| Square and circles had class 'is-taken' when set in initial state                | JS    | I removed the class from squares and circles so they could be filled in again | [56b98e9](https://github.com/lucia2007/discover-the-code/commit/56b98e9)  |
+| Music file was not playing on the deployed page.                                 | JS    | I needed to commit the file.                                                  | [25c6609](https://github.com/lucia2007/discover-the-code/commit/25c6609)  |
+| addCurrentRowSquaresHandler() was giving an error after row 12 was checked       | JS    | I had to add a condition so the function would stop after row 12              | [0a9ac73](https://github.com/lucia2007/discover-the-code/commit/0a9ac73)  |
+| When Restart button was pressed, the "shadows" remained on the last used squares | JS    | I had to use removeClassShadow() after Restart was clicked                    | [859bcb9](https://github.com/lucia2007/discover-the-code/commit/859bcb9)  |
+| When I wanted to switch the focus music off, I had to click twice on the icon    | JS    | I had to refactor both the play/stop music functions                          | [d483814](https://github.com/lucia2007/discover-the-code/commit/d483814)  |
 
 ## Unfixed Bugs
 
