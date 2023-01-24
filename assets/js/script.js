@@ -1,10 +1,10 @@
 /** This import is necessary to include the logic.js file 
  * where the core logic functions were written based on TDD
- * my husband helped me import all the necessary modules to allow the use of logic.js file
+ * my husband helped me import all the necessary modules to allow the use of logic.js file - usage of node-modules
  */
 import logic from "./logic.js";
 
-// define the available colors in the Options section
+// Defines the available colors in the Options section
 const colorPicker = {
     blue: "rgb(58, 47, 255)",
     pink: "rgb(255, 47, 168)",
@@ -54,7 +54,7 @@ const focusMusic = document.getElementById("focus-music");
  * playground and pick your color sections are hidden
  * buttons handlers are added based on event listeners
  * question mark handler is added based on event listeners
- * music icon is added based on event listeners
+ * music icon handlers are added based on event listeners
  * color clicked handlers based on event listeners are added
  * the predefined colors in the Options section are filled in
  * new secret code is generated
@@ -78,34 +78,19 @@ document.addEventListener("DOMContentLoaded", function () {
  * it sets all the necessary values into their initial state
  * */
 function setInitialState() {
-    // changes the color of the playground squares back to the default color
     clearBackgroundColorSquares();
-
-    // changes the color of the circles back to the default color and takes away border
     clearBackgroundColorCircles();
     clearBorderCircles();
-
-    // this moves us back to the first (11th) row from the bottom
     currentRowIndex = 11;
-    addCurrentRowSquaresHandler(); // This function adds event listeners to squares in the current row
+    addCurrentRowSquaresHandler();
     moves = 0;
     displayMoves();
-
-    // this clears the timer
     clearInterval(int);
     [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
     timer.innerHTML = "00 : 00";
-
-    // this function generates a new secret code
     generateNewSecretCode();
-
-    // this function sets the background color of the secret code squares back to the default color
     clearBackgroundColorSecretCodeSquares();
-
-    // this function displays the keys on the default color of secret code squares
     showKeys();
-
-    // this function disables the check button
     disableCheckButton();
 }
 
@@ -114,65 +99,67 @@ function displayWelcomeMessage() {
     welcomeMessage.style.display = "flex";
 }
 
-// code inspired by Love Maths
-/** This function adds on-click event listeners to all the buttons */
+/** This function adds on-click event listeners to all the buttons. 
+ * depending on which button was clicked, different events will take place
+ * code inspired by Love Maths:
+ * https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LM101+2021_T1/courseware/2d651bf3f23e48aeb9b9218871912b2e/78f3c10a937c4fe09640c7c0098d16bd/
+ */
 function addButtonClickedHandlers() {
     let buttons = document.getElementsByClassName("button");
 
     for (let button of buttons) {
         button.addEventListener("click", function () {
-            // for a version where you can change your choices, you will need to add a check here if all the squares in the current row are taken
-
-            // depending on which button was clicked, different events will take place
-            if (this.getAttribute("data-type") === "check") { // if check button is clicked
+            if (this.getAttribute("data-type") === "check") { // Check button clicked
                 let result = getResult();
-                displayResult(result[0], result[1]); // clues are displayed in the circles
-                disableCheckButton(); // check button is disabled
-                removeClassShadow(); // square shadows are removed from the row which has been checked
-                moves++; // number of moves is increased
-                currentRowIndex--; // current row index is decreased
+                displayResult(result[0], result[1]);
+                disableCheckButton();
+                removeClassShadow();
+                moves++;
+                currentRowIndex--;
                 if (currentRowIndex > -1) {
-                    addCurrentRowSquaresHandler(); // event listeners are added to the next row
+                    addCurrentRowSquaresHandler();
                 }
-                displayMoves(); // number of moves is displayed
+                displayMoves();
 
 
-                if (currentRowIndex > -2 && result[0] === 5) {
-                    guessed(); // This checks if the secret code was quessed in less than 13 attempts; if yes, the guessed() function runs
+                if (currentRowIndex > -2 && result[0] === 5) { //if less than 13 attempts are used and clues are all black
+                    guessed();
                     removeClassShadow();
-                } else if (currentRowIndex < 0 && result[0] !== 5) {
-                    youLost(); // This checks if the secret code was not guessed despite using 12 attempts
+                } else if (currentRowIndex < 0 && result[0] !== 5) { // if 12 attempts are used up and not all five clues are black
+                    youLost();
                 }
 
-            } else if (this.getAttribute("data-type") === "restart") { // if restart button is clicked, the game is reset into intial state    
+            } else if (this.getAttribute("data-type") === "restart") { //Restart button clicked
                 if (currentRowIndex > -1) {
-                    removeClassShadow(); //removes class shadow from the last filled in row
+                    removeClassShadow();
                 }
                 setInitialState();
 
-            } else if (this.getAttribute("data-type") === "play") { // if play button is clicked, a function runs which resets the game to initial state
+            } else if (this.getAttribute("data-type") === "play") { // Play button clicked
                 playButtonClicked();
 
-            } else if (this.getAttribute("data-type") === "play-again") { // if play again button is clicked (when a user won), a function runs which resets the game to initial state    
+            } else if (this.getAttribute("data-type") === "play-again") { // Play again button clicked
                 playAgainButtonClicked();
 
-            } else if (this.getAttribute("data-type") === "play-again-2") { // if play again 2 button is clicked (when a user lost), a function runs which resets the game to initial state    
+            } else if (this.getAttribute("data-type") === "play-again-2") { // Play again 2 button clicked
                 playAgainButton2Clicked();
 
-            } else if (this.getAttribute("data-type") === "close") { // if close button is clicked (when a user won), the user is shown the playground with his guesses
+            } else if (this.getAttribute("data-type") === "close") { // Close button clicked
                 closeButtonClicked();
 
-            } else if (this.getAttribute("data-type") === "close-2") { // if close 2 button is clicked (when a user lost), the user is shown the playground with his guesses
+            } else if (this.getAttribute("data-type") === "close-2") { // Close 2 button clicked
                 closeButton2Clicked();
 
             } else {
-                alert("Something is wrong");
+                alert("Error");
             }
         });
     }
 }
 
-/** This function opens and closes the Welcome pop-up and shows or hides the Playground and Pick your color sections */
+/** This function opens and closes the Welcome pop-up and shows 
+ * or hides the Playground and Pick your color sections 
+ * */
 function addQuestionMarkHandler() {
     questionIcon.addEventListener("click", function () {
         if (welcomeMessage.style.display === "flex") {
@@ -191,7 +178,6 @@ function addQuestionMarkHandler() {
  * Tutorial: https://www.youtube.com/watch?v=wffK2OIt8u0
  */
 function addMusicIconHandler() {
-
     musicIcon.addEventListener("click", function () {
         focusMusic.play();
         musicIcon.style.display = "none";
@@ -204,7 +190,6 @@ function addMusicIconHandler() {
  * Tutorial: https://www.youtube.com/watch?v=wffK2OIt8u0
  */
 function addStopMusicIconHandler() {
-
     stopMusicIcon.addEventListener("click", function () {
         musicIcon.style.display = "block";
         stopMusicIcon.style.display = "none";
@@ -220,11 +205,6 @@ function addStopMusicIconHandler() {
 function addColorClickedHandlers() {
     for (let i = 0; i < colorChoices.length; i++) {
         colorChoices[i].addEventListener("click", function () {
-            /** This function identifies which square in Options section was clicked 
-             * and assigns its color to the first square in row[currentRowIndex] which is has a default color
-             * */
-
-            // when any of the color picker squares are clicked, the timer/stopwatch starts
             startTimer();
 
             /**This for loop lets the user fill in the five grey squares in the current row
@@ -251,7 +231,9 @@ function addColorClickedHandlers() {
     }
 }
 
-// Each square in the Pick Your color section is assigned a color from the color picker which is an array of available colors
+/** Each square in the Pick Your color section is assigned a color 
+ * from the color picker which is an array of available colors
+ * */
 function fillInTheColorPicker() {
     for (let i = 0; i < colorChoices.length; i++) {
         colorChoices[i].style.backgroundColor = Object.values(colorPicker)[i];
@@ -260,7 +242,6 @@ function fillInTheColorPicker() {
 
 /** This function generates a new secret code - it assigns each square in the Secret code section a random color, 
  * the colors are not displayed until when the game is over
- * it returns the currentSecretCode  --- delete this when finished
  * */
 function generateNewSecretCode() {
     let secretSquares = document.getElementsByClassName("secret-code-square");
@@ -269,29 +250,18 @@ function generateNewSecretCode() {
         let randomNumber = Math.floor(Math.random() * 8);
         secretCode.push(Object.values(colorPicker)[randomNumber]);
     }
-
-    // delete this function when finished
-    // https://bobbyhadz.com/blog/javascript-get-object-key-by-value
-    function getObjectKey(obj, value) {
-        return Object.keys(colorPicker).find(key => colorPicker[key] === value);
-    }
-
-    for (let i = 0; i < secretSquares.length; i++) {
-        console.log(getObjectKey(colorPicker, secretCode[i]));
-    }
-    console.log("\n");
 }
 
 /** This function adds event listeners to the squares in the current row
- * When a square in the current row is clicked, its background color is set to default and can later be filled in again
- * by clicking on a desired color in the color picker
+ * When a square in the current row is clicked, its background color is set to default
+ * and can later be filled in again by clicking on a desired color in the color picker
+ * It also adds a shadow to the square in the current row
  */
 function addCurrentRowSquaresHandler() {
     let currentRow = allRows[currentRowIndex];
     let currentRowSquare = currentRow.children[0];
     let currentSquares = currentRowSquare.children;
 
-    // This function lets the user delete a previously chosen color and adds a shadow to the square in the current row
     for (let square of currentSquares) {
         square.classList.add("shadow");
         square.addEventListener("click", function () {
@@ -316,7 +286,7 @@ function removeClassShadow() {
 }
 
 /** All timer/stopwatch related code was taken from this tutorial:
- * https://foolishdeveloper.com/create-a-simple-stopwatch-using-javascript-tutorial-code/ 
+ * tutorial: https://foolishdeveloper.com/create-a-simple-stopwatch-using-javascript-tutorial-code/ 
  * */
 function startTimer() {
     if (int !== null) {
@@ -327,7 +297,7 @@ function startTimer() {
 
 /** This function converts milliseconds to seconds, seconds to minutes, minutes to hours
  * and assings the minutes and seconds to the relevant HTML element.
- * * https://foolishdeveloper.com/create-a-simple-stopwatch-using-javascript-tutorial-code/ 
+ * tutorial: https://foolishdeveloper.com/create-a-simple-stopwatch-using-javascript-tutorial-code/ 
  */
 function displayTime() {
     milliseconds += 10;
@@ -343,22 +313,22 @@ function displayTime() {
             }
         }
     }
-    // let h = hours < 10 ? "0" + hours : hours;
     let m = minutes < 10 ? "0" + minutes : minutes;
     let s = seconds < 10 ? "0" + seconds : seconds;
-    // let ms = milliseconds < 10 ? "0" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
     timer.innerHTML = `${m} : ${s}`;
 }
 
 
-/** This function hides the Welcome pop-up  and shows the plaground and the color picker when the Play button is clicked */
+/** This function hides the Welcome pop-up  and shows the playground 
+ * and the color picker when the Play button is clicked 
+ * */
 function playButtonClicked() {
     showScoreAndPlaygroundAndColorPicker();
     welcomeMessage.style.display = "none";
 }
 
 /** This function defines a set of tasks to be performed when the Play again button is clicked 
- * The game is reset to the inital state
+ * and resets the app to the inital state
  */
 function playAgainButtonClicked() {
     winningPopUp.style.display = "none";
@@ -366,7 +336,9 @@ function playAgainButtonClicked() {
     setInitialState();
 }
 
-/** This function hides the winning modal and shows the playground with the user"s guesses and the color picker after the Close button was clicked*/
+/** This function hides the winning modal and shows the playground with the user"s guesses
+ * and the color picker after the Close button was clicked
+ * */
 function closeButtonClicked() {
     winningPopUp.style.display = "none";
     showScoreAndPlaygroundAndColorPicker();
@@ -404,7 +376,9 @@ function enableCheckButton() {
     checkCodeButton.style.color = "";
 }
 
-// This function returns an array with chosen colors as strings like "rgb(0, 0, 0)". This array can have 0 to five elements.
+/**  This function returns an array with chosen colors as strings like "rgb(0, 0, 0)". 
+ * This array can have 0 to five elements.
+ * */
 function getCurrentRowColors() {
     let currentRowColors = [];
     let currentRow = allRows[currentRowIndex];
@@ -421,7 +395,8 @@ function getCurrentRowColors() {
 }
 
 /** This function returns the number of black and white circles 
- * A separate file is used for functions countBlacks and countWhites as test driven development was used for making sure
+ * A separate file is used for functions countBlacks and countWhites 
+ * as test driven development was used for making sure
  * the logical part of the game functions correctly
  */
 function getResult() {
@@ -430,7 +405,6 @@ function getResult() {
 
     return [blackCount, whiteCount];
 }
-
 
 /**This function colors the correct number of circles in black or white in the current row*/
 function displayResult(blacks, whites) {
@@ -442,12 +416,12 @@ function displayResult(blacks, whites) {
         if (currentCircles[i].classList.contains("is-taken")) {
             continue;
         }
-        if (blacks > 0) { // sets the color of the circle to black
+        if (blacks > 0) {
             currentCircles[i].style.backgroundColor = "black";
             currentCircles[i].style.border = "solid 2px black";
             currentCircles[i].classList.add("is-taken");
             blacks--;
-        } else if (whites > 0) { // set the color of the circle to white and makes a black border around the circle for contrast
+        } else if (whites > 0) {
             currentCircles[i].style.backgroundColor = "white";
             currentCircles[i].style.border = "solid 2px black";
             currentCircles[i].classList.add("is-taken");
@@ -463,7 +437,7 @@ function displayMoves() {
 
 /**  When the user guessed the secret code:
  * the timer is cleared
- * the winning chime playes
+ * the winning chime plays
  * the winning pop up is displayed
  * the playground and color picker are hidden
  * the secret code is revealed
