@@ -4,11 +4,9 @@
 
 The [Discover The Code](https://lucia2007.github.io/discover-the-code/index.html) webpage was thouroughly tested. HTML code was reviewed in the [W3C HTML Validator](https://validator.w3.org). The CSS code was validated in the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and the JS file was check in [JS Hint](https://jshint.com/). There were a few warnings regarding the semicolons and quotes usage in JS. There were several bugs in the JS file which got corrected as I went along. All erros were corrected and HTML, JS and CSS files currently have no errors.
 
-|        | **index.html** | **style.css** | **script.js** | **logic.js** | **logic.test.js** |
-|:------:|:--------------:|:-------------:|:-------------:|--------------|-------------------|
-| RESULT |    No Errors   |   No Errors   |   No Errors   |   No Errors  |     No Errors     |
-
-<!-- ![W3C CSS Validator result](./readme-images/css_validation_no_errors.png) -->
+|        |                      **index.html**                      |                       **style.css**                      |                  **script.js**                  | **logic.js**                                   | **logic.test.js**                                 |
+|:------:|:--------------------------------------------------------:|:--------------------------------------------------------:|:-----------------------------------------------:|------------------------------------------------|---------------------------------------------------|
+| RESULT | [No Errors](/readme-images/indexhtml_html_validator.png) | [No Errors](/readme-images/stylesheet_css_validator.png) | [No Errors](/readme-images/scriptjs_jshint.png) | [No Errors](/readme-images/logicjs_jshint.png) | [No Errors](/readme-images/logictestjs_jshint.png) |
 
 ## Browser Compatibility
 
@@ -40,14 +38,12 @@ The only devices where the whole content would not fit on the screen where the o
 | addCurrentRowSquaresHandler() was giving an error after row 12 was checked        | JS    | I had to add a condition so the function would stop after row 12              | 0a9ac731cfe54be1032b4ef79578596a12d7815d   |
 | When Restart button was pressed, the "shadows" remained on the last used squares | JS    | I had to use removeClassShadow() after Restart was clicked                    | 859bcb9f4775cc72479ea22f0de3259a8e85c0a2   |
 | When I wanted to switch the focus music off, I had to click twice on the icon    | JS    | I had to refactor both the play/stop music functions                          | d4838147c9dc94292d8c2c8930e95575cfa26f0f   |
-|                                                                                  |       |                                                                               |                                            |
 
 ## Unfixed Bugs
 
 There are no known bugs in the project.
 
 ## Additional Testing
-
 ### Lighthouse
 
 The application was also tested using [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) in Chrome Developer Tools. The following aspects were tested:

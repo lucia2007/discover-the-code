@@ -297,7 +297,7 @@ The site was deployed to GitHub pages. In order to deploy, the following steps w
 3. From the **Branch** drop-down menu select the option **main**, then click **save**.
 4. After the main branch has been selected and confirmed, the page will be automatically refreshed. The refresh might take several minutes. A detailed message will appear at the top of the page indicating the successful deployment. The message will include a link to the deployed site.
 
-![GitHub deploying process image](./readme-images/deployment.png)
+[GitHub deploying process image](/readme-images/deployment.png)
 
 The link to the the live site can be found here - https://lucia2007.github.io/discover-the-code/
 
@@ -310,7 +310,7 @@ A copy of the GitHub Repository can be made by forking the GitHub account. This 
 1. Log in to **GitHub** and locate the [repository](https://github.com/lucia2007/discover-the-code).
 2. On the top right hand side of the page is a button called **'Fork'**. Click on the button to create a copy of the original repository in your GitHub Account.
 
-![GitHub forking process image](./readme-images/forking_process.png)
+[GitHub forking process image](/readme-images/forking_process.png)
 
 [Back to top](#contents)
 
@@ -326,7 +326,7 @@ Take the following steps to create a clone of a project:
 6. Type **git clone**, and then paste the URL copied from GitHub.
 7. Press **enter** and the local clone will be created.
 
-![Github cloning process image](./readme-images/cloning_process.png)
+[Github cloning process image](/readme-images/cloning_process.png)
 
 [Back to top](#contents)
 
