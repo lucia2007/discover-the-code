@@ -173,7 +173,7 @@ At first I intended to make the game colorful and playful, as is visible from th
   "Noto Sans", weight 300, 400 and 700 were downloaded originally, but only the regular weight is being used throughout the app. The font is easily legible. The chosen font was downloaded from [Google Fonts](https://fonts.google.com/).
 
 - ### Color Scheme
-- The opted to use hex/rgb format of the colors at the beginning of the app development, so I could play with them later in case I need to choose a more contrasting color.
+- The opted to use hex/rgb format of the colors at the beginning of the app development, so I could play with them later in case I need to choose a more contrasting color. I chose colors with enough contrast from each other, but at the same time with an appealing look when next to each other.
 
 [Back to top](#contents)
 
