@@ -307,7 +307,7 @@ The link to the the live site can be found here - https://lucia2007.github.io/di
 
 A copy of the GitHub Repository can be made by forking the GitHub account. This copy can be viewed and changed without affecting the original repository. Take the following steps to fork the repository:
 
-1. Log in to **GitHub** and locate the [repository](https://github.com/lucia2007/tennis-for-all).
+1. Log in to **GitHub** and locate the [repository](https://github.com/lucia2007/discover-the-code).
 2. On the top right hand side of the page is a button called **'Fork'**. Click on the button to create a copy of the original repository in your GitHub Account.
 
 ![GitHub forking process image](./readme-images/forking_process.png)
