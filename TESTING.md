@@ -55,4 +55,4 @@ The application was also tested using [Google Lighthouse](https://developers.goo
 
 ### Results from Lighthouse
 
-![Lighthouse test result](./readme-images/lighthouse.png)
+[Lighthouse test result](./readme-images/lighthouse.png)
