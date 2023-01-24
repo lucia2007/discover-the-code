@@ -1,6 +1,6 @@
 # Discover the Code
 
-The purpose of this website is to allow a user to play a logical game/puzzle which is fun and straightforward. Guessing the secret code is not easy, so the user needs to be determined and willing to think hard. This app was inspired by a game called <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="blank" rel="noopener">Mastermind</a> which is widely known. This game can be played in a relatively short time and it is an ideal pass time when waiting at a doctors office or when commuting.
+The purpose of this website is to allow a user to play a logical game/puzzle which is fun and straightforward. Guessing the secret code is not easy, so the user needs to be determined and willing to think hard. This app was inspired by a game called <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="_blank" rel="noopener">Mastermind</a> which is widely known. This game can be played in a relatively short time and it is an ideal pass time when waiting at a doctors office or when commuting.
 
 The site is targeted towards people who like to strech their mind and improve their logical skills. The current version of the game is targeted at adults or those users who are not easily dissuaded.
 
@@ -9,6 +9,8 @@ In the future versions I would like to add levels so a wider audience can enjoy 
 Discover the Code is useful for all users who want to be entertained and at the same time work on their logical skills. The app can be accessed at <a href="https://lucia2007.github.io/discover-the-code/index.html" target="_blank" rel="noopener">Discover The Code</a>. Enjoy!
 
 ![Discover The Code responsive design](./readme-images/amiresponsive.png) 
+
+[Back to top](#contents)
 
 # Contents
 
@@ -52,13 +54,14 @@ Discover the Code is useful for all users who want to be entertained and at the 
   - [Media](#media)
   - [Acknowledgements](#acknowledgements)
 
+[Back to top](#contents)
 # User Experience (UX)
 
 ## User Stories
 
 ### Primary Goal
 
-Discover The Code game/puzzle is inspired by the game of <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="blank" rel="noopener">Mastermind</a>. The game is suitable for anyone who is not afraid of being challenged, perhaps stuck and likes to think hard to figure out the solution.
+Discover The Code game/puzzle is inspired by the game of <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="_blank" rel="noopener">Mastermind</a>. The game is suitable for anyone who is not afraid of being challenged, perhaps stuck and likes to think hard to figure out the solution.
 
 ### Visitor Goals
 
@@ -173,7 +176,7 @@ At first I intended to make the game colorful and playful, as is visible from th
   "Noto Sans", weight 300, 400 and 700 were downloaded originally, but only the regular weight is being used throughout the app. The font is easily legible. The chosen font was downloaded from [Google Fonts](https://fonts.google.com/).
 
 - ### Color Scheme
-- The opted to use hex/rgb format of the colors at the beginning of the app development, so I could play with them later in case I need to choose a more contrasting color. I chose colors with enough contrast from each other, but at the same time with an appealing look when next to each other.
+- I opted to use hex/rgb format of the colors at the beginning of the app development, so I could play with them later in case I needed to choose a more contrasting color. I chose colors with enough contrast from each other, but at the same time with an appealing look when next to each other.
 
 [Back to top](#contents)
 
@@ -338,7 +341,7 @@ Take the following steps to create a clone of a project:
 
 ## Content
 
-- The overall inspiration came from the well-known game called <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="blank" rel="noopener">Mastermind</a> which I used to love to play as a child. In the postcommunist countries this game was called Logik.
+- The overall inspiration came from the well-known game called <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="_blank" rel="noopener">Mastermind</a> which I used to love to play as a child. In the postcommunist countries this game was called Logik.
 - The fonts were downloaded from [Google Fonts](https://fonts.google.com/).
 - [Figma](https://figma.com/) was used to create the wireframes and the dependency diagram.
 - The framework for the readme file was originally taken from [Wawas Wood](https://github.com/EwanColquhoun/wawaswoods/blob/master/README.md) and from [Scoops](https://github.com/amylour/scoops_pp1/blob/main/README.md#testing).
