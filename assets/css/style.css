@@ -32,12 +32,6 @@ body {
     cursor: pointer;
 }
 
-/*
-   FONTS
-   Noto Sans - light 300, regular 400, bold 700
-   https://fonts.google.com/noto/specimen/Noto+Sans
-  */
-
 /* welcome pop up window */
 .pop-up {
     display: flex;
