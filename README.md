@@ -15,20 +15,20 @@ Discover the Code is useful for all users who want to be entertained and at the 
 - [Discover the Code](#discover-the-code)
 - [Contents](#contents)
 - [User Experience (UX)](#user-experience-ux)
-  - [**User Stories**](#user-stories)
-    - [**Primary Goal**](#primary-goal)
-    - [**Visitor Goals**](#visitor-goals)
-      - [**First Time Visitor**](#first-time-visitor)
-      - [**Returning Visitor**](#returning-visitor)
-      - [**Frequent Visitor**](#frequent-visitor)
+  - [User Stories](#user-stories)
+    - [Primary Goal](#primary-goal)
+    - [Visitor Goals](#visitor-goals)
+      - [First Time Visitor](#first-time-visitor)
+      - [Returning Visitor](#returning-visitor)
+      - [Frequent Visitor](#frequent-visitor)
   - [Creation Process](#creation-process)
-    - [**1. Strategy**](#1-strategy)
-    - [**2. Scope**](#2-scope)
-    - [**3. Structural**](#3-structural)
-    - [**4. Skeleton**](#4-skeleton)
-    - [**5. Surface**](#5-surface)
-  - [Wireframes](#wireframes)
-  - [Dependency diagram](#dependency-diagram)
+    - [1. Strategy](#1-strategy)
+    - [2. Scope](#2-scope)
+    - [3. Structural](#3-structural)
+    - [4. Skeleton](#4-skeleton)
+    - [5. Surface](#5-surface)
+      - [Wireframes](#wireframes)
+      - [Dependency diagram](#dependency-diagram)
   - [Site Structure](#site-structure)
   - [Design Choices](#design-choices)
 - [Features](#features)
@@ -43,9 +43,10 @@ Discover the Code is useful for all users who want to be entertained and at the 
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
 - [Deployment](#deployment)
-  - [**Project Deployment**](#project-deployment)
-  - [**To fork the repository on GitHub**](#to-fork-the-repository-on-github)
-  - [**To create a local clone of a project**](#to-create-a-local-clone-of-a-project)
+  - [Project Deployment](#project-deployment)
+  - [To fork the repository on GitHub](#to-fork-the-repository-on-github)
+  - [To create a local clone of a project](#to-create-a-local-clone-of-a-project)
+  - [To use Test Driven Development Approach](#to-use-test-driven-development-approach)
 - [Credits](#credits)
   - [Content](#content)
   - [Media](#media)
@@ -53,17 +54,17 @@ Discover the Code is useful for all users who want to be entertained and at the 
 
 # User Experience (UX)
 
-## **User Stories**
+## User Stories
 
-### **Primary Goal**
+### Primary Goal
 
 Discover The Code game/puzzle is inspired by the game of <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="blank" rel="noopener">Mastermind</a>. The game is suitable for anyone who is not afraid of being challenged, perhaps stuck and likes to think hard to figure out the solution.
 
-### **Visitor Goals**
+### Visitor Goals
 
 Discover The Code game has been designed to be straightforward, with minimalist and yet attractive design. The current version is aimed at people who enjoy puzzles and challenges so they can put their logical skills to test. The player can play deep focus music which helps the user to relax and think deeply. The game is responses to different media screen sizes, but at the same time the design is kept uniform accross different devices. A stopwatch and the moves counter measure the user's progress.
 
-#### **First Time Visitor**
+#### First Time Visitor
 
   - A user can find the game rules in a modal window.
   - A user can start the game by pressing a Play button.
@@ -77,26 +78,26 @@ Discover The Code game has been designed to be straightforward, with minimalist 
   - A user can expect the scores to be displayed in the winning modal window.
   - A user can choose to Play again after they have won or lost, or choose to close the modal and look at the playground board more closely again.
   - A user can reset the game by clicking a reset button.
-#### **Returning Visitor**
+#### Returning Visitor
 
   - A user is familiar with the rules and can start the game by clicking the Play button.
   - A user can choose to play the deep focus music.
 
-#### **Frequent Visitor**
+#### Frequent Visitor
 
   - A user can try to beat their time or score. (This feature to be included in future versions.)
 
 [Back to top](#contents)
 ## Creation Process
 
-### **1. Strategy**
+### 1. Strategy
 
 The project goal was to build an interactive logical game suitable for anyone who likes to be challenged and is not afraid to think hard.
   - The user is able to acquaint themselves with the rules of the game as soon as the page is loaded 
   - The user can improve their logical skills by playing the game repeatedly and by trying to improve their score. (Historical score tracking is not a part of this version of the app.)
 
 [Back to top](#contents)
-### **2. Scope**
+### 2. Scope
 
 The game is to be responsive and playable on mobiles, tablets and desktops. 
 
@@ -112,7 +113,7 @@ The game is to be responsive and playable on mobiles, tablets and desktops.
   
 [Back to top](#contents)
 
-### **3. Structural**
+### 3. Structural
 
 The interactive features of this game need to be intuitive and easily accessible.
 
@@ -123,10 +124,10 @@ The interactive features of this game need to be intuitive and easily accessible
   - In case the user loses, a commiseration modal is displayed, losing chime is played and the user is given an option to close the window and study his moves more deeply or to try again.
   - At the moment of win/loss the scores are displayed and the secret code is revealed.
   - The design of the game is to be kept uniform across devices, so the user is not confused by unnecessary changes in layout or style.
-  - When a modal window is displayed, the rest of the page's content, except for the header section, is hidden to not distract.
+  - When a modal window is displayed, the rest of the page's content, except for the header section, is hidden to not distract the user.
   
 [Back to top](#contents)
-### **4. Skeleton**
+### 4. Skeleton
 
 The game is to have a minimalist design to keep the user concentrated on the puzzle.
 
@@ -142,20 +143,19 @@ The game is to have a minimalist design to keep the user concentrated on the puz
   - A Check and a Reset button are available below the Pick Your Color section. The Check button becomes available when the user has chosen five colors, and is disabled if a user deletes a color or has not yet chosen five of them.
 
 [Back to top](#contents)
-### **5. Surface**
-## Wireframes
+### 5. Surface
 
-The wireframes were created in [Figma](https://figma.com). Originally I intended to make the app very colorful, but later I opted for a cleaner look. Also at first I thought I would do a different layout for the desktop with the rules on the right, but in the end I opted for a uniform look across different devices and screen widths.
+  #### Wireframes
 
-In comparison with the original design, I changed the look of the sercret row and instead of question marks I used images of keys. Instead of a toggle I used a music not icon to make it clear what this button was intended for.
+  The wireframes were created in [Figma](https://figma.com). Originally I intended to make the app very colorful, but later I opted for a cleaner look. Also at first I thought I would do a different layout for the desktop with the rules on the right, but in the end I opted for a uniform look across different devices and screen widths.
 
-[Wireframes for all devices](./readme-images/wireframes.png)
+  In comparison with the original design, I changed the look of the sercret row and instead of question marks I used images of keys. Instead of a toggle I used a music not icon to make it clear what this button was intended for.
 
-## Dependency diagram
+  [Wireframes for all devices](./readme-images/wireframes.png)
 
-As the game of Mastermind is quite complex, I began by creating [a dependency diagram](https://www.figma.com/file/QEIjBXsR941WeLv8P5d6R9/Dependency-graph?node-id=0%3A1&t=tmvBBQln2l3eHZIf-0) to help me organize/plan the flow of the game. This was extremely useful especially in moments, when it was not clear were a certain function or feature belonged what the dependencies were or with what should be tackled next. I started by working on the HTML and the most basic functionalities, adding complexity and new features as I went along, finishing by adding "nice-to-have" features like adding an option to play deep focus music.
+  #### Dependency diagram
 
-When I was working on the logical part of the game, I was encouraged by my husband, who is an IT engineer, to apply TDD (test driven development) to make sure my scoring system worked correctly (assets/js/logic.test.js). It was a great relief not to have to worry about this part of the app in the later stages, when I could just rely on the fact that the logic had been thoroughly tested and worked seamlessly.
+  As the game of Mastermind is quite complex, I began by creating [a dependency diagram](https://www.figma.com/file/QEIjBXsR941WeLv8P5d6R9/Dependency-graph?node-id=0%3A1&t=tmvBBQln2l3eHZIf-0) to help me organize/plan the flow of the game. This was extremely useful especially in moments, when it was not clear were a certain function or feature belonged what the dependencies were or with what should be tackled next. I started by working on the HTML and the most basic functionalities, adding complexity and new features as I went along, finishing by adding "nice-to-have" features like adding an option to play deep focus music.
 
 [Back to top](#contents)
 ## Site Structure
@@ -274,8 +274,9 @@ If someone was seeking to play at an even more difficult level, more colors coul
 - [Figma](https://figma.com/wireframes/) - used for creating the wireframes
 - [Gitpod](https://www.gitpod.io/#get-started) - used for deploying the website
 - [Github](https://github.com/) - used for hosting and editing the website
-- [Favicon converter](https://favicon.io/favicon-converter/)
-- [JavaScript](https://www.javascript.com/)
+- [Favicon converter](https://favicon.io/favicon-converter/) - used for creating a favicon out of an image
+- [JavaScript](https://www.javascript.com/) - used for adding interactivity to the webpage
+- [Node JS]
 
 [Back to top](#contents)
 
@@ -287,7 +288,7 @@ For detailed results of all the tests conducted, please refer to this [_file_](T
 
 # Deployment
 
-## **Project Deployment**
+## Project Deployment
 
 The site was deployed to GitHub pages. In order to deploy, the following steps were taken:
 
@@ -298,11 +299,11 @@ The site was deployed to GitHub pages. In order to deploy, the following steps w
 
 ![GitHub deploying process image](./readme-images/deployment.png)
 
-The link to the the live site can be found here - https://lucia2007.github.io/tennis-for-all/
+The link to the the live site can be found here - https://lucia2007.github.io/discover-the-code/
 
 [Back to top](#contents)
 
-## **To fork the repository on GitHub**
+## To fork the repository on GitHub
 
 A copy of the GitHub Repository can be made by forking the GitHub account. This copy can be viewed and changed without affecting the original repository. Take the following steps to fork the repository:
 
@@ -313,7 +314,7 @@ A copy of the GitHub Repository can be made by forking the GitHub account. This 
 
 [Back to top](#contents)
 
-## **To create a local clone of a project**
+## To create a local clone of a project
 
 Take the following steps to create a clone of a project:
 
@@ -328,6 +329,10 @@ Take the following steps to create a clone of a project:
 ![Github cloning process image](./readme-images/cloning_process.png)
 
 [Back to top](#contents)
+
+## To use Test Driven Development Approach
+
+ When I was working on the logical part of the game, I was encouraged by my husband, who is an IT engineer, to apply TDD (test driven development) to make sure my scoring system worked correctly (assets/js/logic.test.js). It was a great relief not to have to worry about this part of the app in the later stages, when I could just rely on the fact that the logic had been thoroughly tested and worked seamlessly.
 
 # Credits
 
@@ -356,6 +361,7 @@ Take the following steps to create a clone of a project:
   - The playground structure was inspired by this [project](https://github.com/LudovicLeGuen/Mastermind).
   - I also got inspiration for the button handlers from the [Love Maths Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LM101+2021_T1/courseware/2d651bf3f23e48aeb9b9218871912b2e/78f3c10a937c4fe09640c7c0098d16bd/).
   - [This](https://www.freecodecamp.org/news/how-to-start-unit-testing-javascript/) and [this](https://solaaremupelumi.medium.com/using-es6-import-and-export-statements-for-jest-testing-in-node-js-b20c8bd9041c) tutorials were used for import of the testing and logic files
+  - I used this [webpage](https://www.makeuseof.com/tag/create-markdown-table/) for creating markdown tables.
 
 Thank you all for your support and encouragement. I couldn't have done it without you.
 
