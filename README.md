@@ -1,6 +1,10 @@
 # Discover the Code
 
-The purpose of this website is to allow a user to play a logical game/puzzle which is fun and straightforward. Guessing the secret code is not easy, so the user needs to be determined and willing to think hard. This app was inspired by a game called <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="_blank" rel="noopener">Mastermind</a> which is widely known. This game can be played in a relatively short time and it is an ideal pass time when waiting at a doctors office or when commuting.
+The purpose of this website is to allow a user to play a logical game/puzzle which is fun and straightforward. Guessing the secret code is not easy, so the user needs to be determined and willing to think hard. 
+
+This app was inspired by a game called <a href="https://www.amazon.co.uk/MengTing-Mastermind-Classical-Cracking-Intelligent/dp/B06X9LLWTS/ref=asc_df_B06X9LLWTS/?tag=googshopuk-21&linkCode=df0&hvadid=310776459020&hvpos=&hvnetw=g&hvrand=2074715707490516415&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007850&hvtargid=pla-358744999429&psc=1" target="_blank" rel="noopener">Mastermind</a> which is widely known. 
+
+This game can be played in a relatively short time and it is an ideal pass time when waiting at a doctors office or when commuting.
 
 The site is targeted towards people who like to strech their mind and improve their logical skills. The current version of the game is targeted at adults or those users who are not easily dissuaded.
 
@@ -38,6 +42,7 @@ Discover the Code is useful for all users who want to be entertained and at the 
     - [Welcome message](#welcome-message)
     - [Scores](#scores)
     - [Playground](#playground)
+    - [Clues](#clues)
     - [Pick Your Color](#pick-your-color)
     - [Winning message](#winning-message)
     - [Losing message](#losing-message)
@@ -98,7 +103,7 @@ Discover The Code game has been designed to be straightforward, with minimalist 
 ### 1. Strategy
 
 The project goal was to build an interactive logical game suitable for anyone who likes to be challenged and is not afraid to think hard.
-  - The user is able to acquaint themselves with the rules of the game as soon as the page is loaded 
+  - The user is able to acquaint themselves with the rules of the game as soon as the page is loaded.
   - The user can improve their logical skills by playing the game repeatedly and by trying to improve their score. (Historical score tracking is not a part of this version of the app.)
 
 [Back to top](#contents)
@@ -141,7 +146,7 @@ The game is to have a minimalist design to keep the user concentrated on the puz
   - The name of the game is introduced in the Header.
   - Five grey squares with a key icon on them signify a mystery/puzzle to be solved.
   - A music note icon which is situated in the top right corner, allows the user to turn on and turn off the deep focus music.
-  - The question mark icon displayes the rules and is placed next to the music note icon.
+  - The question mark icon displays the rules and is placed next to the music note icon.
   - Timer and moves counter are located above the playground to be clearly visible.
   - The playground consists of 12 rows of 5 squares and 5 circles. The squares are intended for the user's guess, the circles will display the black and white clues when the check button is pressed.
   - A set of 8 contrasting colors is available below the playground. The user can choose which color to apply to the squares in the current row.
@@ -154,13 +159,13 @@ The game is to have a minimalist design to keep the user concentrated on the puz
 
   The wireframes were created in [Figma](https://figma.com). Originally I intended to make the app very colorful, but later I opted for a cleaner look. Also at first I thought I would do a different layout for the desktop with the rules on the right, but in the end I opted for a uniform look across different devices and screen widths.
 
-  In comparison with the original design, I changed the look of the sercret row and instead of question marks I used images of keys. Instead of a toggle I used a music not icon to make it clear what this button was intended for.
+  In comparison with the original design, I changed the look of the sercret row and instead of question marks I used images of keys. Instead of a toggle I used a music note icon to make it clear what this button was intended for.
 
   [Wireframes for all devices](./readme-images/wireframes.png)
 
   #### Dependency diagram
 
-  As the game of Mastermind is quite complex, I began by creating [a dependency diagram](https://www.figma.com/file/QEIjBXsR941WeLv8P5d6R9/Dependency-graph?node-id=0%3A1&t=tmvBBQln2l3eHZIf-0) to help me organize/plan the flow of the game. This was extremely useful especially in moments, when it was not clear were a certain function or feature belonged what the dependencies were or with what should be tackled next. I started by working on the HTML and the most basic functionalities, adding complexity and new features as I went along, finishing by adding "nice-to-have" features like adding an option to play deep focus music.
+  As the game of Mastermind is quite complex, I began by creating [a dependency diagram](https://www.figma.com/file/QEIjBXsR941WeLv8P5d6R9/Dependency-graph?node-id=0%3A1&t=tmvBBQln2l3eHZIf-0) to help me organize/plan the flow of the game. This was extremely useful especially in moments, when it was not clear were a certain function or feature belonged, what the dependencies were or with what should be tackled next. I started by working on the HTML and the most basic functionalities, adding complexity and new features as I went along, finishing by adding "nice-to-have" features like adding an option to play deep focus music.
 
 [Back to top](#contents)
 ## Site Structure
@@ -171,7 +176,7 @@ Discover The Code app contains only one page to keep the app simple and straight
 
 ## Design Choices
 
-At first I intended to make the game colorful and playful, as is visible from the original wireframes. As I am using a large number of colors in the color picker, it was very hard to find contrasting backgrounds. I changed the color of the background to white and with time I started to appreciate the minimalist design more and more. I had to add black borders around the white clues to keep the clues visible.
+Originally, I intended to make the game colorful and playful, as is visible from the wireframes. As I am using a large number of colors in the color picker, it was very hard to find contrasting backgrounds. I changed the color of the background to white and with time I started to appreciate the minimalist design more and more. I had to add black borders around the white clues to keep the clues visible.
 
 - ### Typography
 
@@ -197,7 +202,7 @@ At first I intended to make the game colorful and playful, as is visible from th
 
 - ![No Music](./readme-images/stopmusic.png)
 
-- The question mark icon works displays or hides the welcome message which contains the rules of the game.
+- The question mark icon displays or hides the welcome message which contains the rules of the game. The innerHTML of the Play button changes to Close, as the user wants to continue playing the game after being reminded of the rules.
 
 [Back to top](#contents)
 
@@ -213,7 +218,7 @@ As soon as the page is loaded, a welcome message is displayed. In the welcome me
 
 This section displays the time the user needed to guess the code and also how many attempts were used. 
 
-The timer starts as soon as the user clicks on any of the squares in the Pick You Color section. The timer stops when the secret code is guessed or when the user used all 12 attempts and has not guessed the code.
+The timer starts as soon as the user clicks on any of the squares in the Pick Your Color section. The timer stops when the secret code is guessed or when the user used all 12 attempts and has not guessed the code.
 
 [Back to top](#contents)
 
@@ -223,6 +228,18 @@ The timer starts as soon as the user clicks on any of the squares in the Pick Yo
 
 The playground section contains 12 rows of 5 squares and 5 circles next to each other. The squares are used for guessing the code, the circles display the clues after the Check button is clicked. If a user is unhappy with a chosen color, they can click on it and thus delete it/revert to the default background color. By clicking on a color in the color picker, this deleted color can be replaced by a new color.
 
+### Clues
+
+![Clues](./readme-images/clues.png)
+
+- **Black** circle - you guessed a color, and its position
+- **White** circle - you guessed a color, but not its position
+- **Grey** circle - wrong color was chosen
+
+The position of black, white and grey circles is **random** and does not correspond to user's
+color choices. You can see from the clues that it is not the **orange** color which is in the
+right position despite being first in the row. The **purple** color received the **black** clue.
+
 [Back to top](#contents)
 
 ### Pick Your Color
@@ -231,13 +248,7 @@ The playground section contains 12 rows of 5 squares and 5 circles next to each 
 
 In this section there are eight colors from which the user can choose. Colors can be used repeatedly. The user clicks on a color he wants to use and the color is assigned to the first square on the left in the last/bottom row. The next color will fill the next square to the right and so on until five colors are chosen.
 
-![Clues](./readme-images/clues.png)
-
 As soon as five colors are chosen, the Check button is enabled and the user can see the clues displayed in the set of five circles next to the row of squares which was currently used.
-
-- Black circle - you guessed a color, and its position
-- White circle - you guessed a color, but not its position
-- Grey circle - wrong color was chosen
 
 If five colors have not yet been chosen, or if the user deletes one of the five chosen colors, the Check button is disabled and it is impossible to check the guessed color sequence.
 
@@ -247,7 +258,13 @@ If five colors have not yet been chosen, or if the user deletes one of the five 
 
 ![The Winning message](./readme-images/congratulations.png)
 
-When the user manages to guess all the five colors in their correct order within 12 attempts, a winning message pops up accompanied by a winning chime. In the winning message the user can see how much time it took him to guess the code and how many attempts he/she needed. At the same time as the message is displayed, the secret row is revealed and the user can compare his guess to the secret code. At the end of the pop up message the user gets a choice to play again or to hide the winning message. When the user chooses the Play again option, the pop up is closed and the game is reset to the intial settings. When he chooses to close the modal, he can look more closely at his choices.
+When the user manages to guess all the five colors in their correct order within 12 attempts, a winning message pops up accompanied by a winning chime. In the winning message the user can see how much time it took him to guess the code and how many attempts they needed. 
+
+At the same time as the message is displayed, the secret row is revealed and the user can compare his guess to the secret code. 
+
+At the end of the pop up message the user gets a choice to play again or to hide the winning message. 
+
+When the user chooses the Play again option, the pop up is closed and the game is reset to the intial settings. When he chooses to close the modal, he can look more closely at his choices.
 
 [Back to top](#contents)
 
@@ -262,14 +279,16 @@ If the user does not manage to guess the correct color sequence in the 12 attemp
 ### Future Features
 - From the beginning I was aware that the current version of the game will not be appealing to those users who are looking for an easy game. It is quite challenging to guess the code and not everyone has the patience, determination or the time to finish playing it. This expectation was confirmed to me by a number of friends who found it difficult to understand the original rules, or simply thought it was too hard or took too much time.
   
-- I could make this game more accessible to wider audience, including children by introducing different levels of the game. A user would have a choice at the beginning of the game to indicate easy, medium or hard level. (The current version is the hard level.) The easier levels could be achieved:
-- By decreasing the number of colors (6 for easy, 7 for medium and 8 for hard.)
-- Repetition of colors could be forbidden for the secret code and for the user.
-- The position of the black and white clues could directly correspond to a particular color.
+  - I could make this game more accessible to wider audience, including children, by introducing different levels of the game. A user would have a choice at the beginning of the game to indicate easy, medium or hard level. (The current version is the hard level.) The easier levels could be achieved:
+    - By decreasing the number of colors (6 for easy, 7 for medium and 8 for hard.)
+    - Repetition of colors could be forbidden for the secret code and for the user.
+    - The position of the black and white clues could directly correspond to a particular color.
 
-Taking the current game's code structure, it would be easiest to restrict the number of colors, next forbid the repetition of color and the most time consuming would be the last option of the pegs corresponding to the color choice.
+  Taking the current game's code structure, it would be easiest to restrict the number of colors, next forbid the repetition of color and the most time consuming would be the last option of the pegs corresponding to the color choice.
 
-If someone was seeking to play at an even more difficult level, more colors could be added or a countdown function used instead of a stopwatch to put the player under time pressure.
+  If someone was seeking to play at an even more difficult level, more colors could be added or a countdown function used instead of a stopwatch to put the player under time pressure.
+
+- In the future, I could also implement the user name usage and score tracking functionality.
 
 [Back to top](#contents)
 
