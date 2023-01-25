@@ -44,11 +44,13 @@ Discover the Code is useful for all users who want to be entertained and at the 
     - [Future Features](#future-features)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
+    - [Manual testing](#manual-testing)
+    - [External Testing](#external-testing)
+    - [Test Driven Develepment (TDD)](#test-driven-develepment-tdd)
 - [Deployment](#deployment)
   - [Project Deployment](#project-deployment)
   - [To fork the repository on GitHub](#to-fork-the-repository-on-github)
   - [To create a local clone of a project](#to-create-a-local-clone-of-a-project)
-  - [To use Test Driven Development Approach](#to-use-test-driven-development-approach)
 - [Credits](#credits)
   - [Content](#content)
   - [Media](#media)
@@ -65,7 +67,7 @@ Discover The Code game/puzzle is inspired by the game of <a href="https://www.am
 
 ### Visitor Goals
 
-Discover The Code game has been designed to be straightforward, with minimalist and yet attractive design. The current version is aimed at people who enjoy puzzles and challenges so they can put their logical skills to test. The player can play deep focus music which helps the user to relax and think deeply. The game is responses to different media screen sizes, but at the same time the design is kept uniform accross different devices. A stopwatch and the moves counter measure the user's progress.
+Discover The Code game has been designed to be straightforward, with minimalist and yet attractive design. The current version is aimed at people who enjoy puzzles and challenges so they can put their logical skills to test. The player can play deep focus music which helps the user to relax and think deeply. The game is responsive to different media screen sizes, but at the same time the design is kept uniform accross different devices. A stopwatch and the moves counter measure the user's progress.
 
 #### First Time Visitor
 
@@ -192,7 +194,8 @@ At first I intended to make the game colorful and playful, as is visible from th
 - The music note icon allows the user to turn on deep focus music.
 
 - When the music is playing, the music note changes into a crossed out music note. When this icon is pressed, the music will stop playing.
-![No Music](./readme-images/stopmusic.png)
+
+- ![No Music](./readme-images/stopmusic.png)
 
 - The question mark icon works displays or hides the welcome message which contains the rules of the game.
 
@@ -279,13 +282,40 @@ If someone was seeking to play at an even more difficult level, more colors coul
 - [Github](https://github.com/) - used for hosting and editing the website
 - [Favicon converter](https://favicon.io/favicon-converter/) - used for creating a favicon out of an image
 - [JavaScript](https://www.javascript.com/) - used for adding interactivity to the webpage
-- [Node JS]
+- [Node.js](https://nodejs.org/en/) - used for local testing (`npm` and `jest`)
 
 [Back to top](#contents)
 
 # Testing
 
-For detailed results of all the tests conducted, please refer to this [_file_](TESTING.md).
+For testing the app, I used manual testing, external validators and Test Driven Development to test the core logic of the app.
+
+### Manual testing 
+  - I used manual testing throughout the whole development phase of the project. Mainly:
+    - I frequently checked if the various features were working properly (music on/off, displaying and hiding of the proper modals, scores updating, code revealing after the game was finished etc.)
+    - I used code (not part of the app anymore) which would display the secret code in the console when app was loaded, so I could quickly and easily "win" and check if the winning part of the logic was working, if the modal was displaying, if the winning chime was playing and so on.
+    - When I wanted to check the losing branch of the game, I usually just quickly chose the same color over and over, so I could get past the 12 attempts and see if the features connected to this branch were working.
+    - I paid attention to the Check button being enabled and disabled in the right moments.
+    - When adding the functionality of being able to change already chosen colors, I kept improving the code until only the squares in the current row could be changed.
+    - I often checked if the respective buttons were doing what they were supposed to when clicked.
+    - I checked often if the initial state was set up correctly after Play again or Reset buttons were clicked.
+
+### External Testing
+For detailed results of all external tests (HTML, CSS, JS validation, Lighthouse etc.) conducted, please refer to this [_file_](TESTING.md).
+
+### Test Driven Develepment (TDD)
+When I started writing the logical part of the game (returning the correct number of blacks and whites), even simple user guesses would lead to the wrong numbers of clues. At this point I was encouraged by my husband, who is an IT engineer, to apply TDD to make sure my scoring system worked correctly and to cover the core logic with unit tests. It was a great relief not to have to worry about the correct functionality of core logic of the app in the later stages, when I could rely on the fact that the logic had been thoroughly tested and worked seamlessly.
+
+TDD:  
+- The core logic was covered with unit tests in [`logic.test.js`](assets/js/logic.test.js) file.
+- The core logic is part of the [`logic.js`](assets/js/logic.js) file. (This file holds the actual functions counting the number of black and white clues.)
+- Usage of *jest* was necessary
+    * installed using `npm install --save-dev jest`
+    * run using `./node_modules/.bin/jest`
+- I include [`logic.js`](assets/js/logic.js) in [`script.js`](assets/js/script.js) using the `import` statement. This works well in the browser, but for jest (which is a Node.js tool) I needed this change: 5499e3a, inspired by [this tutorial](https://solaaremupelumi.medium.com/using-es6-import-and-export-statements-for-jest-testing-in-node-js-b20c8bd9041c).
+- When testing my code, the sequence was as follows:
+  - Run a test -> test failed -> function/implementation improved -> test passed -> repeat.
+  - As I went along, I had to add more tests to cover all the possible user choices.
 
 [Back to top](#contents)
 
@@ -333,9 +363,6 @@ Take the following steps to create a clone of a project:
 
 [Back to top](#contents)
 
-## To use Test Driven Development Approach
-
- When I was working on the logical part of the game, I was encouraged by my husband, who is an IT engineer, to apply TDD (test driven development) to make sure my scoring system worked correctly (assets/js/logic.test.js). It was a great relief not to have to worry about this part of the app in the later stages, when I could just rely on the fact that the logic had been thoroughly tested and worked seamlessly.
 
 # Credits
 
@@ -363,7 +390,7 @@ Take the following steps to create a clone of a project:
   - The following [tutorial](https://www.youtube.com/watch?v=IFoG8-oAELM) helped me with setting up the pop up modals.
   - The playground structure was inspired by this [project](https://github.com/LudovicLeGuen/Mastermind).
   - I also got inspiration for the button handlers from the [Love Maths Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LM101+2021_T1/courseware/2d651bf3f23e48aeb9b9218871912b2e/78f3c10a937c4fe09640c7c0098d16bd/).
-  - [This](https://www.freecodecamp.org/news/how-to-start-unit-testing-javascript/) and [this](https://solaaremupelumi.medium.com/using-es6-import-and-export-statements-for-jest-testing-in-node-js-b20c8bd9041c) tutorials were used for import of the testing and logic files
+  - [This](https://www.freecodecamp.org/news/how-to-start-unit-testing-javascript/) and [this](https://solaaremupelumi.medium.com/using-es6-import-and-export-statements-for-jest-testing-in-node-js-b20c8bd9041c) tutorials were used for import of the testing and logic files and installation of *jest*
   - I used this [webpage](https://www.makeuseof.com/tag/create-markdown-table/) for creating markdown tables.
 
 Thank you all for your support and encouragement. I couldn't have done it without you.
