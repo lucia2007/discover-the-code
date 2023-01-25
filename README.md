@@ -312,7 +312,7 @@ TDD:
 - Usage of *jest* was necessary
     * installed using `npm install --save-dev jest`
     * run using `./node_modules/.bin/jest`
-- I include [`logic.js`](assets/js/logic.js) in [`script.js`](assets/js/script.js) using the `import` statement. This works well in the browser, but for jest (which is a Node.js tool) I needed this change: 5499e3a, inspired by [this tutorial](https://solaaremupelumi.medium.com/using-es6-import-and-export-statements-for-jest-testing-in-node-js-b20c8bd9041c).
+- I include [`logic.js`](assets/js/logic.js) in [`script.js`](assets/js/script.js) using the `import` statement. This works well in the browser, but for jest (which is a Node.js tool) I needed this [change](https://github.com/lucia2007/discover-the-code/commit/5499e3a), inspired by [this tutorial](https://solaaremupelumi.medium.com/using-es6-import-and-export-statements-for-jest-testing-in-node-js-b20c8bd9041c).
 - When testing my code, the sequence was as follows:
   - Run a test -> test failed -> function/implementation improved -> test passed -> repeat.
   - As I went along, I had to add more tests to cover all the possible user choices.
