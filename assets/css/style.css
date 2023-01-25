@@ -24,13 +24,6 @@ body {
     background-color: white;
 }
 
-.fa-music {
-    cursor: pointer;
-}
-
-.fa-question {
-    cursor: pointer;
-}
 
 /* welcome pop up window */
 .pop-up {
@@ -100,6 +93,10 @@ header {
     gap: 0.5rem;
 }
 
+.fa-music {
+    cursor: pointer;
+}
+
 .fa-question {
     width: 1.5em;
     height: 1.5em;
@@ -107,6 +104,7 @@ header {
     padding-top: 0.1rem;
     border-radius: 50%;
     border: solid 2px black;
+    cursor: pointer;
 }
 
 #music-stop {
@@ -174,11 +172,8 @@ header {
     box-shadow: 0 0 1px 0.5px black;
 }
 
+/* Winning pop up */
 #you-won-pop-up {
-    display: none;
-}
-
-#you-lost-pop-up {
     display: none;
 }
 
@@ -187,18 +182,22 @@ header {
     height: auto;
 }
 
+/* Loosing pop up */
+#commiseration-image {
+    height: 200px;
+    width: auto;
+}
+
+#you-lost-pop-up {
+    display: none;
+}
+
 .game-over-buttons {
     display: flex;
     justify-content: center;
     align-items: baseline;
     gap: 4rem;
     padding: 5%;
-}
-
-/* Loosing pop up */
-#commiseration-image {
-    height: 200px;
-    width: auto;
 }
 
 /* Options section */
