@@ -21,6 +21,7 @@
 
 <body>
 
+    <!-- The header introduces the name of the game and implies the secret to be guessed -->
     <header>
         <h1 class="main-heading">Discover the Secret Code</h1>
         <div id="ctn-code-music-rules">
@@ -79,6 +80,7 @@
 
 
     <!-- https://www.learningguild.com/articles/coding-sound-with-javascript-beginner-s-guide/?rd=1 -->
+    <!-- This pop up shows when the user has guessed the secret code -->
     <div id="you-won-pop-up" class="pop-up">
         <audio id="winning-chime">
             <source src="assets/music/correct-answer.mp3">
@@ -94,6 +96,7 @@
         </div>
     </div>
 
+    <!-- This pop up shows when the user didn't manage to guess in code -->
     <div id="you-lost-pop-up" class="pop-up">
         <audio id="losing-chime">
             <source src="assets/music/wrong-answer.wav">
@@ -107,12 +110,14 @@
         </div>
     </div>
 
+    <!-- Time and moves are tracked and displayed in this section -->
     <div id="ctn-score">
         <!-- This code is inspired by Love Maths -->
         <p id="time">Time: <span id="time-elapsed"></span></p>
         <p id="moves">Moves: <span id="moves-needed"></span></p>
     </div>
 
+    <!-- This section creates a playground where the user makes his attempts to guess the code -->
     <div id="ctn-playground">
         <!--the playground structure was insired by https://github.com/LudovicLeGuen/Mastermind-->
         <div class="row">
@@ -308,6 +313,8 @@
             </div>
         </div>
     </div>
+
+    <!-- In this section the 8 different colors are available for the user to choose from -->
     <div id="ctn-options">
         <h2 id="second-heading">Pick Your Color</h2>
         <div id="ctn-colors">
@@ -320,6 +327,8 @@
             <div class="square color-choice"></div>
             <div class="square color-choice"></div>
         </div>
+
+        <!-- The check and restart button enable the user to interact with the app -->
         <div id="buttons">
             <button type="button" data-type="check" id="check-code" class="button">Check</button>
             <button type="button" data-type="restart" id="restart" class="button">Restart</button>
