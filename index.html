@@ -75,7 +75,7 @@
             If you guess the color code in less than 12 attempts, you win. If not, too bad, but you can try again.
             Enjoy!
         </p>
-        <button type="button" id="play-button" class="button" data-type="play">Play</button>
+        <button aria-label="play-button" type="button" id="play-button" class="button" data-type="play">Play</button>
     </div>
 
 
@@ -91,8 +91,9 @@
                 id="moves-total"></span><span id="attempts"></span> to guess the code.</p>
         <p>Do you want to play again?</p>
         <div class="game-over-buttons">
-            <button type="button" id="play-again-button" class="button" data-type="play-again">Play again</button>
-            <button type="button" id="close-button" class="button" data-type="close">Close</button>
+            <button aria-label="Play-again" type="button" id="play-again-button" class="button"
+                data-type="play-again">Play again</button>
+            <button aria-label="Close" type="button" id="close-button" class="button" data-type="close">Close</button>
         </div>
     </div>
 
@@ -105,8 +106,8 @@
         <p>Sorry, not even 12 attempts were enough for you to guess the secret color code.</p>
         <p>Do you want to play again?</p>
         <div class="game-over-buttons">
-            <button type="button" class="button" data-type="play-again-2">Play again</button>
-            <button type="button" class="button" data-type="close-2">Close</button>
+            <button aria-label="Play-again" type="button" class="button" data-type="play-again-2">Play again</button>
+            <button aria-label="Close" type="button" class="button" data-type="close-2">Close</button>
         </div>
     </div>
 
@@ -330,8 +331,9 @@
 
         <!-- The check and restart button enable the user to interact with the app -->
         <div id="buttons">
-            <button type="button" data-type="check" id="check-code" class="button">Check</button>
-            <button type="button" data-type="restart" id="restart" class="button">Restart</button>
+            <button aria-label="check" type="button" data-type="check" id="check-code" class="button">Check</button>
+            <button aria-label="restart-button" type="button" data-type="restart" id="restart"
+                class="button">Restart</button>
         </div>
     </div>
 
